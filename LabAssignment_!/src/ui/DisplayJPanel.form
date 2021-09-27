@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="Label_DOB" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_FAXno" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_Phoneno" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_email" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_ssn" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_MedicalRecordNo" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_HealthPlanBeneficiary" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_BankAccNo" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_CertNo" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_LicensePlateno" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_DeviceIdentifierNo" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_LinkedInAddr" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_IPAddr" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_Name" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_GeoData" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="TxtGeoData" max="32767" attributes="0"/>
+                      <Component id="TxtDOB" pref="233" max="32767" attributes="0"/>
+                      <Component id="TxtPhoneNo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtFaxno" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtEmailAddr" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtSSN" alignment="1" max="32767" attributes="0"/>
+                      <Component id="TxtMedicalRecordNo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtHealthPlanBeneficiaryNo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="TxtBankAccNo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtCertNo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="TxtLicensePlateNo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtDeviceIdentifier" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtLinkedIn" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TxtIPAddr" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="TxtName" min="-2" pref="234" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Lbl_Image" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Label_Create" pref="757" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Label_Name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtGeoData" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_GeoData" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="Label_DOB" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtDOB" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtPhoneNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_Phoneno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtFaxno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_FAXno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtEmailAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtSSN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_ssn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtMedicalRecordNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_MedicalRecordNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtHealthPlanBeneficiaryNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_HealthPlanBeneficiary" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="TxtBankAccNo" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_BankAccNo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="TxtCertNo" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_CertNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtLicensePlateNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_LicensePlateno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="TxtDeviceIdentifier" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_DeviceIdentifierNo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="TxtLinkedIn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Label_LinkedInAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="Lbl_Image" min="-2" pref="363" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="TxtIPAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Label_IPAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Label_Create" min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace pref="488" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="TxtLicensePlateNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtLicensePlateNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtDeviceIdentifier">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtDeviceIdentifierActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtHealthPlanBeneficiaryNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtHealthPlanBeneficiaryNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_DeviceIdentifierNo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Device Identifier Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_GeoData">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Geographical Location:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_email">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="E-Mail Address:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtEmailAddr">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtEmailAddrActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_HealthPlanBeneficiary">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Health Plan Beneficiary Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtPhoneNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtPhoneNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_FAXno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="FAX Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtSSN">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtSSNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_LinkedInAddr">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Linkedin Address:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_CertNo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Certificate/License Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_IPAddr">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="IP Address:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_BankAccNo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bank Account Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_MedicalRecordNo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Medical Record Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtLinkedIn">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtLinkedInActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_DOB">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtIPAddr">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtIPAddrActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtFaxno">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtFaxnoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtMedicalRecordNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtMedicalRecordNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_Create">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="View Profile"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_LicensePlateno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vehicle License Plate Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtBankAccNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtBankAccNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_ssn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SSN:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtCertNo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtCertNoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_Phoneno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telephone Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Label_Name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Full Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtDOB">
+    </Component>
+    <Component class="javax.swing.JTextField" name="TxtGeoData">
+    </Component>
+    <Component class="javax.swing.JLabel" name="Lbl_Image">
+    </Component>
+  </SubComponents>
+</Form>
