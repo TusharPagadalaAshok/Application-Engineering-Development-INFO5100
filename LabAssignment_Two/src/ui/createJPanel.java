@@ -5,12 +5,16 @@
  */
 package ui;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Enumeration;
+import java.util.Locale;
 import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import model.carDetails;
 import model.carDetailsHistory;
+import ui.viewJPanel.*;
 
 /**
  *
@@ -36,8 +40,8 @@ public class createJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroupMaintenanceCheckCreate = new javax.swing.ButtonGroup();
+        buttonGroupAvailabilityCreate = new javax.swing.ButtonGroup();
         Title = new javax.swing.JLabel();
         lblCarModel = new javax.swing.JLabel();
         lblMinPassengerCap = new javax.swing.JLabel();
@@ -62,6 +66,7 @@ public class createJPanel extends javax.swing.JPanel {
         RbMaintenanceNo = new javax.swing.JRadioButton();
         RbAvailabilityYes = new javax.swing.JRadioButton();
         RbAvailabilityNo = new javax.swing.JRadioButton();
+        lblDate = new javax.swing.JLabel();
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,6 +99,12 @@ public class createJPanel extends javax.swing.JPanel {
         lblLastMaintenanceDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate.setText("Maintenance Check since last 30 days:");
 
+        TxtCarModel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtCarModelKeyReleased(evt);
+            }
+        });
+
         BtnSave.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnSave.setText("Save");
         BtnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -105,10 +116,10 @@ public class createJPanel extends javax.swing.JPanel {
         lblLastMaintenanceDate1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate1.setText("Available?");
 
-        buttonGroup1.add(RbMaintenanceYes);
+        buttonGroupMaintenanceCheckCreate.add(RbMaintenanceYes);
         RbMaintenanceYes.setText("Yes");
 
-        buttonGroup1.add(RbMaintenanceNo);
+        buttonGroupMaintenanceCheckCreate.add(RbMaintenanceNo);
         RbMaintenanceNo.setText("No");
         RbMaintenanceNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,16 +127,19 @@ public class createJPanel extends javax.swing.JPanel {
             }
         });
 
-        buttonGroup2.add(RbAvailabilityYes);
+        buttonGroupAvailabilityCreate.add(RbAvailabilityYes);
         RbAvailabilityYes.setText("Yes");
 
-        buttonGroup2.add(RbAvailabilityNo);
+        buttonGroupAvailabilityCreate.add(RbAvailabilityNo);
         RbAvailabilityNo.setText("No");
         RbAvailabilityNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RbAvailabilityNoActionPerformed(evt);
             }
         });
+
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,15 +149,14 @@ public class createJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblMinPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCarModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMaxPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                        .addComponent(lblManufacturedDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCarSerialNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblManufacturedBy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblGeoLocation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblMinPassengerCap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCarModel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMaxPassengerCap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(lblManufacturedDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCarSerialNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblManufacturedBy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGeoLocation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblModelNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblLastMaintenanceDate, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(lblLastMaintenanceDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -167,13 +180,19 @@ public class createJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(RbAvailabilityNo)))
                 .addContainerGap(169, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCarModel)
                     .addComponent(TxtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,7 +237,7 @@ public class createJPanel extends javax.swing.JPanel {
                         .addComponent(RbAvailabilityNo)))
                 .addGap(19, 19, 19)
                 .addComponent(BtnSave)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -228,7 +247,7 @@ public class createJPanel extends javax.swing.JPanel {
         String carModel = TxtCarModel.getText();
         int minPassengerCap = Integer.parseInt(TxtMinPassengerCap.getText());
         int maxPassengerCap = Integer.parseInt(TxtMaxPassengerCap.getText());
-        String  manufacturedYear = TxtManufacturedYear.getText();
+        long  manufacturedYear = Long.parseLong(TxtManufacturedYear.getText());
         long carSerialNumber = Long.parseLong(TxtCarSerialNo.getText());
         String manufacturedBy = TxtManufacturedBy.getText();
         String geoLocation = TxtGeoLocation.getText();
@@ -236,19 +255,27 @@ public class createJPanel extends javax.swing.JPanel {
         String maintenanceCheck="";
         String availability="";
       
-        Enumeration<AbstractButton> bg = buttonGroup1.getElements();
+        Enumeration<AbstractButton> bg = buttonGroupMaintenanceCheckCreate.getElements();
         while(bg.hasMoreElements()){
-                JRadioButton jrd = (JRadioButton) bg.nextElement();
-                if(jrd.isSelected())
-                    maintenanceCheck = jrd.getText();
+                JRadioButton Radio1 = (JRadioButton) bg.nextElement();
+                if(Radio1.isSelected())
+                    maintenanceCheck = Radio1.getText();
         }
         
-        Enumeration<AbstractButton> bg1 = buttonGroup2.getElements();
+        Enumeration<AbstractButton> bg1 = buttonGroupAvailabilityCreate.getElements();
         while(bg1.hasMoreElements()){
-                JRadioButton jrd1 = (JRadioButton) bg1.nextElement();
-                if(jrd1.isSelected())
-                     availability = jrd1.getText();
+                JRadioButton Radio2 = (JRadioButton) bg1.nextElement();
+                if(Radio2.isSelected())
+                     availability = Radio2.getText();
         }
+        
+        //date
+        
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+//        
+        String Date = df.format(now);
+        
         
         carDetails cd = history.addNewCarDetails();
          
@@ -263,10 +290,11 @@ public class createJPanel extends javax.swing.JPanel {
         cd.setModelNumber(modelNumber);
         cd.setAvailability(availability);
         cd.setLastMaintenanceDate(maintenanceCheck);
+        cd.setDate(Date);
       
         
-        JOptionPane.showMessageDialog(this,"Car added!");
-             
+        JOptionPane.showMessageDialog(this, carModel+" - "+modelNumber+" is added at "+ df.format(now));
+//        LblModifiedDateView.setText("Fleet Database was last updated on: "+Date);
         TxtCarModel.setText("");
         TxtMinPassengerCap.setText("");
         TxtMaxPassengerCap.setText("");
@@ -275,8 +303,8 @@ public class createJPanel extends javax.swing.JPanel {
         TxtManufacturedBy.setText("");
         TxtGeoLocation.setText("");
         TxtModelNumber.setText("");
-        buttonGroup1.clearSelection();
-        buttonGroup2.clearSelection();
+        buttonGroupMaintenanceCheckCreate.clearSelection();
+        buttonGroupAvailabilityCreate.clearSelection();
         
         
         
@@ -297,6 +325,16 @@ public class createJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_RbAvailabilityNoActionPerformed
 
+    private void TxtCarModelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtCarModelKeyReleased
+        // TODO add your handling code here:
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        
+        lblDate.setText("Current Date and Time: "+df.format(now));
+        
+       
+    }//GEN-LAST:event_TxtCarModelKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSave;
@@ -313,10 +351,11 @@ public class createJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField TxtMaxPassengerCap;
     private javax.swing.JTextField TxtMinPassengerCap;
     private javax.swing.JTextField TxtModelNumber;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroupAvailabilityCreate;
+    private javax.swing.ButtonGroup buttonGroupMaintenanceCheckCreate;
     private javax.swing.JLabel lblCarModel;
     private javax.swing.JLabel lblCarSerialNo;
+    private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblGeoLocation;
     private javax.swing.JLabel lblLastMaintenanceDate;
     private javax.swing.JLabel lblLastMaintenanceDate1;

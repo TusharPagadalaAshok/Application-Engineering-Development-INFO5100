@@ -14,13 +14,13 @@ public class carDetails {
     private String carModel;
     private int minPassengerCap;
     private int maxPassengerCap;
-    private String manufacturedYear;
+    private long manufacturedYear;
 
-    public String getManufacturedYear() {
+    public long getManufacturedYear() {
         return manufacturedYear;
     }
 
-    public void setManufacturedYear(String manufacturedYear) {
+    public void setManufacturedYear(long manufacturedYear) {
         this.manufacturedYear = manufacturedYear;
     }
     private long carSerialNo;
@@ -29,6 +29,15 @@ public class carDetails {
     private double modelNumber;
     private String lastMaintenanceDate;
     private String availability;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getAvailability() {
         return availability;

@@ -24,7 +24,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         
         this.history = new carDetailsHistory();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -38,25 +38,20 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         leftSplitPane = new javax.swing.JPanel();
-        btnCreate = new javax.swing.JButton();
-        btnViewModify = new javax.swing.JButton();
+        BtnHome = new javax.swing.JButton();
         rightSplitPane = new javax.swing.JPanel();
+        MainTitle = new javax.swing.JLabel();
+        btnViewModify = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCreate.setText("Create");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        BtnHome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        BtnHome.setText("Home");
+        BtnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
-            }
-        });
-
-        btnViewModify.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnViewModify.setText("View/Modify");
-        btnViewModify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewModifyActionPerformed(evt);
+                BtnHomeActionPerformed(evt);
             }
         });
 
@@ -64,36 +59,74 @@ public class MainJFrame extends javax.swing.JFrame {
         leftSplitPane.setLayout(leftSplitPaneLayout);
         leftSplitPaneLayout.setHorizontalGroup(
             leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftSplitPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(leftSplitPaneLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnViewModify))
-                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(leftSplitPaneLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(BtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         leftSplitPaneLayout.setVerticalGroup(
             leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftSplitPaneLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(btnCreate)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewModify)
-                .addContainerGap(486, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(BtnHome)
+                .addContainerGap(524, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftSplitPane);
+
+        MainTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        MainTitle.setForeground(new java.awt.Color(51, 51, 255));
+        MainTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MainTitle.setText("Welcome to Cab Mangement Tool!");
+
+        btnViewModify.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnViewModify.setText("View/Modify");
+        btnViewModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewModifyActionPerformed(evt);
+            }
+        });
+
+        btnCreate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("Search");
 
         javax.swing.GroupLayout rightSplitPaneLayout = new javax.swing.GroupLayout(rightSplitPane);
         rightSplitPane.setLayout(rightSplitPaneLayout);
         rightSplitPaneLayout.setHorizontalGroup(
             rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(rightSplitPaneLayout.createSequentialGroup()
+                .addGroup(rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rightSplitPaneLayout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rightSplitPaneLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
+                        .addComponent(btnViewModify, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         rightSplitPaneLayout.setVerticalGroup(
             rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGroup(rightSplitPaneLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(MainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addGroup(rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewModify, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(rightSplitPane);
@@ -125,6 +158,12 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(viewpanel);
         
     }//GEN-LAST:event_btnViewModifyActionPerformed
+
+    private void BtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHomeActionPerformed
+        // TODO add your handling code here:
+        splitPane.setRightComponent(rightSplitPane);
+        
+    }//GEN-LAST:event_BtnHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,8 +201,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnHome;
+    private javax.swing.JLabel MainTitle;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnViewModify;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel leftSplitPane;
     private javax.swing.JPanel rightSplitPane;
     private javax.swing.JSplitPane splitPane;
