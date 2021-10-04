@@ -14,13 +14,29 @@ public class carDetails {
     private String carModel;
     private int minPassengerCap;
     private int maxPassengerCap;
-    private String manufacturedDate;
+    private String manufacturedYear;
+
+    public String getManufacturedYear() {
+        return manufacturedYear;
+    }
+
+    public void setManufacturedYear(String manufacturedYear) {
+        this.manufacturedYear = manufacturedYear;
+    }
     private long carSerialNo;
     private String manufacturedBy;
     private String geoLocation;
     private double modelNumber;
     private String lastMaintenanceDate;
-    //AVAILABILITY 
+    private String availability;
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
 
     public String getCarModel() {
         return carModel;
@@ -46,13 +62,8 @@ public class carDetails {
         this.maxPassengerCap = maxPassengerCap;
     }
 
-    public String getManufacturedDate() {
-        return manufacturedDate;
-    }
 
-    public void setManufacturedDate(String manufacturedDate) {
-        this.manufacturedDate = manufacturedDate;
-    }
+    
 
     public long getCarSerialNo() {
         return carSerialNo;

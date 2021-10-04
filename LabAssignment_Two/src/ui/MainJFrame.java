@@ -52,6 +52,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnViewModify.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnViewModify.setText("View/Modify");
+        btnViewModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewModifyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout leftSplitPaneLayout = new javax.swing.GroupLayout(leftSplitPane);
         leftSplitPane.setLayout(leftSplitPaneLayout);
@@ -111,6 +116,13 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(createpanel);
         
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnViewModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewModifyActionPerformed
+        // TODO add your handling code here:
+        viewJPanel viewpanel = new viewJPanel(history);
+        splitPane.setRightComponent(viewpanel);
+        
+    }//GEN-LAST:event_btnViewModifyActionPerformed
 
     /**
      * @param args the command line arguments

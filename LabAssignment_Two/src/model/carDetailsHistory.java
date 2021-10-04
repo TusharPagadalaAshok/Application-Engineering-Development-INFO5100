@@ -23,11 +23,11 @@ public class carDetailsHistory {
     public void setHistory(ArrayList<carDetails> history) {
         this.history = history;
     }
-//public carDetails addNewCarDetails() {
-//        carDetails newCar = new carDetails();
-//        history.add(newCar);
-//        return newCar;
-//    }
+public carDetails addNewCarDetails() {
+        carDetails newCar = new carDetails();
+        history.add(newCar);
+        return newCar;
+    }
       
     
     
