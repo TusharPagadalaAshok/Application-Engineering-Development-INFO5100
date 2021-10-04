@@ -244,7 +244,7 @@ public class createJPanel extends javax.swing.JPanel {
         }
         
         Enumeration<AbstractButton> bg1 = buttonGroup2.getElements();
-        while(bg.hasMoreElements()){
+        while(bg1.hasMoreElements()){
                 JRadioButton jrd1 = (JRadioButton) bg1.nextElement();
                 if(jrd1.isSelected())
                      availability = jrd1.getText();

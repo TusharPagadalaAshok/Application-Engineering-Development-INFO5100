@@ -5,6 +5,7 @@
  */
 package ui;
 
+import javax.swing.JFrame;
 import model.carDetailsHistory;
 
 /**
@@ -23,6 +24,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         
         this.history = new carDetailsHistory();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
