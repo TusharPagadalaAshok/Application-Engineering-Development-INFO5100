@@ -6,6 +6,7 @@
 package ui;
 
 import java.awt.CardLayout;
+import javax.swing.JPanel;
 import model.carDetailsHistory;
 
 /**
@@ -19,10 +20,12 @@ public class searchMainJPanel extends javax.swing.JPanel {
      */
     
     carDetailsHistory history;
-    public searchMainJPanel(carDetailsHistory history) {
+    JPanel rightSplitPane;
+    public searchMainJPanel(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
         
         this.history = history;
+        this.rightSplitPane = rightSplitPane;
     }
 
     /**
@@ -92,7 +95,10 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnSearchByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByCityActionPerformed
         // TODO add your handling code here:
-        
+        searchByCityJPanel citySearchPanel = new searchByCityJPanel(history, viewJPanel);
+        rightSplitPane.add("Search by City",citySearchPanel);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
                                                    
         
 

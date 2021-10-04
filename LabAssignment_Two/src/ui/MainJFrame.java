@@ -136,7 +136,7 @@ public class MainJFrame extends javax.swing.JFrame {
 //        searchMainJPanel searchMainPanel = new searchMainJPanel(history);
 //        splitPane.setRightComponent(searchMainPanel);
 
-        searchMainJPanel mainsearchpanel = new searchMainJPanel(history);
+        searchMainJPanel mainsearchpanel = new searchMainJPanel(history,rightSplitPane);
         rightSplitPane.add("Search Main Menu",mainsearchpanel);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

@@ -5,6 +5,8 @@
  */
 package ui;
 
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.carDetailsHistory;
 
 /**
@@ -17,8 +19,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
      * Creates new form searchByCityJPanel
      */
     carDetailsHistory history;
-    public searchByCityJPanel() {
+    JPanel viewJPanel;
+    public searchByCityJPanel(carDetailsHistory history,JPanel viewJPanel ) {
         initComponents();
+        this.history = history;
+        this.viewJPanel = viewJPanel;
     }
 
     /**
@@ -31,28 +36,109 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         TitleCity = new javax.swing.JLabel();
+        TxtSearchCity = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        carTable = new javax.swing.JTable();
 
-        TitleCity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleCity.setText("Search By City");
+
+        carTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        carTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(carTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(TitleCity)
-                .addContainerGap(626, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
+        // TODO add your handling code here:
+
+        buttonGroupMaintenanceCheckView.clearSelection();
+        buttonGroupAvailableView.clearSelection();
+        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
+
+        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
+        TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
+        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
+        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
+        //       TxtLastMaintenanceDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),4).toString());
+        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
+        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
+        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
+        TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
+        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
+        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
+        //Availability
+        String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
+
+        if (availability.equals("Yes")) {
+            RbAvailabilityYes.setSelected(true);
+        }
+        else {
+            RbAvailabilityNo.setSelected(true);
+        }
+        //Maintenance Check
+
+        String maintenanceChk = tblmodel.getValueAt(carTable.getSelectedRow(),4).toString();
+
+        if (maintenanceChk.equals("Yes")) {
+            RbMaintenanceYes.setSelected(true);
+        }
+        else {
+            RbMaintenanceNo.setSelected(true);
+        }
+
+    }//GEN-LAST:event_carTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TitleCity;
+    private javax.swing.JTextField TxtSearchCity;
+    private javax.swing.JTable carTable;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
