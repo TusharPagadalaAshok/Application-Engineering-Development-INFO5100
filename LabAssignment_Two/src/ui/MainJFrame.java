@@ -5,6 +5,8 @@
  */
 package ui;
 
+import model.carDetailsHistory;
+
 /**
  *
  * @author patus
@@ -14,8 +16,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    
+    carDetailsHistory history;
+    
     public MainJFrame() {
         initComponents();
+        
+        this.history = new carDetailsHistory();
     }
 
     /**
@@ -27,21 +34,83 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        splitPane = new javax.swing.JSplitPane();
+        leftSplitPane = new javax.swing.JPanel();
+        btnCreate = new javax.swing.JButton();
+        btnViewModify = new javax.swing.JButton();
+        rightSplitPane = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+
+        btnViewModify.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnViewModify.setText("View/Modify");
+
+        javax.swing.GroupLayout leftSplitPaneLayout = new javax.swing.GroupLayout(leftSplitPane);
+        leftSplitPane.setLayout(leftSplitPaneLayout);
+        leftSplitPaneLayout.setHorizontalGroup(
+            leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftSplitPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(leftSplitPaneLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnViewModify))
+                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        leftSplitPaneLayout.setVerticalGroup(
+            leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(leftSplitPaneLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnCreate)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewModify)
+                .addContainerGap(486, Short.MAX_VALUE))
+        );
+
+        splitPane.setLeftComponent(leftSplitPane);
+
+        javax.swing.GroupLayout rightSplitPaneLayout = new javax.swing.GroupLayout(rightSplitPane);
+        rightSplitPane.setLayout(rightSplitPaneLayout);
+        rightSplitPaneLayout.setHorizontalGroup(
+            rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
+        );
+        rightSplitPaneLayout.setVerticalGroup(
+            rightSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 602, Short.MAX_VALUE)
+        );
+
+        splitPane.setRightComponent(rightSplitPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        createJPanel createpanel = new createJPanel(history);
+        splitPane.setRightComponent(createpanel);
+        
+    }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +148,10 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnViewModify;
+    private javax.swing.JPanel leftSplitPane;
+    private javax.swing.JPanel rightSplitPane;
+    private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }
