@@ -13,9 +13,11 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import model.carDetails;
 import model.carDetailsHistory;
+import model.myRowFilter;
 
 
 /**
@@ -39,6 +41,10 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 //        this.createJPanel = createJPanel;
         getConfigFile();
         populatetable();
+//        sortTable();
+        
+        
+        
         
     }
 
@@ -54,7 +60,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         TitleCity = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
-        DropDown_City = new javax.swing.JComboBox<>();
+        CitySearch = new javax.swing.JTextField();
+        BtnSearch = new javax.swing.JButton();
+        lblEnterCity = new javax.swing.JLabel();
 
         TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,102 +91,80 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTableCity);
 
-        DropDown_City.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        DropDown_City.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Boston", "Bangalore" }));
-        DropDown_City.addActionListener(new java.awt.event.ActionListener() {
+        BtnSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnSearch.setText("Search");
+        BtnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DropDown_CityActionPerformed(evt);
+                BtnSearchActionPerformed(evt);
             }
         });
+
+        lblEnterCity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblEnterCity.setText("Enter the City:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DropDown_City, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(218, 218, 218))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(DropDown_City, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
         // TODO add your handling code here:
 
-//        buttonGroupMaintenanceCheckView.clearSelection();
-//        buttonGroupAvailableView.clearSelection();
-//        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-//
-//        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
-//        TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
-//        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
-//        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
-//        //       TxtLastMaintenanceDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),4).toString());
-//        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
-//        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
-//        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
-//        TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
-//        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
-//        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
-//        //Availability
-//        String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
-//
-//        if (availability.equals("Yes")) {
-//            RbAvailabilityYes.setSelected(true);
-//        }
-//        else {
-//            RbAvailabilityNo.setSelected(true);
-//        }
-//        //Maintenance Check
-//
-//        String maintenanceChk = tblmodel.getValueAt(carTable.getSelectedRow(),4).toString();
-//
-//        if (maintenanceChk.equals("Yes")) {
-//            RbMaintenanceYes.setSelected(true);
-//        }
-//        else {
-//            RbMaintenanceNo.setSelected(true);
-//        }
+
 
     }//GEN-LAST:event_carTableCityMouseClicked
 
-    private void DropDown_CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDown_CityActionPerformed
+    private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
         // TODO add your handling code here:
         
         DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
-//        model.setRowCount(0);
-        String Keyword = (String) DropDown_City.getSelectedItem();
-//        String Keyword = TxtSearchCity.getText().toLowerCase();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+        String searchText = CitySearch.getText().toString();
+        myTableRowSorter.setRowFilter(new myRowFilter(searchText));
         
-            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-            carTableCity.setRowSorter(tr);
-            tr.setRowFilter(RowFilter.regexFilter(Keyword));
-            
         
-    }//GEN-LAST:event_DropDown_CityActionPerformed
+        
+    }//GEN-LAST:event_BtnSearchActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> DropDown_City;
+    private javax.swing.JButton BtnSearch;
+    private javax.swing.JTextField CitySearch;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEnterCity;
     // End of variables declaration//GEN-END:variables
 //
     private void populatetable() {
@@ -263,6 +249,17 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "File not found!");
         }
+    }
+
+    public void sortTable() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //sorting the table
+//        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+//        carTableCity.setModel(model);
+//        carTableCity.setRowSorter(myTableRowSorter);
+
+
     }
 
 
