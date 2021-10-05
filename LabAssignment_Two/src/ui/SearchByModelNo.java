@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.carDetails;
 import model.carDetailsHistory;
+//import model.myRowFilterCity;
+import model.myRowFilterModelNo;
 
 /**
  *
@@ -47,6 +49,7 @@ public class SearchByModelNo extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
         SearchByModelNo = new javax.swing.JTextField();
+        BtnSearchByModelNo = new javax.swing.JButton();
 
         TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -81,6 +84,14 @@ public class SearchByModelNo extends javax.swing.JPanel {
             }
         });
 
+        BtnSearchByModelNo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnSearchByModelNo.setText("Search Model No.");
+        BtnSearchByModelNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSearchByModelNoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,8 +102,10 @@ public class SearchByModelNo extends javax.swing.JPanel {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
+                .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnSearchByModelNo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,9 +113,11 @@ public class SearchByModelNo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnSearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(360, Short.MAX_VALUE))
         );
@@ -111,57 +126,36 @@ public class SearchByModelNo extends javax.swing.JPanel {
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
         // TODO add your handling code here:
 
-        //        buttonGroupMaintenanceCheckView.clearSelection();
-        //        buttonGroupAvailableView.clearSelection();
-        //        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-        //
-        //        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
-        //        TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
-        //        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
-        //        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
-        //        //       TxtLastMaintenanceDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),4).toString());
-        //        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
-        //        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
-        //        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
-        //        TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
-        //        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
-        //        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
-        //        //Availability
-        //        String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
-        //
-        //        if (availability.equals("Yes")) {
-            //            RbAvailabilityYes.setSelected(true);
-            //        }
-        //        else {
-            //            RbAvailabilityNo.setSelected(true);
-            //        }
-        //        //Maintenance Check
-        //
-        //        String maintenanceChk = tblmodel.getValueAt(carTable.getSelectedRow(),4).toString();
-        //
-        //        if (maintenanceChk.equals("Yes")) {
-            //            RbMaintenanceYes.setSelected(true);
-            //        }
-        //        else {
-            //            RbMaintenanceNo.setSelected(true);
-            //        }
+        
     }//GEN-LAST:event_carTableCityMouseClicked
 
     private void SearchByModelNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchByModelNoKeyReleased
         // TODO add your handling code here:
         
-        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
-//        model.setRowCount(0);
-        String Keyword = SearchByModelNo.getText();
-//        String Keyword = TxtSearchCity.getText().toLowerCase();
-        
-            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-            carTableCity.setRowSorter(tr);
-            tr.setRowFilter(RowFilter.regexFilter(Keyword));
+//        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+////        model.setRowCount(0);
+//        String Keyword = SearchByModelNo.getText();
+////        String Keyword = TxtSearchCity.getText().toLowerCase();
+//        
+//            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+//            carTableCity.setRowSorter(tr);
+//            tr.setRowFilter(RowFilter.regexFilter(Keyword));
     }//GEN-LAST:event_SearchByModelNoKeyReleased
+
+    private void BtnSearchByModelNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModelNoActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+        String searchText = SearchByModelNo.getText().toString();
+        myTableRowSorter.setRowFilter(new myRowFilterModelNo(searchText));
+    }//GEN-LAST:event_BtnSearchByModelNoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnSearchByModelNo;
     private javax.swing.JTextField SearchByModelNo;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
@@ -221,28 +215,9 @@ public class SearchByModelNo extends javax.swing.JPanel {
                 String[] dataRow = line.split("/");
                 System.out.println(dataRow[i]);
                 model.addRow(dataRow);
-                
-//                carDetails cdf = getConfig.addNewCarDetailsConfig();
-//                cdf.setCarModel(dataRow[i]);
-//                cdf.setMinPassengerCap(Integer.parseInt(dataRow[i]));
-//                cdf.setMaxPassengerCap(Integer.parseInt(dataRow[i]));
-//                cdf.setManufacturedYear(Long.parseLong(dataRow[i]));
-//                cdf.setCarSerialNo(Long.parseLong(dataRow[i]));
-//                cdf.setManufacturedBy(dataRow[i]);
-//                cdf.setGeoLocation(dataRow[i]);
-//                cdf.setModelNumber(Double.parseDouble(dataRow[i]));
-//                cdf.setAvailability(dataRow[i]);
-//                cdf.setLastMaintenanceDate(dataRow[i]);
-//                cdf.setDate(dataRow[i]);
-            
+              
             }
-            
-            
-             
-             
-            
- 
-            
+        
         } catch (Exception ex) {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "File not found!");

@@ -11,19 +11,18 @@ import javax.swing.RowFilter;
  *
  * @author patus
  */
-public class myRowFilter extends RowFilter{
+public class myRowFilterCity extends RowFilter{
     private String searchText;
     
-    public myRowFilter(String searchText){
+    public myRowFilterCity(String searchText){
         this.searchText = searchText; 
     }
 
     @Override
-    public boolean include(Entry entry) {
+    public boolean include(RowFilter.Entry City) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-    return entry.getStringValue(8).indexOf(searchText) >=0;
+    return City.getStringValue(8).indexOf(searchText) >=0;
         
     }
-    
 }

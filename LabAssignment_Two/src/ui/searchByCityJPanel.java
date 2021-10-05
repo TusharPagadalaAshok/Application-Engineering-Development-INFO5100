@@ -17,7 +17,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import model.carDetails;
 import model.carDetailsHistory;
-import model.myRowFilter;
+import model.myRowFilterCity;
 
 
 /**
@@ -151,7 +151,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         carTableCity.setModel(model);
         carTableCity.setRowSorter(myTableRowSorter);
         String searchText = CitySearch.getText().toString();
-        myTableRowSorter.setRowFilter(new myRowFilter(searchText));
+        myTableRowSorter.setRowFilter(new myRowFilterCity(searchText));
         
         
         
@@ -251,16 +251,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         }
     }
 
-    public void sortTable() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //sorting the table
-//        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
-//        TableRowSorter myTableRowSorter = new TableRowSorter(model);
-//        carTableCity.setModel(model);
-//        carTableCity.setRowSorter(myTableRowSorter);
-
-
-    }
+    
 
 
     }
