@@ -5,7 +5,17 @@
  */
 package ui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import model.carDetails;
 import model.carDetailsHistory;
+import model.myRowFilterModel;
 
 /**
  *
@@ -23,6 +33,8 @@ public class searchByModel extends javax.swing.JPanel {
         initComponents();
         this.history = history;
         this.getConfig = getConfig;
+        getConfigFile();
+        populatetable();
         
                
     }
@@ -36,19 +48,187 @@ public class searchByModel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        carTableCity = new javax.swing.JTable();
+        SearchByModelNo = new javax.swing.JTextField();
+        BtnSearchByModel = new javax.swing.JButton();
+        TitleCity = new javax.swing.JLabel();
+
+        carTableCity.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carTableCityMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(carTableCity);
+
+        SearchByModelNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SearchByModelNoKeyReleased(evt);
+            }
+        });
+
+        BtnSearchByModel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnSearchByModel.setText("Search Model");
+        BtnSearchByModel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSearchByModelActionPerformed(evt);
+            }
+        });
+
+        TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitleCity.setText("Search By Model");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnSearchByModel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(360, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_carTableCityMouseClicked
+
+    private void SearchByModelNoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchByModelNoKeyReleased
+        // TODO add your handling code here:
+
+        //        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        ////        model.setRowCount(0);
+        //        String Keyword = SearchByModelNo.getText();
+        ////        String Keyword = TxtSearchCity.getText().toLowerCase();
+        //
+        //            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        //            carTableCity.setRowSorter(tr);
+        //            tr.setRowFilter(RowFilter.regexFilter(Keyword));
+    }//GEN-LAST:event_SearchByModelNoKeyReleased
+
+    private void BtnSearchByModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModelActionPerformed
+        // TODO add your handling code here:
+
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2);
+            filters.add(RowFilter.regexFilter("(?i)" + SearchByModelNo.getText().toString(),1));
+            
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+    }//GEN-LAST:event_BtnSearchByModelActionPerformed
+
+    private void populatetable() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        model.setRowCount(0);
+        
+        for(carDetails cdh: history.getHistory()){
+             Object[] row = new Object[11];
+             row[0] = cdh.getCarSerialNo();
+             row[1] = cdh.getCarModel();
+             row[2] = cdh.getManufacturedBy();
+             row[3] = cdh.getAvailability();
+             row[4] = cdh.getLastMaintenanceDate();
+             row[5] = cdh.getMinPassengerCap();
+             row[6] = cdh.getMaxPassengerCap();
+             row[7] = cdh.getManufacturedYear();
+             row[8] = cdh.getGeoLocation();
+             row[9] = cdh.getModelNumber();
+             row[10] = cdh.getDate();
+//             lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
+             model.addRow(row);
+             
+            
+        }
+
+
+    }
+
+    private void getConfigFile() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                System.out.println(dataRow[i]);
+                model.addRow(dataRow);
+              
+            }
+        
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
+
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnSearchByModel;
+    private javax.swing.JTextField SearchByModelNo;
+    private javax.swing.JLabel TitleCity;
+    private javax.swing.JTable carTableCity;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

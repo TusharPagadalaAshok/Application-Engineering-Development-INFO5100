@@ -42,9 +42,10 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnSearchByCity = new javax.swing.JButton();
         BtnSearchByModelNumber = new javax.swing.JButton();
         BtnSearchByModel = new javax.swing.JButton();
+        BtnSearchByModel1 = new javax.swing.JButton();
 
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnSearchByCity.setText("Search by City>>");
+        BtnSearchByCity.setText("Search by City & Availability>>");
         BtnSearchByCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         BtnSearchByCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,28 +71,40 @@ public class searchMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        BtnSearchByModel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnSearchByModel1.setText("Search by Model>>");
+        BtnSearchByModel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSearchByModel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSearchByModel1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSearchByCity, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81))
+                .addContainerGap(254, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSearchByModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSearchByModel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(102, 102, 102)
                 .addComponent(BtnSearchByCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(489, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BtnSearchByModel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(420, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -124,10 +137,15 @@ public class searchMainJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnSearchByModelActionPerformed
 
+    private void BtnSearchByModel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSearchByModel1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSearchByCity;
     private javax.swing.JButton BtnSearchByModel;
+    private javax.swing.JButton BtnSearchByModel1;
     private javax.swing.JButton BtnSearchByModelNumber;
     // End of variables declaration//GEN-END:variables
 }

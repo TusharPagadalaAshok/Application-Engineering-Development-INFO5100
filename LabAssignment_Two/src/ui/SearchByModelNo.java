@@ -8,6 +8,7 @@ package ui;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -149,8 +150,12 @@ public class SearchByModelNo extends javax.swing.JPanel {
         TableRowSorter myTableRowSorter = new TableRowSorter(model);
         carTableCity.setModel(model);
         carTableCity.setRowSorter(myTableRowSorter);
-        String searchText = SearchByModelNo.getText().toString();
-        myTableRowSorter.setRowFilter(new myRowFilterModelNo(searchText));
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(2);
+            filters.add(RowFilter.regexFilter("(?i)" + SearchByModelNo.getText().toString(),9));
+            
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
     }//GEN-LAST:event_BtnSearchByModelNoActionPerformed
 
 
