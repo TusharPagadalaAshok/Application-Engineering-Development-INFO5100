@@ -47,9 +47,9 @@
                                   <Component id="TxtMaxPassengerCap" alignment="0" max="32767" attributes="0"/>
                                   <Component id="TxtCarSerialNo" alignment="0" max="32767" attributes="0"/>
                                   <Component id="TxtManufacturedBy" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtGeoLocation" alignment="0" max="32767" attributes="0"/>
                                   <Component id="TxtModelNumber" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtManufacturedYear" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="TxtManufacturedYear" alignment="0" pref="174" max="32767" attributes="0"/>
+                                  <Component id="TxtGeoLocation" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -85,7 +85,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="lblModifiedDateView" min="-2" pref="417" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -290,8 +290,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="TxtManufacturedYear">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGeoLocation">
-    </Component>
     <Component class="javax.swing.JTextField" name="TxtModelNumber">
     </Component>
     <Component class="javax.swing.JLabel" name="lblCarModel">
@@ -409,6 +407,20 @@
           <Color blue="33" green="0" red="ff" type="rgb"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="TxtGeoLocation">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value=" "/>
+            <StringItem index="1" value="Boston"/>
+            <StringItem index="2" value="Bangalore"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

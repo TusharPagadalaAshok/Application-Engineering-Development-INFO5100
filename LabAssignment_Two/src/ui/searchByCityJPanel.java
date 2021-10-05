@@ -8,9 +8,12 @@ package ui;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.carDetails;
 import model.carDetailsHistory;
 
@@ -25,42 +28,18 @@ public class searchByCityJPanel extends javax.swing.JPanel {
      * Creates new form searchByCityJPanel
      */
     carDetailsHistory history;
+    carDetailsHistory getConfig;
+  
 //    JPanel createJPanel;
-    public searchByCityJPanel(carDetailsHistory history) {
+    public searchByCityJPanel(carDetailsHistory history, carDetailsHistory getConfig) {
         initComponents();
+       // ls = new ArrayList<carDetails>();
         this.history = history;
+        this.getConfig  = getConfig;
 //        this.createJPanel = createJPanel;
-String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
-        File file = new File(FilePath);
-        
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            // get the first line
-            // get the columns name from the first line
-            // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)carTable.getModel();
-            model.setColumnIdentifiers(columnsName);
-            
-            // get lines from txt file
-            Object[] tableLines = br.lines().toArray();
-            
-            // extratct data from lines
-            // set data to jtable model
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split("/");
-                model.addRow(dataRow);
-            }
-            
-            
-        } catch (Exception ex) {
-//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
+        getConfigFile();
         populatetable();
+        
     }
 
     /**
@@ -73,15 +52,15 @@ String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130
     private void initComponents() {
 
         TitleCity = new javax.swing.JLabel();
-        TxtSearchCity = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        carTable = new javax.swing.JTable();
+        carTableCity = new javax.swing.JTable();
+        DropDown_City = new javax.swing.JComboBox<>();
 
         TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleCity.setText("Search By City");
 
-        carTable.setModel(new javax.swing.table.DefaultTableModel(
+        carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -97,12 +76,20 @@ String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130
                 return canEdit [columnIndex];
             }
         });
-        carTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                carTableMouseClicked(evt);
+                carTableCityMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(carTable);
+        jScrollPane1.setViewportView(carTableCity);
+
+        DropDown_City.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        DropDown_City.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Boston", "Bangalore" }));
+        DropDown_City.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DropDown_CityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -113,25 +100,25 @@ String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DropDown_City, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(218, 218, 218))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(80, 80, 80)
+                .addComponent(DropDown_City, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
+    private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
         // TODO add your handling code here:
 
 //        buttonGroupMaintenanceCheckView.clearSelection();
@@ -169,20 +156,35 @@ String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130
 //            RbMaintenanceNo.setSelected(true);
 //        }
 
-    }//GEN-LAST:event_carTableMouseClicked
+    }//GEN-LAST:event_carTableCityMouseClicked
 
+    private void DropDown_CityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDown_CityActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        model.setRowCount(0);
+        String Keyword = (String) DropDown_City.getSelectedItem();
+//        String Keyword = TxtSearchCity.getText().toLowerCase();
+        
+            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+            carTableCity.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter(Keyword));
+            
+        
+    }//GEN-LAST:event_DropDown_CityActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> DropDown_City;
     private javax.swing.JLabel TitleCity;
-    private javax.swing.JTextField TxtSearchCity;
-    private javax.swing.JTable carTable;
+    private javax.swing.JTable carTableCity;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-
+//
     private void populatetable() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
- 
-        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
 //        model.setRowCount(0);
         
         for(carDetails cdh: history.getHistory()){
@@ -205,9 +207,65 @@ String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130
         }
         
     }
+    
+    
+        private void getConfigFile() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
 
-
+        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                System.out.println(dataRow[i]);
+                model.addRow(dataRow);
+                
+//                carDetails cdf = getConfig.addNewCarDetailsConfig();
+//                cdf.setCarModel(dataRow[i]);
+//                cdf.setMinPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setMaxPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setManufacturedYear(Long.parseLong(dataRow[i]));
+//                cdf.setCarSerialNo(Long.parseLong(dataRow[i]));
+//                cdf.setManufacturedBy(dataRow[i]);
+//                cdf.setGeoLocation(dataRow[i]);
+//                cdf.setModelNumber(Double.parseDouble(dataRow[i]));
+//                cdf.setAvailability(dataRow[i]);
+//                cdf.setLastMaintenanceDate(dataRow[i]);
+//                cdf.setDate(dataRow[i]);
+            
+            }
+            
+            
+             
+             
+            
+ 
+            
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
+    }
 
 
     }
+
 

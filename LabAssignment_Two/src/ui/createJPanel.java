@@ -57,7 +57,6 @@ public class createJPanel extends javax.swing.JPanel {
         TxtMaxPassengerCap = new javax.swing.JTextField();
         TxtCarSerialNo = new javax.swing.JTextField();
         TxtManufacturedBy = new javax.swing.JTextField();
-        TxtGeoLocation = new javax.swing.JTextField();
         TxtModelNumber = new javax.swing.JTextField();
         BtnSave = new javax.swing.JButton();
         TxtManufacturedYear = new javax.swing.JTextField();
@@ -67,6 +66,7 @@ public class createJPanel extends javax.swing.JPanel {
         RbAvailabilityYes = new javax.swing.JRadioButton();
         RbAvailabilityNo = new javax.swing.JRadioButton();
         lblDate = new javax.swing.JLabel();
+        TxtGeoLocation = new javax.swing.JComboBox<>();
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -141,6 +141,8 @@ public class createJPanel extends javax.swing.JPanel {
         lblDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 0, 51));
 
+        TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Boston", "Bangalore" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,16 +162,14 @@ public class createJPanel extends javax.swing.JPanel {
                     .addComponent(lblLastMaintenanceDate, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(lblLastMaintenanceDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(TxtCarModel)
-                        .addComponent(TxtMinPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtMaxPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtCarSerialNo, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtManufacturedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtGeoLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TxtCarModel)
+                    .addComponent(TxtMinPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(TxtMaxPassengerCap, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(TxtCarSerialNo, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(TxtManufacturedBy, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(TxtModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RbMaintenanceYes)
@@ -178,7 +178,8 @@ public class createJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RbAvailabilityYes)
                         .addGap(18, 18, 18)
-                        .addComponent(RbAvailabilityNo)))
+                        .addComponent(RbAvailabilityNo))
+                    .addComponent(TxtGeoLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(169, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,7 +251,7 @@ public class createJPanel extends javax.swing.JPanel {
         long  manufacturedYear = Long.parseLong(TxtManufacturedYear.getText());
         long carSerialNumber = Long.parseLong(TxtCarSerialNo.getText());
         String manufacturedBy = TxtManufacturedBy.getText();
-        String geoLocation = TxtGeoLocation.getText();
+        String geoLocation = (String) TxtGeoLocation.getSelectedItem();
         int modelNumber = Integer.parseInt(TxtModelNumber.getText());
         String maintenanceCheck="";
         String availability="";
@@ -301,7 +302,7 @@ public class createJPanel extends javax.swing.JPanel {
         TxtManufacturedYear.setText("");
         TxtCarSerialNo.setText("");
         TxtManufacturedBy.setText("");
-        TxtGeoLocation.setText("");
+        TxtGeoLocation.setSelectedIndex(0);
         TxtModelNumber.setText("");
         buttonGroupMaintenanceCheckCreate.clearSelection();
         buttonGroupAvailabilityCreate.clearSelection();
@@ -345,7 +346,7 @@ public class createJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Title;
     private javax.swing.JTextField TxtCarModel;
     private javax.swing.JTextField TxtCarSerialNo;
-    private javax.swing.JTextField TxtGeoLocation;
+    private javax.swing.JComboBox<String> TxtGeoLocation;
     private javax.swing.JTextField TxtManufacturedBy;
     private javax.swing.JTextField TxtManufacturedYear;
     private javax.swing.JTextField TxtMaxPassengerCap;

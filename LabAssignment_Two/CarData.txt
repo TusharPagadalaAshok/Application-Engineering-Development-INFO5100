@@ -4,4 +4,4 @@ Serial No , Model , Manufacturer , Availability , Maintenance? , Min Pssgr , Max
 25255/Civic/Honda/Yes/No/1/7/2021/California/565/2021-04-23 09:30:08
 44112/Etios/Toyota/No/No/1/5/2018/Boston/569/2019-07-09 11:45:03
 44332/Platinum/Toyota/Yes/Yes/1/6/2012/Boston/4469/2014-05-10 12:15:43
-44552/Dzire/Maruti/Yes/Yes/1/3/2015/Banglore/5595/2017-07-30 08:48:06
+44552/Dzire/Maruti/Yes/Yes/1/3/2015/Bangalore/5595/2017-07-30 08:48:06

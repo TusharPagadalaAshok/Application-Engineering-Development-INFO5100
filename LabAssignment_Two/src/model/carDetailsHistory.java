@@ -11,6 +11,15 @@ import java.util.*;
  */
 public class carDetailsHistory {
     private ArrayList<carDetails> history;
+    private ArrayList<carDetails> getConfig;
+
+    public ArrayList<carDetails> getGetConfig() {
+        return getConfig;
+    }
+
+    public void setGetConfig(ArrayList<carDetails> getConfig) {
+        this.getConfig = getConfig;
+    }
     
     public carDetailsHistory(){
         this.history = new ArrayList<carDetails>();
@@ -26,6 +35,11 @@ public class carDetailsHistory {
 public carDetails addNewCarDetails() {
         carDetails newCar = new carDetails();
         history.add(newCar);
+        return newCar;
+    }
+public carDetails addNewCarDetailsConfig() {
+        carDetails newCar = new carDetails();
+        getConfig.add(newCar);
         return newCar;
     }
       

@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import model.carDetails;
 import model.carDetailsHistory;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 
 
@@ -38,6 +39,7 @@ public class viewJPanel extends javax.swing.JPanel {
     public viewJPanel(carDetailsHistory history) {
         initComponents();
         this.history = history;
+        
         String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
         File file = new File(FilePath);
         
@@ -53,21 +55,39 @@ public class viewJPanel extends javax.swing.JPanel {
             
             // get lines from txt file
             Object[] tableLines = br.lines().toArray();
-            
+//            carDetails cdf = history.addNewCarDetails();
             // extratct data from lines
             // set data to jtable model
             for(int i = 0; i < tableLines.length; i++)
             {
                 String line = tableLines[i].toString().trim();
                 String[] dataRow = line.split("/");
+//                JOptionPane.showMessageDialog(this,dataRow);
                 model.addRow(dataRow);
+                
+//                cdf.setCarModel(model.getValueAt(i, 1).toString()); 
+//                cdf.setMinPassengerCap((int) model.getValueAt(i, 5));
+//                cdf.setMaxPassengerCap((int) model.getValueAt(i,6));
+//                cdf.setManufacturedYear((long) model.getValueAt(i, 7));
+//                cdf.setCarSerialNo((long) model.getValueAt(i, 0));
+//                cdf.setManufacturedBy(model.getValueAt(i, 2).toString());
+//                cdf.setGeoLocation(model.getValueAt(i, 8).toString());
+//                cdf.setModelNumber((double) model.getValueAt(i, 9));
+//                cdf.setAvailability(model.getValueAt(i, 3).toString());
+//                cdf.setLastMaintenanceDate(model.getValueAt(i, 4).toString());
+//                cdf.setDate(model.getValueAt(i, 10).toString());
+                
             }
+            
+            
+            
             
             
         } catch (Exception ex) {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "File not found!");
         }
+        
         populateTable();
     }
 
@@ -88,7 +108,6 @@ public class viewJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         TxtManufacturedBy = new javax.swing.JTextField();
         TxtManufacturedYear = new javax.swing.JTextField();
-        TxtGeoLocation = new javax.swing.JTextField();
         TxtModelNumber = new javax.swing.JTextField();
         lblCarModel = new javax.swing.JLabel();
         lblMinPassengerCap = new javax.swing.JLabel();
@@ -109,6 +128,7 @@ public class viewJPanel extends javax.swing.JPanel {
         RbAvailabilityYes = new javax.swing.JRadioButton();
         RbAvailabilityNo = new javax.swing.JRadioButton();
         lblModifiedDateView = new javax.swing.JLabel();
+        TxtGeoLocation = new javax.swing.JComboBox<>();
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -200,6 +220,8 @@ public class viewJPanel extends javax.swing.JPanel {
         lblModifiedDateView.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModifiedDateView.setForeground(new java.awt.Color(255, 0, 51));
 
+        TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Boston", "Bangalore" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,9 +250,9 @@ public class viewJPanel extends javax.swing.JPanel {
                                     .addComponent(TxtMaxPassengerCap)
                                     .addComponent(TxtCarSerialNo)
                                     .addComponent(TxtManufacturedBy)
-                                    .addComponent(TxtGeoLocation)
                                     .addComponent(TxtModelNumber)
-                                    .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                                    .addComponent(TxtGeoLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -255,7 +277,7 @@ public class viewJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                        .addGap(163, 163, 163))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +365,7 @@ public class viewJPanel extends javax.swing.JPanel {
        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
-       TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
+       TxtGeoLocation.setSelectedItem(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
 //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
         //Availability
@@ -392,7 +414,7 @@ public class viewJPanel extends javax.swing.JPanel {
                     String minPassengerCap = TxtMinPassengerCap.getText();
                     String maxPassengerCap = TxtMaxPassengerCap.getText();
                     String manufacturedYear = TxtManufacturedYear.getText();
-                    String geoLocation = TxtGeoLocation.getText();
+                    String geoLocation = (String) TxtGeoLocation.getSelectedItem();
                     String modelNumber = TxtModelNumber.getText();
                     String availability = "";
                     String maintenanceCheck = "";
@@ -453,7 +475,7 @@ public class viewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Title;
     private javax.swing.JTextField TxtCarModel;
     private javax.swing.JTextField TxtCarSerialNo;
-    private javax.swing.JTextField TxtGeoLocation;
+    private javax.swing.JComboBox<String> TxtGeoLocation;
     private javax.swing.JTextField TxtManufacturedBy;
     private javax.swing.JTextField TxtManufacturedYear;
     private javax.swing.JTextField TxtMaxPassengerCap;

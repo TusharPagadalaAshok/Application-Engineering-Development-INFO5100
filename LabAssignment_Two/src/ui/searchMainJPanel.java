@@ -21,6 +21,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
      */
     
     carDetailsHistory history;
+    carDetailsHistory getConfig;
     JPanel rightSplitPane;
     public searchMainJPanel(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
@@ -96,7 +97,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnSearchByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByCityActionPerformed
         // TODO add your handling code here:
-        searchByCityJPanel citySearchPanel = new searchByCityJPanel(history);
+        searchByCityJPanel citySearchPanel = new searchByCityJPanel(history, getConfig);
         rightSplitPane.add("Search by City",citySearchPanel);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

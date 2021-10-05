@@ -38,17 +38,14 @@
                   <Component id="lblLastMaintenanceDate1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="TxtCarModel" max="32767" attributes="0"/>
-                      <Component id="TxtMinPassengerCap" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtMaxPassengerCap" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtCarSerialNo" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtManufacturedBy" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtGeoLocation" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtModelNumber" pref="174" max="32767" attributes="0"/>
-                      <Component id="TxtManufacturedYear" alignment="0" pref="174" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="TxtCarModel" max="32767" attributes="0"/>
+                  <Component id="TxtMinPassengerCap" pref="174" max="32767" attributes="0"/>
+                  <Component id="TxtMaxPassengerCap" pref="174" max="32767" attributes="0"/>
+                  <Component id="TxtCarSerialNo" pref="174" max="32767" attributes="0"/>
+                  <Component id="TxtManufacturedBy" pref="174" max="32767" attributes="0"/>
+                  <Component id="TxtModelNumber" pref="174" max="32767" attributes="0"/>
+                  <Component id="TxtManufacturedYear" alignment="0" pref="174" max="32767" attributes="0"/>
                   <Component id="BtnSave" min="-2" pref="160" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="RbMaintenanceYes" min="-2" max="-2" attributes="0"/>
@@ -60,6 +57,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="RbAvailabilityNo" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="TxtGeoLocation" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="169" max="32767" attributes="0"/>
           </Group>
@@ -215,8 +213,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="TxtManufacturedBy">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGeoLocation">
-    </Component>
     <Component class="javax.swing.JTextField" name="TxtModelNumber">
     </Component>
     <Component class="javax.swing.JButton" name="BtnSave">
@@ -285,6 +281,20 @@
           <Color blue="33" green="0" red="ff" type="rgb"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="TxtGeoLocation">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value=" "/>
+            <StringItem index="1" value="Boston"/>
+            <StringItem index="2" value="Bangalore"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
