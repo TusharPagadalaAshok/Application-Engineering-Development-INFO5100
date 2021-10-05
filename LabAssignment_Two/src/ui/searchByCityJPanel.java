@@ -5,9 +5,15 @@
  */
 package ui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.carDetails;
 import model.carDetailsHistory;
+
 
 /**
  *
@@ -19,11 +25,42 @@ public class searchByCityJPanel extends javax.swing.JPanel {
      * Creates new form searchByCityJPanel
      */
     carDetailsHistory history;
-    JPanel viewJPanel;
-    public searchByCityJPanel(carDetailsHistory history,JPanel viewJPanel ) {
+//    JPanel createJPanel;
+    public searchByCityJPanel(carDetailsHistory history) {
         initComponents();
         this.history = history;
-        this.viewJPanel = viewJPanel;
+//        this.createJPanel = createJPanel;
+String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTable.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                model.addRow(dataRow);
+            }
+            
+            
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
+        populatetable();
     }
 
     /**
@@ -73,22 +110,22 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(45, 45, 45)
+                .addComponent(TxtSearchCity, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(400, Short.MAX_VALUE))
         );
@@ -97,40 +134,40 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
         // TODO add your handling code here:
 
-        buttonGroupMaintenanceCheckView.clearSelection();
-        buttonGroupAvailableView.clearSelection();
-        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-
-        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
-        TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
-        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
-        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
-        //       TxtLastMaintenanceDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),4).toString());
-        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
-        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
-        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
-        TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
-        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
-        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
-        //Availability
-        String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
-
-        if (availability.equals("Yes")) {
-            RbAvailabilityYes.setSelected(true);
-        }
-        else {
-            RbAvailabilityNo.setSelected(true);
-        }
-        //Maintenance Check
-
-        String maintenanceChk = tblmodel.getValueAt(carTable.getSelectedRow(),4).toString();
-
-        if (maintenanceChk.equals("Yes")) {
-            RbMaintenanceYes.setSelected(true);
-        }
-        else {
-            RbMaintenanceNo.setSelected(true);
-        }
+//        buttonGroupMaintenanceCheckView.clearSelection();
+//        buttonGroupAvailableView.clearSelection();
+//        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
+//
+//        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
+//        TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
+//        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
+//        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
+//        //       TxtLastMaintenanceDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),4).toString());
+//        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
+//        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
+//        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
+//        TxtGeoLocation.setText(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
+//        TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
+//        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
+//        //Availability
+//        String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
+//
+//        if (availability.equals("Yes")) {
+//            RbAvailabilityYes.setSelected(true);
+//        }
+//        else {
+//            RbAvailabilityNo.setSelected(true);
+//        }
+//        //Maintenance Check
+//
+//        String maintenanceChk = tblmodel.getValueAt(carTable.getSelectedRow(),4).toString();
+//
+//        if (maintenanceChk.equals("Yes")) {
+//            RbMaintenanceYes.setSelected(true);
+//        }
+//        else {
+//            RbMaintenanceNo.setSelected(true);
+//        }
 
     }//GEN-LAST:event_carTableMouseClicked
 
@@ -141,4 +178,36 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private javax.swing.JTable carTable;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void populatetable() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
+//        model.setRowCount(0);
+        
+        for(carDetails cdh: history.getHistory()){
+             Object[] row = new Object[11];
+             row[0] = cdh.getCarSerialNo();
+             row[1] = cdh.getCarModel();
+             row[2] = cdh.getManufacturedBy();
+             row[3] = cdh.getAvailability();
+             row[4] = cdh.getLastMaintenanceDate();
+             row[5] = cdh.getMinPassengerCap();
+             row[6] = cdh.getMaxPassengerCap();
+             row[7] = cdh.getManufacturedYear();
+             row[8] = cdh.getGeoLocation();
+             row[9] = cdh.getModelNumber();
+             row[10] = cdh.getDate();
+//             lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
+             model.addRow(row);
+             
+            
+        }
+        
+    }
+
+
+
+
+    }
+

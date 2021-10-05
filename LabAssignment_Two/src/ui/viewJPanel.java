@@ -38,6 +38,36 @@ public class viewJPanel extends javax.swing.JPanel {
     public viewJPanel(carDetailsHistory history) {
         initComponents();
         this.history = history;
+        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTable.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                model.addRow(dataRow);
+            }
+            
+            
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
         populateTable();
     }
 
@@ -79,7 +109,6 @@ public class viewJPanel extends javax.swing.JPanel {
         RbAvailabilityYes = new javax.swing.JRadioButton();
         RbAvailabilityNo = new javax.swing.JRadioButton();
         lblModifiedDateView = new javax.swing.JLabel();
-        BtnLoadData = new javax.swing.JButton();
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -171,13 +200,6 @@ public class viewJPanel extends javax.swing.JPanel {
         lblModifiedDateView.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModifiedDateView.setForeground(new java.awt.Color(255, 0, 51));
 
-        BtnLoadData.setText("Add from File...");
-        BtnLoadData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLoadDataActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -233,8 +255,6 @@ public class viewJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnLoadData, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
@@ -244,10 +264,8 @@ public class viewJPanel extends javax.swing.JPanel {
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnLoadData))
+                .addGap(12, 12, 12)
+                .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -426,45 +444,8 @@ public class viewJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void BtnLoadDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoadDataActionPerformed
-        // TODO add your handling code here:
-        
-        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
-        File file = new File(FilePath);
-        
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            // get the first line
-            // get the columns name from the first line
-            // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)carTable.getModel();
-            model.setColumnIdentifiers(columnsName);
-            
-            // get lines from txt file
-            Object[] tableLines = br.lines().toArray();
-            
-            // extratct data from lines
-            // set data to jtable model
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split("/");
-                model.addRow(dataRow);
-            }
-            
-            
-        } catch (Exception ex) {
-//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "File not found!");
-        }
-     
-    }//GEN-LAST:event_BtnLoadDataActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnLoadData;
     private javax.swing.JRadioButton RbAvailabilityNo;
     private javax.swing.JRadioButton RbAvailabilityYes;
     private javax.swing.JRadioButton RbMaintenanceNo;
