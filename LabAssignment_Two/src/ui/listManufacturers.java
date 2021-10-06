@@ -14,7 +14,9 @@ import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import model.carDetails;
 import model.carDetailsHistory;
 
@@ -55,9 +57,15 @@ public class listManufacturers extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
+        BtnbClearSelection = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        listManufacturer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listManufacturerMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listManufacturer);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 220));
@@ -68,7 +76,7 @@ public class listManufacturers extends javax.swing.JPanel {
                 ListActionPerformed(evt);
             }
         });
-        add(List, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+        add(List, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jLabel1.setText("The following are the Car manufacturers used by this Cab Company:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
@@ -97,23 +105,35 @@ public class listManufacturers extends javax.swing.JPanel {
         jScrollPane2.setViewportView(carTableCity);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 770, 220));
+
+        BtnbClearSelection.setText("Clear Selection");
+        BtnbClearSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnbClearSelectionActionPerformed(evt);
+            }
+        });
+        add(BtnbClearSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListActionPerformed
         // TODO add your handling code here:
         DefaultListModel dm = new DefaultListModel();
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        carTableCity.setModel(model);
         listManufacturer.setModel(dm);
         
         
          ArrayList<String> ls = new ArrayList<>();
-         for(int i = 1; i<carTableCity.getRowCount();i++){
-             ls.add(carTableCity.getValueAt(i, 2).toString());
+         for(int i = 1; i<model.getRowCount();i++){
+             ls.add(model.getValueAt(i, 2).toString());
          }
          Set<String> unique = new HashSet<String>(ls);
-         System.out.println(ls);
+//         System.out.println(ls);
          ArrayList<String> fl = new ArrayList<>();
          fl.addAll(unique);
          dm.addAll(unique);
+         
+                 
          
          
 //         System.out.println(ls);
@@ -129,8 +149,43 @@ public class listManufacturers extends javax.swing.JPanel {
 
     }//GEN-LAST:event_carTableCityMouseClicked
 
+    private void listManufacturerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listManufacturerMouseClicked
+        // TODO add your handling code here:
+        
+        String s= listManufacturer.getSelectedValue().toString();
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+               
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+            filters.add(RowFilter.regexFilter("(?i)" + s,2));
+//            String availability = (String) DropDownAvailability.getSelectedItem();
+//            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+    }//GEN-LAST:event_listManufacturerMouseClicked
+
+    private void BtnbClearSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbClearSelectionActionPerformed
+        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        carTableCity.setModel(model);
+//        model.setRowCount(0);
+//        populatetable();
+//         getConfigFile();
+
+//        DefaultListModel dm = new DefaultListModel();
+//           listManufacturer.setModel(dm);
+           listManufacturer.clearSelection();
+            
+        
+    }//GEN-LAST:event_BtnbClearSelectionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnbClearSelection;
     private javax.swing.JButton List;
     private javax.swing.JTable carTableCity;
     private javax.swing.JLabel jLabel1;
