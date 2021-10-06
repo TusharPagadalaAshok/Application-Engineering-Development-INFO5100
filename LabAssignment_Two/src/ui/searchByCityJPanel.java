@@ -62,6 +62,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCalendarTheme1 = new com.toedter.plaf.JCalendarTheme();
         TitleCity = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
@@ -139,8 +140,8 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                                 .addComponent(DropDownAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(99, 99, 99)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -190,7 +191,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
-         
+            
+           
+            
+            
+            
    
     
     }//GEN-LAST:event_BtnSearchActionPerformed
@@ -202,6 +207,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> DropDownAvailability;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
+    private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblAvailableCount;
