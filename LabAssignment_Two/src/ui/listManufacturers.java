@@ -5,6 +5,17 @@
  */
 package ui;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.carDetails;
 import model.carDetailsHistory;
 
 /**
@@ -18,10 +29,15 @@ public class listManufacturers extends javax.swing.JPanel {
      */
     
    carDetailsHistory history;
+
    
     public listManufacturers(carDetailsHistory history) {
         initComponents();
         this.history = history;
+        getConfigFile();
+        populatetable();
+        
+        
     }
 
     /**
@@ -33,19 +49,179 @@ public class listManufacturers extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listManufacturer = new javax.swing.JList<>();
+        List = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        carTableCity = new javax.swing.JTable();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setViewportView(listManufacturer);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 220));
+
+        List.setText("List");
+        List.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListActionPerformed(evt);
+            }
+        });
+        add(List, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
+
+        jLabel1.setText("The following are the Car manufacturers used by this Cab Company:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
+
+        carTableCity.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carTableCityMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(carTableCity);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 770, 220));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel dm = new DefaultListModel();
+        listManufacturer.setModel(dm);
+        
+        
+         ArrayList<String> ls = new ArrayList<>();
+         for(int i = 1; i<carTableCity.getRowCount();i++){
+             ls.add(carTableCity.getValueAt(i, 2).toString());
+         }
+         Set<String> unique = new HashSet<String>(ls);
+         System.out.println(ls);
+         ArrayList<String> fl = new ArrayList<>();
+         fl.addAll(unique);
+         dm.addAll(unique);
+         
+         
+//         System.out.println(ls);
+         
+         
+        
+        
+        
+    }//GEN-LAST:event_ListActionPerformed
+
+    private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_carTableCityMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton List;
+    private javax.swing.JTable carTableCity;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listManufacturer;
     // End of variables declaration//GEN-END:variables
+
+    private void getConfigFile() {
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+
+        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                
+                    model.addRow(dataRow);
+                
+                
+                
+//                carDetails cdf = getConfig.addNewCarDetailsConfig();
+//                cdf.setCarModel(dataRow[i]);
+//                cdf.setMinPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setMaxPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setManufacturedYear(Long.parseLong(dataRow[i]));
+//                cdf.setCarSerialNo(Long.parseLong(dataRow[i]));
+//                cdf.setManufacturedBy(dataRow[i]);
+//                cdf.setGeoLocation(dataRow[i]);
+//                cdf.setModelNumber(Double.parseDouble(dataRow[i]));
+//                cdf.setAvailability(dataRow[i]);
+//                cdf.setLastMaintenanceDate(dataRow[i]);
+//                cdf.setDate(dataRow[i]);
+            
+            }
+            
+            
+             
+             
+            
+ 
+            
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
+    }
+
+    private void populatetable() {
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        model.setRowCount(0);
+        
+        for(carDetails cdh: history.getHistory()){
+             Object[] row = new Object[11];
+             row[0] = cdh.getCarSerialNo();
+             row[1] = cdh.getCarModel();
+             row[2] = cdh.getManufacturedBy();
+             row[3] = cdh.getAvailability();
+             row[4] = cdh.getLastMaintenanceDate();
+             row[5] = cdh.getMinPassengerCap();
+             row[6] = cdh.getMaxPassengerCap();
+             row[7] = cdh.getManufacturedYear();
+             row[8] = cdh.getGeoLocation();
+             row[9] = cdh.getModelNumber();
+             row[10] = cdh.getDate();
+//             lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
+             model.addRow(row);
+             
+            
+        }
+    }
 }

@@ -23,11 +23,13 @@ public class searchMainJPanel extends javax.swing.JPanel {
     carDetailsHistory history;
     carDetailsHistory getConfig;
     JPanel rightSplitPane;
+    
     public searchMainJPanel(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
         
         this.history = history;
         this.rightSplitPane = rightSplitPane;
+        
     }
 
     /**
@@ -42,7 +44,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnSearchByCity = new javax.swing.JButton();
         BtnSearchByModelNumber = new javax.swing.JButton();
         BtnSearchByModel = new javax.swing.JButton();
-        BtnSearchByModel1 = new javax.swing.JButton();
+        BtnListManufacturers = new javax.swing.JButton();
 
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByCity.setText("Search by City & Availability>>");
@@ -71,12 +73,12 @@ public class searchMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        BtnSearchByModel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnSearchByModel1.setText("Search by Model>>");
-        BtnSearchByModel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        BtnSearchByModel1.addActionListener(new java.awt.event.ActionListener() {
+        BtnListManufacturers.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnListManufacturers.setText("List all Manufacturers>>");
+        BtnListManufacturers.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnListManufacturers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSearchByModel1ActionPerformed(evt);
+                BtnListManufacturersActionPerformed(evt);
             }
         });
 
@@ -90,7 +92,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
                     .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSearchByModel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
@@ -103,7 +105,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BtnSearchByModel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnListManufacturers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(420, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -137,15 +139,22 @@ public class searchMainJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnSearchByModelActionPerformed
 
-    private void BtnSearchByModel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModel1ActionPerformed
+    private void BtnListManufacturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListManufacturersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSearchByModel1ActionPerformed
+        listManufacturers listmanu = new listManufacturers(history);
+        rightSplitPane.add("Search by Model",listmanu);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+        
+        
+        
+    }//GEN-LAST:event_BtnListManufacturersActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnListManufacturers;
     private javax.swing.JButton BtnSearchByCity;
     private javax.swing.JButton BtnSearchByModel;
-    private javax.swing.JButton BtnSearchByModel1;
     private javax.swing.JButton BtnSearchByModelNumber;
     // End of variables declaration//GEN-END:variables
 }
