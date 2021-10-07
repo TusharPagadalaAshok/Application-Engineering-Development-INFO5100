@@ -38,6 +38,8 @@ public class listManufacturers extends javax.swing.JPanel {
         this.history = history;
         getConfigFile();
         populatetable();
+        getConfigFileYear();
+        populatetableYear();
         
         
     }
@@ -58,6 +60,13 @@ public class listManufacturers extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
         BtnbClearSelection = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listManufacturerYear = new javax.swing.JList<>();
+        ListYears = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        carTableCityYear = new javax.swing.JTable();
+        BtnbClearSelectionYears = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,6 +122,57 @@ public class listManufacturers extends javax.swing.JPanel {
             }
         });
         add(BtnbClearSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+
+        listManufacturerYear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listManufacturerYearMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(listManufacturerYear);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 170, 220));
+
+        ListYears.setText("List");
+        ListYears.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListYearsActionPerformed(evt);
+            }
+        });
+        add(ListYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 490, 30));
+
+        carTableCityYear.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        carTableCityYear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carTableCityYearMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(carTableCityYear);
+
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 810, 220));
+
+        BtnbClearSelectionYears.setText("Clear Selection");
+        BtnbClearSelectionYears.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnbClearSelectionYearsActionPerformed(evt);
+            }
+        });
+        add(BtnbClearSelectionYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListActionPerformed
@@ -183,15 +243,75 @@ public class listManufacturers extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnbClearSelectionActionPerformed
 
+    private void listManufacturerYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listManufacturerYearMouseClicked
+        // TODO add your handling code here:
+        
+        String s= listManufacturerYear.getSelectedValue().toString();
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCityYear.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCityYear.setModel(model);
+        carTableCityYear.setRowSorter(myTableRowSorter);
+               
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+            filters.add(RowFilter.regexFilter("(?i)" + s,7));
+//            String availability = (String) DropDownAvailability.getSelectedItem();
+//            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+        
+    }//GEN-LAST:event_listManufacturerYearMouseClicked
+
+    private void ListYearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListYearsActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel dm = new DefaultListModel();
+        DefaultTableModel model = (DefaultTableModel) carTableCityYear.getModel();
+        carTableCityYear.setModel(model);
+        listManufacturerYear.setModel(dm);
+        
+        
+         ArrayList<String> ls = new ArrayList<>();
+         for(int i = 1; i<model.getRowCount();i++){
+             ls.add(model.getValueAt(i, 7).toString());
+         }
+         Set<String> unique = new HashSet<String>(ls);
+//         System.out.println(ls);
+         ArrayList<String> fl = new ArrayList<>();
+         fl.addAll(unique);
+         dm.addAll(unique);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_ListYearsActionPerformed
+
+    private void carTableCityYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityYearMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carTableCityYearMouseClicked
+
+    private void BtnbClearSelectionYearsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnbClearSelectionYearsActionPerformed
+        // TODO add your handling code here:
+        listManufacturerYear.clearSelection();
+    }//GEN-LAST:event_BtnbClearSelectionYearsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnbClearSelection;
+    private javax.swing.JButton BtnbClearSelectionYears;
     private javax.swing.JButton List;
+    private javax.swing.JButton ListYears;
     private javax.swing.JTable carTableCity;
+    private javax.swing.JTable carTableCityYear;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JList<String> listManufacturer;
+    private javax.swing.JList<String> listManufacturerYear;
     // End of variables declaration//GEN-END:variables
 
     private void getConfigFile() {
@@ -252,12 +372,97 @@ public class listManufacturers extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "File not found!");
         }
     }
+    private void getConfigFileYear() {
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+
+        String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
+        File file = new File(FilePath);
+        
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            // get the first line
+            // get the columns name from the first line
+            // set columns name to the jtable model
+            String firstLine = br.readLine().trim();
+            String[] columnsName = firstLine.split(",");
+            DefaultTableModel model = (DefaultTableModel)carTableCityYear.getModel();
+            model.setColumnIdentifiers(columnsName);
+            
+            // get lines from txt file
+            Object[] tableLines = br.lines().toArray();
+            
+            // extratct data from lines
+            // set data to jtable model
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                
+                    model.addRow(dataRow);
+                
+                
+                
+//                carDetails cdf = getConfig.addNewCarDetailsConfig();
+//                cdf.setCarModel(dataRow[i]);
+//                cdf.setMinPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setMaxPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setManufacturedYear(Long.parseLong(dataRow[i]));
+//                cdf.setCarSerialNo(Long.parseLong(dataRow[i]));
+//                cdf.setManufacturedBy(dataRow[i]);
+//                cdf.setGeoLocation(dataRow[i]);
+//                cdf.setModelNumber(Double.parseDouble(dataRow[i]));
+//                cdf.setAvailability(dataRow[i]);
+//                cdf.setLastMaintenanceDate(dataRow[i]);
+//                cdf.setDate(dataRow[i]);
+            
+            }
+            
+            
+             
+             
+            
+ 
+            
+        } catch (Exception ex) {
+//            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "File not found!");
+        }
+    }
 
     private void populatetable() {
         
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
         DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        model.setRowCount(0);
+        
+        for(carDetails cdh: history.getHistory()){
+             Object[] row = new Object[11];
+             row[0] = cdh.getCarSerialNo();
+             row[1] = cdh.getCarModel();
+             row[2] = cdh.getManufacturedBy();
+             row[3] = cdh.getAvailability();
+             row[4] = cdh.getLastMaintenanceDate();
+             row[5] = cdh.getMinPassengerCap();
+             row[6] = cdh.getMaxPassengerCap();
+             row[7] = cdh.getManufacturedYear();
+             row[8] = cdh.getGeoLocation();
+             row[9] = cdh.getModelNumber();
+             row[10] = cdh.getDate();
+//             lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
+             model.addRow(row);
+             
+            
+        }
+    }
+
+    private void populatetableYear() {
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCityYear.getModel();
 //        model.setRowCount(0);
         
         for(carDetails cdh: history.getHistory()){

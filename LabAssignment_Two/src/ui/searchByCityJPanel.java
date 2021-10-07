@@ -112,6 +112,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblEnterCity.setText("Enter the City:");
 
         DropDownAvailability.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        DropDownAvailability.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DropDownAvailabilityActionPerformed(evt);
+            }
+        });
 
         lblAvailability.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAvailability.setText("Availability:");
@@ -128,21 +133,21 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 104, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(DropDownAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(26, 26, 26)
+                                .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -186,11 +191,18 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                
         java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
             filters.add(RowFilter.regexFilter("(?i)" + CitySearch.getText().toString(),8));
-            String availability = (String) DropDownAvailability.getSelectedItem();
-            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+//            String availability = (String) DropDownAvailability.getSelectedItem();
+//            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
+            
+         int count = 0;
+//        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
+        for(int i = 0;i<model.getRowCount();i++){
+            count++;
+        }
+        lblAvailableCount.setText("count = "+ count);
             
             
             
@@ -202,6 +214,30 @@ public class searchByCityJPanel extends javax.swing.JPanel {
    
     
     }//GEN-LAST:event_BtnSearchActionPerformed
+
+    private void DropDownAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownAvailabilityActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+               
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+        String availability = (String) DropDownAvailability.getSelectedItem();
+            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+            int count = 0;
+//        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
+        for(int i = 0;i<model.getRowCount();i++){
+            count++;
+        }
+        lblAvailableCount.setText("count = "+ count);
+        
+        
+        
+    }//GEN-LAST:event_DropDownAvailabilityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

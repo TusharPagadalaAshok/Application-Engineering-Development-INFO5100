@@ -84,7 +84,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         });
 
         BtnExpiredMaintenanceCert.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnExpiredMaintenanceCert.setText("Search by Maintenance Certificate Expiry>>");
+        BtnExpiredMaintenanceCert.setText("Check for Maintenance Certificate Expiry>>");
         BtnExpiredMaintenanceCert.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         BtnExpiredMaintenanceCert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +97,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(184, Short.MAX_VALUE)
+                .addContainerGap(186, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -57,6 +57,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
         BtnExpiry = new javax.swing.JButton();
+        LblExpiryCount = new javax.swing.JLabel();
 
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,18 +96,23 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(473, 473, 473))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LblExpiryCount, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(473, 473, 473))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(28, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnExpiry, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(LblExpiryCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(323, Short.MAX_VALUE))
@@ -124,21 +130,24 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         
         ArrayList<String> cd = new ArrayList<>();
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyy-MM-dd");
-        
+        int count = 0;
 //        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
         for(int i = 0;i<model.getRowCount();i++){
             if(getDayCount((String) model.getValueAt(i, 4),df.format(LocalDateTime.now()))>180){
                 model.setValueAt("Yes",i,11);
+                count++;
 //                System.out.println(getDayCount((String) model.getValueAt(i, 4),df.format(currentdate)));
             }else{
                 model.setValueAt("No",i,11);
             }
         }
+        LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count);
     }//GEN-LAST:event_BtnExpiryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnExpiry;
+    private javax.swing.JLabel LblExpiryCount;
     private javax.swing.JTable carTableCity;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
