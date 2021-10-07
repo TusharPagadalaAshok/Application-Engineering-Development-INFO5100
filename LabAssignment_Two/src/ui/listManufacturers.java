@@ -104,7 +104,7 @@ public class listManufacturers extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(carTableCity);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 770, 220));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 810, 220));
 
         BtnbClearSelection.setText("Clear Selection");
         BtnbClearSelection.addActionListener(new java.awt.event.ActionListener() {

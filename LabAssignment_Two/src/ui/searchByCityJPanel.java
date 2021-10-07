@@ -192,6 +192,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
             
+            
+            
+            
            
             
             

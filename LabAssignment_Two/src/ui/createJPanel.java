@@ -5,8 +5,10 @@
  */
 package ui;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
 import javax.swing.AbstractButton;
@@ -61,12 +63,11 @@ public class createJPanel extends javax.swing.JPanel {
         BtnSave = new javax.swing.JButton();
         TxtManufacturedYear = new javax.swing.JTextField();
         lblLastMaintenanceDate1 = new javax.swing.JLabel();
-        RbMaintenanceYes = new javax.swing.JRadioButton();
-        RbMaintenanceNo = new javax.swing.JRadioButton();
         RbAvailabilityYes = new javax.swing.JRadioButton();
         RbAvailabilityNo = new javax.swing.JRadioButton();
         lblDate = new javax.swing.JLabel();
         TxtGeoLocation = new javax.swing.JComboBox<>();
+        MaintenanceDateCreate = new com.toedter.calendar.JDateChooser();
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -91,13 +92,13 @@ public class createJPanel extends javax.swing.JPanel {
         lblManufacturedBy.setText("Manufacturer By:");
 
         lblGeoLocation.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblGeoLocation.setText("Geo Location:");
+        lblGeoLocation.setText("Location:");
 
         lblModelNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblModelNumber.setText("Model Number:");
 
         lblLastMaintenanceDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblLastMaintenanceDate.setText("Maintenance Check since last 30 days:");
+        lblLastMaintenanceDate.setText("Last Maintenance Date:");
 
         TxtCarModel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -116,17 +117,6 @@ public class createJPanel extends javax.swing.JPanel {
         lblLastMaintenanceDate1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate1.setText("Available?");
 
-        buttonGroupMaintenanceCheckCreate.add(RbMaintenanceYes);
-        RbMaintenanceYes.setText("Yes");
-
-        buttonGroupMaintenanceCheckCreate.add(RbMaintenanceNo);
-        RbMaintenanceNo.setText("No");
-        RbMaintenanceNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RbMaintenanceNoActionPerformed(evt);
-            }
-        });
-
         buttonGroupAvailabilityCreate.add(RbAvailabilityYes);
         RbAvailabilityYes.setText("Yes");
 
@@ -141,7 +131,7 @@ public class createJPanel extends javax.swing.JPanel {
         lblDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 0, 51));
 
-        TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Boston", "Bangalore" }));
+        TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "New York City", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Jose", "Fort Worth", "Jacksonville", "Columbus", "Charlotte", "Indianapolis", "San Francisco", "Seattle", "Denver", "Washington", "Boston", "El Paso", "Nashville", "Oklahoma City", "Las Vegas", "Detroit", "Portland", "Memphis", "Louisville", "Milwaukee", "Baltimore", "Albuquerque", "Tucson", "Mesa", "Fresno", "Sacramento", "Atlanta", "Kansas City", "Colorado Springs", "Raleigh", "Omaha", "Miami", "Long Beach", "Virginia Beach", "Oakland", "Minneapolis", "Tampa", "Tulsa", "Arlington", "Wichita", "Bakersfield", "Aurora", "New Orleans", "Cleveland", "Anaheim", "Henderson", "Honolulu", "Riverside", "Santa Ana", "Corpus Christi", "Lexington", "San Juan", "Stockton", "St. Paul", "Cincinnati", "Greensboro", "Pittsburgh", "Irvine", "St. Louis", "Lincoln", "Orlando", "Durham", "Plano", "Anchorage", "Newark", "Chula Vista", "Fort Wayne", "Chandler", "Toledo", "St. Petersburg", "Reno", "Laredo", "Scottsdale", "North Las Vegas", "Lubbock", "Madison", "Gilbert", "Jersey City", "Glendale", "Buffalo", "Winston-Salem", "Chesapeake", "Fremont", "Norfolk", "Irving", "Garland", "Paradise", "Arlington", "Richmond", "Hialeah", "Boise", "Spokane", "Frisco", "Moreno Valley", "Tacoma", "Fontana", "Modesto", "Baton Rouge", "Port St. Lucie", "San Bernardino", "McKinney", "Fayetteville", "Santa Clarita", "Des Moines", "Oxnard", "Birmingham", "Spring Valley", "Huntsville", "Rochester", "Cape Coral", "Tempe", "Grand Rapids", "Yonkers", "Overland Park", "Salt Lake City", "Amarillo", "Augusta", "Columbus", "Tallahassee", "Montgomery", "Huntington Beach", "Akron", "Little Rock", "Glendale", "Grand Prairie", "Aurora", "Sunrise Manor", "Ontario", "Sioux Falls", "Knoxville", "Vancouver", "Mobile", "Worcester", "Chattanooga", "Brownsville", "Peoria", "Fort Lauderdale", "Shreveport", "Newport News", "Providence", "Elk Grove", "Rancho Cucamonga", "Salem", "Pembroke Pines", "Santa Rosa", "Eugene", "Oceanside", "Cary", "Fort Collins", "Corona", "Enterprise", "Garden Grove", "Springfield", "Clarksville", "Bayamon", "Lakewood", "Alexandria", "Hayward", "Murfreesboro", "Killeen", "Hollywood", "Lancaster", "Salinas", "Jackson", "Midland", "Macon County", "Kansas City", "Palmdale", "Sunnyvale", "Springfield", "Escondido", "Pomona", "Bellevue", "Surprise", "Naperville", "Pasadena", "Denton", "Roseville", "Joliet", "Thornton", "McAllen", "Paterson", "Rockford", "Carrollton", "Bridgeport", "Miramar", "Round Rock", "Metairie", "Olathe", "Waco" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -172,17 +162,14 @@ public class createJPanel extends javax.swing.JPanel {
                     .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addComponent(BtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(RbMaintenanceYes)
-                        .addGap(18, 18, 18)
-                        .addComponent(RbMaintenanceNo))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(RbAvailabilityYes)
                         .addGap(18, 18, 18)
                         .addComponent(RbAvailabilityNo))
-                    .addComponent(TxtGeoLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(169, Short.MAX_VALUE))
+                    .addComponent(TxtGeoLocation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MaintenanceDateCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(196, Short.MAX_VALUE)
                 .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -226,10 +213,9 @@ public class createJPanel extends javax.swing.JPanel {
                     .addComponent(lblModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLastMaintenanceDate, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RbMaintenanceYes)
-                    .addComponent(RbMaintenanceNo))
+                    .addComponent(MaintenanceDateCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblLastMaintenanceDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,14 +241,18 @@ public class createJPanel extends javax.swing.JPanel {
         int modelNumber = Integer.parseInt(TxtModelNumber.getText());
         String maintenanceCheck="";
         String availability="";
-      
-        Enumeration<AbstractButton> bg = buttonGroupMaintenanceCheckCreate.getElements();
-        while(bg.hasMoreElements()){
-                JRadioButton Radio1 = (JRadioButton) bg.nextElement();
-                if(Radio1.isSelected())
-                    maintenanceCheck = Radio1.getText();
-        }
+        SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd");
         
+        String maintenanceDate = dfs.format(MaintenanceDateCreate.getDate());
+        
+      
+//        Enumeration<AbstractButton> bg = buttonGroupMaintenanceCheckCreate.getElements();
+//        while(bg.hasMoreElements()){
+//                JRadioButton Radio1 = (JRadioButton) bg.nextElement();
+//                if(Radio1.isSelected())
+//                    maintenanceCheck = Radio1.getText();
+//        }
+//        
         Enumeration<AbstractButton> bg1 = buttonGroupAvailabilityCreate.getElements();
         while(bg1.hasMoreElements()){
                 JRadioButton Radio2 = (JRadioButton) bg1.nextElement();
@@ -290,7 +280,7 @@ public class createJPanel extends javax.swing.JPanel {
         cd.setGeoLocation(geoLocation);
         cd.setModelNumber(modelNumber);
         cd.setAvailability(availability);
-        cd.setLastMaintenanceDate(maintenanceCheck);
+        cd.setLastMaintenanceDate(maintenanceDate);
         cd.setDate(Date);
       
         
@@ -304,7 +294,7 @@ public class createJPanel extends javax.swing.JPanel {
         TxtManufacturedBy.setText("");
         TxtGeoLocation.setSelectedIndex(0);
         TxtModelNumber.setText("");
-        buttonGroupMaintenanceCheckCreate.clearSelection();
+        
         buttonGroupAvailabilityCreate.clearSelection();
         
         
@@ -317,10 +307,6 @@ public class createJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_BtnSaveActionPerformed
-
-    private void RbMaintenanceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbMaintenanceNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RbMaintenanceNoActionPerformed
 
     private void RbAvailabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbAvailabilityNoActionPerformed
         // TODO add your handling code here:
@@ -339,10 +325,9 @@ public class createJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSave;
+    private com.toedter.calendar.JDateChooser MaintenanceDateCreate;
     private javax.swing.JRadioButton RbAvailabilityNo;
     private javax.swing.JRadioButton RbAvailabilityYes;
-    private javax.swing.JRadioButton RbMaintenanceNo;
-    private javax.swing.JRadioButton RbMaintenanceYes;
     private javax.swing.JLabel Title;
     private javax.swing.JTextField TxtCarModel;
     private javax.swing.JTextField TxtCarSerialNo;

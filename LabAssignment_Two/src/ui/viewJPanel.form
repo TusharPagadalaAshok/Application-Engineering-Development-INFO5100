@@ -27,30 +27,38 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblModifiedDateView" min="-2" pref="417" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblMinPassengerCap" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblCarModel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblMaxPassengerCap" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblManufacturedDate" alignment="1" max="32767" attributes="0"/>
+                          <Component id="lblCarSerialNo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="lblManufacturedBy" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblGeoLocation" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblModelNumber" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TxtCarModel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtMinPassengerCap" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtMaxPassengerCap" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtCarSerialNo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtManufacturedBy" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtModelNumber" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TxtManufacturedYear" alignment="0" pref="174" max="32767" attributes="0"/>
+                          <Component id="TxtGeoLocation" max="32767" attributes="0"/>
+                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblMinPassengerCap" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCarModel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblMaxPassengerCap" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblManufacturedDate" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblCarSerialNo" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="lblManufacturedBy" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblGeoLocation" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblModelNumber" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TxtCarModel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtMinPassengerCap" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtMaxPassengerCap" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtCarSerialNo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtManufacturedBy" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtModelNumber" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtManufacturedYear" alignment="0" pref="174" max="32767" attributes="0"/>
-                                  <Component id="TxtGeoLocation" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
@@ -77,15 +85,14 @@
                                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="LastMaintenanceDateView" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="lblModifiedDateView" min="-2" pref="417" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -130,9 +137,12 @@
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMaxPassengerCap" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtMaxPassengerCap" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblMaxPassengerCap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TxtMaxPassengerCap" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="LastMaintenanceDateView" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -421,6 +431,8 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="LastMaintenanceDateView">
     </Component>
   </SubComponents>
 </Form>
