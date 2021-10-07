@@ -14,6 +14,7 @@ import javax.swing.RowFilter;
 import javax.swing.RowFilter.ComparisonType;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+//import model.TableModelDataType;
 import model.carDetails;
 import model.carDetailsHistory;
 
@@ -33,6 +34,35 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         getConfigFile();
         populatetable();
     }
+    
+    public class MinMax{
+        private String carModel;
+        private int minPassengerCap;
+        private int maxPassengerCap;
+        private long manufacturedYear;
+        private long carSerialNo;
+        private String manufacturedBy;
+        private String geoLocation;
+        private double modelNumber;
+        private String lastMaintenanceDate;
+        private String availability;
+        private String date;
+        
+        public MinMax(int minPassengerCap, int maxPassengerCap, long manufacturedYear, long carSerialNo, String manufacturedBy, String geoLocation, double modelNumber, String lastMaintenanceDate, String availability, String date){
+            this.minPassengerCap=minPassengerCap;
+            this.maxPassengerCap=maxPassengerCap;
+            this.manufacturedYear=manufacturedYear;
+            this.carSerialNo=carSerialNo;
+            this.manufacturedBy=manufacturedBy;
+            this.geoLocation=geoLocation;
+            this.modelNumber=modelNumber;
+            this.lastMaintenanceDate=lastMaintenanceDate;
+            this.availability=availability;
+            this.date=date;
+
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,33 +216,39 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
     private void BtnMinMaxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMinMaxSearchActionPerformed
         // TODO add your handling code here:
          DefaultTableModel model = (DefaultTableModel) carTable.getModel();
-        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+//        TableRowSorter myTableRowSorter = new TableRowSorter(model);
         carTable.setModel(model);
-        carTable.setRowSorter(myTableRowSorter);
-               
-        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
-//        String regex = String.format("^%s$", TxtSerialNo.getText());
-            filters.add(RowFilter.regexFilter("(?i)" + TxtMin.getText(),5));
-//            filters.add(RowFilter.regexFilter("(?i)" + TxtMax,6));
-            
-//                int s = Integer.valueOf(TxtMin.getText());
+//        carTable.setRowSorter(myTableRowSorter);
+//               
+//        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+////        String regex = String.format("^%s$", TxtSerialNo.getText());
+////            filters.add(RowFilter.regexFilter("(?i)" + TxtMin.getText(),5));
+////            filters.add(RowFilter.regexFilter("(?i)" + TxtMax,6));
+//            model.getColumnClass(5);
+////                int s = Integer.valueOf(TxtMin.getText());
 //            filters.add(RowFilter.numberFilter(ComparisonType.AFTER, Integer.parseInt(TxtMin.getText()),5));
+//            System.out.println(filters);
 //            filters.add(0,RowFilter.numberFilter(ComparisonType.BEFORE, Integer.parseInt(TxtMax.getText()),6));
 
 //            String availability = (String) DropDownAvailability.getSelectedItem();
 //            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
 //            RowFilter.orFilter(filters);
-            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
-            myTableRowSorter.setRowFilter(serviceFilter);
-            
-//            for(int i = 0; i<carTable.getRowCount();i++){
-//                if( ((int) carTable.getValueAt(i, 6)) <= (Integer.parseInt(TxtMax.getText())) && 
-//                        (((int) carTable.getValueAt(i, 5)) >=(Integer.parseInt(TxtMin.getText()))) )
-//                        
-//                    {
-//                    
-//                }
-//            }
+//            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+//            myTableRowSorter.setRowFilter(serviceFilter);
+            ArrayList<MinMax> ls = new ArrayList<>();
+            Object row[] = new Object[14];
+//            model.setRowCount(0);
+            for(int i = 0; i<carTable.getRowCount();i++){
+                if( Integer.parseInt((String) carTable.getValueAt(i, 6)) <= (Integer.parseInt(TxtMax.getText())) && 
+                        (Integer.parseInt((String) carTable.getValueAt(i, 5)) >=(Integer.parseInt(TxtMin.getText()))) ){
+                    row[0] = model.setValueAt((String) carTable.getValueAt(i, 6),i, 6);
+                    
+                }
+//                System.out.println(ls);
+                
+                
+                        
+            }
             
             
             
@@ -284,7 +320,7 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
             
         } catch (Exception ex) {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "File not found!");
+//            JOptionPane.showMessageDialog( "File not found!");
         }
 
 
@@ -319,4 +355,6 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
 
         
     }
-}
+    }
+
+
