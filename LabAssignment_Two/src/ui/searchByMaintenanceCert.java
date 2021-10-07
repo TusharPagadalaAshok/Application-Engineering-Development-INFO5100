@@ -43,6 +43,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
         carTableCity.setModel(model);
         model.addColumn("Expired?");
+        
+        
     }
 
     /**
@@ -233,6 +235,9 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
              
             
         }
+//        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+//        carTableCity.setModel(model);
+//        model.addColumn("Passgnr Cap?");
     
         
     }

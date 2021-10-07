@@ -30,39 +30,45 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
     carDetailsHistory history;
     public searchByMinMaxPassenger(carDetailsHistory history) {
         initComponents();
+        
         this.history = history;
+        
         getConfigFile();
         populatetable();
-    }
-    
-    public class MinMax{
-        private String carModel;
-        private int minPassengerCap;
-        private int maxPassengerCap;
-        private long manufacturedYear;
-        private long carSerialNo;
-        private String manufacturedBy;
-        private String geoLocation;
-        private double modelNumber;
-        private String lastMaintenanceDate;
-        private String availability;
-        private String date;
+        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
+        carTable.setModel(model);
+        model.addColumn("Passegn Cap?");
         
-        public MinMax(int minPassengerCap, int maxPassengerCap, long manufacturedYear, long carSerialNo, String manufacturedBy, String geoLocation, double modelNumber, String lastMaintenanceDate, String availability, String date){
-            this.minPassengerCap=minPassengerCap;
-            this.maxPassengerCap=maxPassengerCap;
-            this.manufacturedYear=manufacturedYear;
-            this.carSerialNo=carSerialNo;
-            this.manufacturedBy=manufacturedBy;
-            this.geoLocation=geoLocation;
-            this.modelNumber=modelNumber;
-            this.lastMaintenanceDate=lastMaintenanceDate;
-            this.availability=availability;
-            this.date=date;
-
-        }
     }
     
+//    public class MinMax{
+//        private String carModel;
+//        private int minPassengerCap;
+//        private int maxPassengerCap;
+//        private long manufacturedYear;
+//        private long carSerialNo;
+//        private String manufacturedBy;
+//        private String geoLocation;
+//        private double modelNumber;
+//        private String lastMaintenanceDate;
+//        private String availability;
+//        private String date;
+//        
+//        public MinMax(int minPassengerCap, int maxPassengerCap, long manufacturedYear, long carSerialNo, String manufacturedBy, String geoLocation, double modelNumber, String lastMaintenanceDate, String availability, String date){
+//            this.minPassengerCap=minPassengerCap;
+//            this.maxPassengerCap=maxPassengerCap;
+//            this.manufacturedYear=manufacturedYear;
+//            this.carSerialNo=carSerialNo;
+//            this.manufacturedBy=manufacturedBy;
+//            this.geoLocation=geoLocation;
+//            this.modelNumber=modelNumber;
+//            this.lastMaintenanceDate=lastMaintenanceDate;
+//            this.availability=availability;
+//            this.date=date;
+//
+//        }
+//    }
+//    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,14 +92,14 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Serial No", "Model", "Manufacturer", "Availability", "Last Maintenance Date", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+                "Serial No", "Model", "Manufacturer", "Availability", "Last Maintenance Date", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified", "Passgn Cap?"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -216,13 +222,13 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
     private void BtnMinMaxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMinMaxSearchActionPerformed
         // TODO add your handling code here:
          DefaultTableModel model = (DefaultTableModel) carTable.getModel();
-//        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
         carTable.setModel(model);
-//        carTable.setRowSorter(myTableRowSorter);
+        carTable.setRowSorter(myTableRowSorter);
 //               
-//        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
 ////        String regex = String.format("^%s$", TxtSerialNo.getText());
-////            filters.add(RowFilter.regexFilter("(?i)" + TxtMin.getText(),5));
+            
 ////            filters.add(RowFilter.regexFilter("(?i)" + TxtMax,6));
 //            model.getColumnClass(5);
 ////                int s = Integer.valueOf(TxtMin.getText());
@@ -233,22 +239,25 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
 //            String availability = (String) DropDownAvailability.getSelectedItem();
 //            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
 //            RowFilter.orFilter(filters);
-//            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
-//            myTableRowSorter.setRowFilter(serviceFilter);
-            ArrayList<MinMax> ls = new ArrayList<>();
-            Object row[] = new Object[14];
+//            
+//            ArrayList<MinMax> ls = new ArrayList<>();
+//            Object row[] = new Object[14];
 //            model.setRowCount(0);
-            for(int i = 0; i<carTable.getRowCount();i++){
-                if( Integer.parseInt((String) carTable.getValueAt(i, 6)) <= (Integer.parseInt(TxtMax.getText())) && 
-                        (Integer.parseInt((String) carTable.getValueAt(i, 5)) >=(Integer.parseInt(TxtMin.getText()))) ){
-                    row[0] = model.setValueAt((String) carTable.getValueAt(i, 6),i, 6);
+//            model.addColumn("Expired?");
+            for(int i = 0; i<model.getRowCount();i++){
+                if((Integer.parseInt((String) model.getValueAt(i, 5)) >= (Integer.parseInt(TxtMin.getText()))  && 
+                        Integer.parseInt((String) model.getValueAt(i, 6)) <= (Integer.parseInt(TxtMax.getText()))) ){
+                        model.setValueAt("Y", i, 11);
                     
                 }
-//                System.out.println(ls);
-                
-                
-                        
+                else{
+                    model.setValueAt("N",i,11);
+                }
             }
+            filters.add(RowFilter.regexFilter("Y",11));
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+            
             
             
             
@@ -353,6 +362,8 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
             
         }
 
+////        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
+//        carTable.setModel(model);
         
     }
     }
