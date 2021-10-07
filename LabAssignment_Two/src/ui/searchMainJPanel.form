@@ -17,12 +17,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="254" max="32767" attributes="0"/>
+              <EmptySpace pref="184" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BtnSearchByCity" pref="231" max="32767" attributes="0"/>
+                  <Component id="BtnSearchByCity" max="32767" attributes="0"/>
                   <Component id="BtnSearchByModelNumber" alignment="0" max="32767" attributes="0"/>
                   <Component id="BtnSearchByModel" max="32767" attributes="0"/>
                   <Component id="BtnListManufacturers" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BtnExpiredMaintenanceCert" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
@@ -39,7 +40,9 @@
               <Component id="BtnSearchByModel" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BtnListManufacturers" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace pref="420" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="BtnExpiredMaintenanceCert" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="370" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,6 +94,18 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnListManufacturersActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnExpiredMaintenanceCert">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Search by Maintenance Certificate Expiry&gt;&gt;"/>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExpiredMaintenanceCertActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

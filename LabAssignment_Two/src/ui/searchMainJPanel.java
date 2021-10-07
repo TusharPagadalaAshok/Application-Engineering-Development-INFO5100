@@ -45,6 +45,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnSearchByModelNumber = new javax.swing.JButton();
         BtnSearchByModel = new javax.swing.JButton();
         BtnListManufacturers = new javax.swing.JButton();
+        BtnExpiredMaintenanceCert = new javax.swing.JButton();
 
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByCity.setText("Search by City & Availability>>");
@@ -82,17 +83,27 @@ public class searchMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        BtnExpiredMaintenanceCert.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnExpiredMaintenanceCert.setText("Search by Maintenance Certificate Expiry>>");
+        BtnExpiredMaintenanceCert.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnExpiredMaintenanceCert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExpiredMaintenanceCertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(254, Short.MAX_VALUE)
+                .addContainerGap(184, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
@@ -106,7 +117,9 @@ public class searchMainJPanel extends javax.swing.JPanel {
                 .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BtnListManufacturers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,8 +163,18 @@ public class searchMainJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnListManufacturersActionPerformed
 
+    private void BtnExpiredMaintenanceCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExpiredMaintenanceCertActionPerformed
+        // TODO add your handling code here:
+        
+        searchByMaintenanceCert expCert = new searchByMaintenanceCert(history);
+        rightSplitPane.add("Search by Certificate Expiry",expCert);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BtnExpiredMaintenanceCertActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnExpiredMaintenanceCert;
     private javax.swing.JButton BtnListManufacturers;
     private javax.swing.JButton BtnSearchByCity;
     private javax.swing.JButton BtnSearchByModel;

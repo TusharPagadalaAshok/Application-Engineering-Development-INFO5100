@@ -239,7 +239,7 @@ public class createJPanel extends javax.swing.JPanel {
         String manufacturedBy = TxtManufacturedBy.getText();
         String geoLocation = (String) TxtGeoLocation.getSelectedItem();
         int modelNumber = Integer.parseInt(TxtModelNumber.getText());
-        String maintenanceCheck="";
+//        String maintenanceCheck="";
         String availability="";
         SimpleDateFormat dfs = new SimpleDateFormat("yyyy-MM-dd");
         
