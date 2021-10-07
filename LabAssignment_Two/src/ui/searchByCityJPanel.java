@@ -196,17 +196,17 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
-            
-         int count = 0;
-//        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
-        for(int i = 0;i<model.getRowCount();i++){
-            if((model.getValueAt(i, 8)==CitySearch.getText()) && (model.getValueAt(i, 3)==DropDownAvailability.getSelectedItem())){
-                count++;
-            }
-            
-        }
-        String s = String.valueOf(count);
-        lblAvailableCount.setText(s);
+//            
+//         int count = 0;
+////        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
+//        for(int i = 0;i<model.getRowCount();i++){
+//            if((model.getValueAt(i, 8)==CitySearch.getText())){
+//                count++;
+//            }
+//            
+//        }
+//        String s = String.valueOf(count);
+//        lblAvailableCount.setText(s);
             
             
             
