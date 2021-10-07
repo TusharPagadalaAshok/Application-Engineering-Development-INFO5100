@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroupAvailableCar">
+    </Component>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="888" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="700" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Title" pref="868" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+                  <Component id="BtnFind" min="-2" pref="165" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblCarModel" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtCarModel" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <EmptySpace min="86" pref="86" max="-2" attributes="0"/>
+                                      <Component id="lblLastMaintenanceDate" min="-2" pref="148" max="-2" attributes="0"/>
+                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <Component id="LastMaintenanceDateView" min="-2" pref="148" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblMinPassengerCap" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtMinPassengerCap" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <EmptySpace min="66" pref="66" max="-2" attributes="0"/>
+                                      <Component id="lblLastMaintenanceDate1" min="-2" pref="193" max="-2" attributes="0"/>
+                                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                                      <Component id="RbAvailabilityYes" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                                      <Component id="RbAvailabilityNo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblMaxPassengerCap" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtMaxPassengerCap" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblManufacturedDate" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtManufacturedYear" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblCarSerialNo" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtCarSerialNo" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblManufacturedBy" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtManufacturedBy" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblGeoLocation" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtGeoLocation" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblModelNumber" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                                      <Component id="TxtModelNumber" min="-2" pref="174" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Title" min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="BtnFind" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="611" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="139" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblCarModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtCarModel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="lblLastMaintenanceDate" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="LastMaintenanceDateView" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblMinPassengerCap" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtMinPassengerCap" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblLastMaintenanceDate1" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="RbAvailabilityYes" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="RbAvailabilityNo" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblMaxPassengerCap" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtMaxPassengerCap" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblManufacturedDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtManufacturedYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                              <Component id="lblCarSerialNo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                              <Component id="TxtCarSerialNo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblManufacturedBy" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtManufacturedBy" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblGeoLocation" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="TxtGeoLocation" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblModelNumber" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="TxtModelNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblMaxPassengerCap">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Max Passenger Capacity:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="TxtGeoLocation">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="201">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="New York City"/>
+                <StringItem index="2" value="Los Angeles"/>
+                <StringItem index="3" value="Chicago"/>
+                <StringItem index="4" value="Houston"/>
+                <StringItem index="5" value="Phoenix"/>
+                <StringItem index="6" value="Philadelphia"/>
+                <StringItem index="7" value="San Antonio"/>
+                <StringItem index="8" value="San Diego"/>
+                <StringItem index="9" value="Dallas"/>
+                <StringItem index="10" value="Austin"/>
+                <StringItem index="11" value="San Jose"/>
+                <StringItem index="12" value="Fort Worth"/>
+                <StringItem index="13" value="Jacksonville"/>
+                <StringItem index="14" value="Columbus"/>
+                <StringItem index="15" value="Charlotte"/>
+                <StringItem index="16" value="Indianapolis"/>
+                <StringItem index="17" value="San Francisco"/>
+                <StringItem index="18" value="Seattle"/>
+                <StringItem index="19" value="Denver"/>
+                <StringItem index="20" value="Washington"/>
+                <StringItem index="21" value="Boston"/>
+                <StringItem index="22" value="El Paso"/>
+                <StringItem index="23" value="Nashville"/>
+                <StringItem index="24" value="Oklahoma City"/>
+                <StringItem index="25" value="Las Vegas"/>
+                <StringItem index="26" value="Detroit"/>
+                <StringItem index="27" value="Portland"/>
+                <StringItem index="28" value="Memphis"/>
+                <StringItem index="29" value="Louisville"/>
+                <StringItem index="30" value="Milwaukee"/>
+                <StringItem index="31" value="Baltimore"/>
+                <StringItem index="32" value="Albuquerque"/>
+                <StringItem index="33" value="Tucson"/>
+                <StringItem index="34" value="Mesa"/>
+                <StringItem index="35" value="Fresno"/>
+                <StringItem index="36" value="Sacramento"/>
+                <StringItem index="37" value="Atlanta"/>
+                <StringItem index="38" value="Kansas City"/>
+                <StringItem index="39" value="Colorado Springs"/>
+                <StringItem index="40" value="Raleigh"/>
+                <StringItem index="41" value="Omaha"/>
+                <StringItem index="42" value="Miami"/>
+                <StringItem index="43" value="Long Beach"/>
+                <StringItem index="44" value="Virginia Beach"/>
+                <StringItem index="45" value="Oakland"/>
+                <StringItem index="46" value="Minneapolis"/>
+                <StringItem index="47" value="Tampa"/>
+                <StringItem index="48" value="Tulsa"/>
+                <StringItem index="49" value="Arlington"/>
+                <StringItem index="50" value="Wichita"/>
+                <StringItem index="51" value="Bakersfield"/>
+                <StringItem index="52" value="Aurora"/>
+                <StringItem index="53" value="New Orleans"/>
+                <StringItem index="54" value="Cleveland"/>
+                <StringItem index="55" value="Anaheim"/>
+                <StringItem index="56" value="Henderson"/>
+                <StringItem index="57" value="Honolulu"/>
+                <StringItem index="58" value="Riverside"/>
+                <StringItem index="59" value="Santa Ana"/>
+                <StringItem index="60" value="Corpus Christi"/>
+                <StringItem index="61" value="Lexington"/>
+                <StringItem index="62" value="San Juan"/>
+                <StringItem index="63" value="Stockton"/>
+                <StringItem index="64" value="St. Paul"/>
+                <StringItem index="65" value="Cincinnati"/>
+                <StringItem index="66" value="Greensboro"/>
+                <StringItem index="67" value="Pittsburgh"/>
+                <StringItem index="68" value="Irvine"/>
+                <StringItem index="69" value="St. Louis"/>
+                <StringItem index="70" value="Lincoln"/>
+                <StringItem index="71" value="Orlando"/>
+                <StringItem index="72" value="Durham"/>
+                <StringItem index="73" value="Plano"/>
+                <StringItem index="74" value="Anchorage"/>
+                <StringItem index="75" value="Newark"/>
+                <StringItem index="76" value="Chula Vista"/>
+                <StringItem index="77" value="Fort Wayne"/>
+                <StringItem index="78" value="Chandler"/>
+                <StringItem index="79" value="Toledo"/>
+                <StringItem index="80" value="St. Petersburg"/>
+                <StringItem index="81" value="Reno"/>
+                <StringItem index="82" value="Laredo"/>
+                <StringItem index="83" value="Scottsdale"/>
+                <StringItem index="84" value="North Las Vegas"/>
+                <StringItem index="85" value="Lubbock"/>
+                <StringItem index="86" value="Madison"/>
+                <StringItem index="87" value="Gilbert"/>
+                <StringItem index="88" value="Jersey City"/>
+                <StringItem index="89" value="Glendale"/>
+                <StringItem index="90" value="Buffalo"/>
+                <StringItem index="91" value="Winston-Salem"/>
+                <StringItem index="92" value="Chesapeake"/>
+                <StringItem index="93" value="Fremont"/>
+                <StringItem index="94" value="Norfolk"/>
+                <StringItem index="95" value="Irving"/>
+                <StringItem index="96" value="Garland"/>
+                <StringItem index="97" value="Paradise"/>
+                <StringItem index="98" value="Arlington"/>
+                <StringItem index="99" value="Richmond"/>
+                <StringItem index="100" value="Hialeah"/>
+                <StringItem index="101" value="Boise"/>
+                <StringItem index="102" value="Spokane"/>
+                <StringItem index="103" value="Frisco"/>
+                <StringItem index="104" value="Moreno Valley"/>
+                <StringItem index="105" value="Tacoma"/>
+                <StringItem index="106" value="Fontana"/>
+                <StringItem index="107" value="Modesto"/>
+                <StringItem index="108" value="Baton Rouge"/>
+                <StringItem index="109" value="Port St. Lucie"/>
+                <StringItem index="110" value="San Bernardino"/>
+                <StringItem index="111" value="McKinney"/>
+                <StringItem index="112" value="Fayetteville"/>
+                <StringItem index="113" value="Santa Clarita"/>
+                <StringItem index="114" value="Des Moines"/>
+                <StringItem index="115" value="Oxnard"/>
+                <StringItem index="116" value="Birmingham"/>
+                <StringItem index="117" value="Spring Valley"/>
+                <StringItem index="118" value="Huntsville"/>
+                <StringItem index="119" value="Rochester"/>
+                <StringItem index="120" value="Cape Coral"/>
+                <StringItem index="121" value="Tempe"/>
+                <StringItem index="122" value="Grand Rapids"/>
+                <StringItem index="123" value="Yonkers"/>
+                <StringItem index="124" value="Overland Park"/>
+                <StringItem index="125" value="Salt Lake City"/>
+                <StringItem index="126" value="Amarillo"/>
+                <StringItem index="127" value="Augusta"/>
+                <StringItem index="128" value="Columbus"/>
+                <StringItem index="129" value="Tallahassee"/>
+                <StringItem index="130" value="Montgomery"/>
+                <StringItem index="131" value="Huntington Beach"/>
+                <StringItem index="132" value="Akron"/>
+                <StringItem index="133" value="Little Rock"/>
+                <StringItem index="134" value="Glendale"/>
+                <StringItem index="135" value="Grand Prairie"/>
+                <StringItem index="136" value="Aurora"/>
+                <StringItem index="137" value="Sunrise Manor"/>
+                <StringItem index="138" value="Ontario"/>
+                <StringItem index="139" value="Sioux Falls"/>
+                <StringItem index="140" value="Knoxville"/>
+                <StringItem index="141" value="Vancouver"/>
+                <StringItem index="142" value="Mobile"/>
+                <StringItem index="143" value="Worcester"/>
+                <StringItem index="144" value="Chattanooga"/>
+                <StringItem index="145" value="Brownsville"/>
+                <StringItem index="146" value="Peoria"/>
+                <StringItem index="147" value="Fort Lauderdale"/>
+                <StringItem index="148" value="Shreveport"/>
+                <StringItem index="149" value="Newport News"/>
+                <StringItem index="150" value="Providence"/>
+                <StringItem index="151" value="Elk Grove"/>
+                <StringItem index="152" value="Rancho Cucamonga"/>
+                <StringItem index="153" value="Salem"/>
+                <StringItem index="154" value="Pembroke Pines"/>
+                <StringItem index="155" value="Santa Rosa"/>
+                <StringItem index="156" value="Eugene"/>
+                <StringItem index="157" value="Oceanside"/>
+                <StringItem index="158" value="Cary"/>
+                <StringItem index="159" value="Fort Collins"/>
+                <StringItem index="160" value="Corona"/>
+                <StringItem index="161" value="Enterprise"/>
+                <StringItem index="162" value="Garden Grove"/>
+                <StringItem index="163" value="Springfield"/>
+                <StringItem index="164" value="Clarksville"/>
+                <StringItem index="165" value="Bayamon"/>
+                <StringItem index="166" value="Lakewood"/>
+                <StringItem index="167" value="Alexandria"/>
+                <StringItem index="168" value="Hayward"/>
+                <StringItem index="169" value="Murfreesboro"/>
+                <StringItem index="170" value="Killeen"/>
+                <StringItem index="171" value="Hollywood"/>
+                <StringItem index="172" value="Lancaster"/>
+                <StringItem index="173" value="Salinas"/>
+                <StringItem index="174" value="Jackson"/>
+                <StringItem index="175" value="Midland"/>
+                <StringItem index="176" value="Macon County"/>
+                <StringItem index="177" value="Kansas City"/>
+                <StringItem index="178" value="Palmdale"/>
+                <StringItem index="179" value="Sunnyvale"/>
+                <StringItem index="180" value="Springfield"/>
+                <StringItem index="181" value="Escondido"/>
+                <StringItem index="182" value="Pomona"/>
+                <StringItem index="183" value="Bellevue"/>
+                <StringItem index="184" value="Surprise"/>
+                <StringItem index="185" value="Naperville"/>
+                <StringItem index="186" value="Pasadena"/>
+                <StringItem index="187" value="Denton"/>
+                <StringItem index="188" value="Roseville"/>
+                <StringItem index="189" value="Joliet"/>
+                <StringItem index="190" value="Thornton"/>
+                <StringItem index="191" value="McAllen"/>
+                <StringItem index="192" value="Paterson"/>
+                <StringItem index="193" value="Rockford"/>
+                <StringItem index="194" value="Carrollton"/>
+                <StringItem index="195" value="Bridgeport"/>
+                <StringItem index="196" value="Miramar"/>
+                <StringItem index="197" value="Round Rock"/>
+                <StringItem index="198" value="Metairie"/>
+                <StringItem index="199" value="Olathe"/>
+                <StringItem index="200" value="Waco"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblModelNumber">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Model Number:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtMaxPassengerCap">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtManufacturedYear">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtMinPassengerCap">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCarModel">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Car Model:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtModelNumber">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtCarModel">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblLastMaintenanceDate">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Last Maintenance Date:"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="carTable">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="11" rowCount="0">
+                    <Column editable="false" title="Serial No" type="java.lang.Object"/>
+                    <Column editable="false" title="Model" type="java.lang.Object"/>
+                    <Column editable="false" title="Manufacturer" type="java.lang.Object"/>
+                    <Column editable="false" title="Availability" type="java.lang.Object"/>
+                    <Column editable="false" title="Last Maintenance Date" type="java.lang.Object"/>
+                    <Column editable="false" title="Min Pssgr" type="java.lang.Object"/>
+                    <Column editable="false" title="Max Pssgr" type="java.lang.Object"/>
+                    <Column editable="false" title="Manufd Year" type="java.lang.Object"/>
+                    <Column editable="false" title="City" type="java.lang.Object"/>
+                    <Column editable="false" title="Model No" type="java.lang.Object"/>
+                    <Column editable="false" title="Date Modified" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carTableMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="lblManufacturedDate">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Manufactured Year:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCarSerialNo">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Car Serial Number:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="RbAvailabilityNo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="No"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RbAvailabilityNoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtManufacturedBy">
+        </Component>
+        <Component class="javax.swing.JLabel" name="Title">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Get the First Available Cab"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblGeoLocation">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Geo Location:"/>
+          </Properties>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="LastMaintenanceDateView">
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="RbAvailabilityYes">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Yes"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblMinPassengerCap">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Min Passenger Capacity:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblLastMaintenanceDate1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Available?:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TxtCarSerialNo">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblManufacturedBy">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
+            <Property name="text" type="java.lang.String" value="Manufacturer By:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnFind">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Find"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnFindActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

@@ -47,7 +47,8 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnListManufacturers = new javax.swing.JButton();
         BtnExpiredMaintenanceCert = new javax.swing.JButton();
         BtnSerialNumber = new javax.swing.JButton();
-        BtnSerialNumber1 = new javax.swing.JButton();
+        BtnMinMax = new javax.swing.JButton();
+        BtnFirstAvailableCab = new javax.swing.JButton();
 
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByCity.setText("Search by City & Availability>>");
@@ -103,12 +104,21 @@ public class searchMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        BtnSerialNumber1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BtnSerialNumber1.setText("Search Cars by Min and Max Passengers Capacity>>");
-        BtnSerialNumber1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        BtnSerialNumber1.addActionListener(new java.awt.event.ActionListener() {
+        BtnMinMax.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnMinMax.setText("Search Cars by Min and Max Passengers Capacity>>");
+        BtnMinMax.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnMinMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSerialNumber1ActionPerformed(evt);
+                BtnMinMaxActionPerformed(evt);
+            }
+        });
+
+        BtnFirstAvailableCab.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnFirstAvailableCab.setText("Get the First Available Cab>>");
+        BtnFirstAvailableCab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnFirstAvailableCab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnFirstAvailableCabActionPerformed(evt);
             }
         });
 
@@ -125,7 +135,8 @@ public class searchMainJPanel extends javax.swing.JPanel {
                     .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSerialNumber1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnMinMax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnFirstAvailableCab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
@@ -144,8 +155,10 @@ public class searchMainJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(BtnSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BtnSerialNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addComponent(BtnMinMax, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnFirstAvailableCab, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -207,7 +220,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnSerialNumberActionPerformed
 
-    private void BtnSerialNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSerialNumber1ActionPerformed
+    private void BtnMinMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMinMaxActionPerformed
         // TODO add your handling code here:
         
         searchByMinMaxPassenger minmaxpassenger = new searchByMinMaxPassenger(history);
@@ -215,16 +228,27 @@ public class searchMainJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
                 
-    }//GEN-LAST:event_BtnSerialNumber1ActionPerformed
+    }//GEN-LAST:event_BtnMinMaxActionPerformed
+
+    private void BtnFirstAvailableCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFirstAvailableCabActionPerformed
+        // TODO add your handling code here:
+        FirstAvailableCar firstcar = new FirstAvailableCar(history);
+        rightSplitPane.add("Search by First Available Cab",firstcar);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+        
+        
+    }//GEN-LAST:event_BtnFirstAvailableCabActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnExpiredMaintenanceCert;
+    private javax.swing.JButton BtnFirstAvailableCab;
     private javax.swing.JButton BtnListManufacturers;
+    private javax.swing.JButton BtnMinMax;
     private javax.swing.JButton BtnSearchByCity;
     private javax.swing.JButton BtnSearchByModel;
     private javax.swing.JButton BtnSearchByModelNumber;
     private javax.swing.JButton BtnSerialNumber;
-    private javax.swing.JButton BtnSerialNumber1;
     // End of variables declaration//GEN-END:variables
 }

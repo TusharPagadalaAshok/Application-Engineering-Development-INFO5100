@@ -258,6 +258,8 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
             
+            carTable.removeColumn(carTable.getColumnModel().getColumn(11));
+            
             
             
             

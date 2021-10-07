@@ -25,7 +25,8 @@
                   <Component id="BtnListManufacturers" alignment="0" max="32767" attributes="0"/>
                   <Component id="BtnExpiredMaintenanceCert" alignment="0" max="32767" attributes="0"/>
                   <Component id="BtnSerialNumber" alignment="1" max="32767" attributes="0"/>
-                  <Component id="BtnSerialNumber1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="BtnMinMax" alignment="1" max="32767" attributes="0"/>
+                  <Component id="BtnFirstAvailableCab" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
           </Group>
@@ -47,8 +48,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BtnSerialNumber" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="BtnSerialNumber1" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace pref="270" max="32767" attributes="0"/>
+              <Component id="BtnMinMax" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="BtnFirstAvailableCab" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="220" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -126,7 +129,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSerialNumberActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnSerialNumber1">
+    <Component class="javax.swing.JButton" name="BtnMinMax">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -135,7 +138,19 @@
         <Property name="horizontalAlignment" type="int" value="11"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSerialNumber1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnMinMaxActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnFirstAvailableCab">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Get the First Available Cab&gt;&gt;"/>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnFirstAvailableCabActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
