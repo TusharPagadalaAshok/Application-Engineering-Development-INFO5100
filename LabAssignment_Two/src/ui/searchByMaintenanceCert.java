@@ -8,11 +8,21 @@ package ui;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.carDetails;
 import model.carDetailsHistory;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -71,7 +81,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(carTableCity);
 
-        BtnExpiry.setText("Maintenance Expired");
+        BtnExpiry.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnExpiry.setText("Check for Expiry");
         BtnExpiry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExpiryActionPerformed(evt);
@@ -83,21 +94,20 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(391, 391, 391)
-                        .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(473, 473, 473))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(85, 85, 85)
                 .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(323, Short.MAX_VALUE))
         );
@@ -113,15 +123,17 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         carTableCity.setModel(model);
         
         ArrayList<String> cd = new ArrayList<>();
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyy-MM-dd");
         
-        
-        
-        
-        
-        
-        
-        
-        
+//        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
+        for(int i = 0;i<model.getRowCount();i++){
+            if(getDayCount((String) model.getValueAt(i, 4),df.format(LocalDateTime.now()))>180){
+                model.setValueAt("Yes",i,11);
+//                System.out.println(getDayCount((String) model.getValueAt(i, 4),df.format(currentdate)));
+            }else{
+                model.setValueAt("No",i,11);
+            }
+        }
     }//GEN-LAST:event_BtnExpiryActionPerformed
 
 
@@ -215,4 +227,16 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
     
         
     }
+
+    private int getDayCount(String start, String end) {
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LocalDate dateBefore = LocalDate.parse(start);
+	LocalDate dateAfter = LocalDate.parse(end);
+        int noOfDaysBetween = (int) ChronoUnit.DAYS.between(dateBefore, dateAfter);
+        
+        return noOfDaysBetween;
+       
+       
+    }
 }
+
