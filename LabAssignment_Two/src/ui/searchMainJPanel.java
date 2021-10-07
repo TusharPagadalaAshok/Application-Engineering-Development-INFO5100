@@ -46,6 +46,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnSearchByModel = new javax.swing.JButton();
         BtnListManufacturers = new javax.swing.JButton();
         BtnExpiredMaintenanceCert = new javax.swing.JButton();
+        BtnSerialNumber = new javax.swing.JButton();
 
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByCity.setText("Search by City & Availability>>");
@@ -92,6 +93,15 @@ public class searchMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        BtnSerialNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnSerialNumber.setText("List Attributes by Serial Number>>");
+        BtnSerialNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSerialNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSerialNumberActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,7 +113,8 @@ public class searchMainJPanel extends javax.swing.JPanel {
                     .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnSearchByModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
@@ -119,7 +130,9 @@ public class searchMainJPanel extends javax.swing.JPanel {
                 .addComponent(BtnListManufacturers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BtnSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(320, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,6 +185,15 @@ public class searchMainJPanel extends javax.swing.JPanel {
         layout.next(rightSplitPane);
     }//GEN-LAST:event_BtnExpiredMaintenanceCertActionPerformed
 
+    private void BtnSerialNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSerialNumberActionPerformed
+        // TODO add your handling code here:
+        searchBySerialNumber serialnumber = new searchBySerialNumber(history);
+        rightSplitPane.add("Search by Serial Number",serialnumber);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+        
+    }//GEN-LAST:event_BtnSerialNumberActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnExpiredMaintenanceCert;
@@ -179,5 +201,6 @@ public class searchMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton BtnSearchByCity;
     private javax.swing.JButton BtnSearchByModel;
     private javax.swing.JButton BtnSearchByModelNumber;
+    private javax.swing.JButton BtnSerialNumber;
     // End of variables declaration//GEN-END:variables
 }

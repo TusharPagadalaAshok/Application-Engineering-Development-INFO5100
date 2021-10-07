@@ -145,9 +145,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                                 .addComponent(lblAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(DropDownAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
+                                .addGap(42, 42, 42)
                                 .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)))))
+                                .addGap(45, 45, 45)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -191,8 +191,8 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                
         java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
             filters.add(RowFilter.regexFilter("(?i)" + CitySearch.getText().toString(),8));
-//            String availability = (String) DropDownAvailability.getSelectedItem();
-//            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+            String availability = (String) DropDownAvailability.getSelectedItem();
+            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
@@ -200,9 +200,13 @@ public class searchByCityJPanel extends javax.swing.JPanel {
          int count = 0;
 //        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
         for(int i = 0;i<model.getRowCount();i++){
-            count++;
+            if((model.getValueAt(i, 8)==CitySearch.getText()) && (model.getValueAt(i, 3)==DropDownAvailability.getSelectedItem())){
+                count++;
+            }
+            
         }
-        lblAvailableCount.setText("count = "+ count);
+        String s = String.valueOf(count);
+        lblAvailableCount.setText(s);
             
             
             
@@ -217,25 +221,6 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 
     private void DropDownAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownAvailabilityActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
-        TableRowSorter myTableRowSorter = new TableRowSorter(model);
-        carTableCity.setModel(model);
-        carTableCity.setRowSorter(myTableRowSorter);
-               
-        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
-        String availability = (String) DropDownAvailability.getSelectedItem();
-            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
-            
-            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
-            myTableRowSorter.setRowFilter(serviceFilter);
-            int count = 0;
-//        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
-        for(int i = 0;i<model.getRowCount();i++){
-            count++;
-        }
-        lblAvailableCount.setText("count = "+ count);
-        
-        
         
     }//GEN-LAST:event_DropDownAvailabilityActionPerformed
 
