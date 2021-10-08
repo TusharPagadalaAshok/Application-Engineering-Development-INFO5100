@@ -164,7 +164,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnSearchByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByCityActionPerformed
         // TODO add your handling code here:
-        searchByCityJPanel citySearchPanel = new searchByCityJPanel(history, getConfig);
+        searchByCityJPanel citySearchPanel = new searchByCityJPanel(history, getConfig, rightSplitPane);
         rightSplitPane.add("Search by City",citySearchPanel);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
@@ -205,7 +205,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
     private void BtnExpiredMaintenanceCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExpiredMaintenanceCertActionPerformed
         // TODO add your handling code here:
         
-        searchByMaintenanceCert expCert = new searchByMaintenanceCert(history);
+        searchByMaintenanceCert expCert = new searchByMaintenanceCert(history,rightSplitPane);
         rightSplitPane.add("Search by Certificate Expiry",expCert);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

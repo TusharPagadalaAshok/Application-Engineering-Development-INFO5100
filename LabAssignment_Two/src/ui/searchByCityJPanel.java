@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.awt.Rectangle;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -36,13 +38,15 @@ public class searchByCityJPanel extends javax.swing.JPanel {
      */
     carDetailsHistory history;
     carDetailsHistory getConfig;
+    JPanel rightSplitPane;
   
 //    JPanel createJPanel;
-    public searchByCityJPanel(carDetailsHistory history, carDetailsHistory getConfig) {
+    public searchByCityJPanel(carDetailsHistory history, carDetailsHistory getConfig, JPanel rightSplitPane) {
         initComponents();
        // ls = new ArrayList<carDetails>();
         this.history = history;
         this.getConfig  = getConfig;
+        this.rightSplitPane = rightSplitPane;
 //        this.createJPanel = createJPanel;
         getConfigFile();
 //        populatetable();
@@ -72,7 +76,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         DropDownAvailability = new javax.swing.JComboBox<>();
         lblAvailability = new javax.swing.JLabel();
         lblAvailableCount = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BackHome = new javax.swing.JButton();
 
         TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,11 +126,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblAvailability.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAvailability.setText("Availability:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("<<Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BackHomeActionPerformed(evt);
             }
         });
 
@@ -136,7 +140,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TitleCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -172,8 +176,8 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                         .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jButton1)))
-                .addGap(64, 64, 64)
+                        .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,22 +246,22 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_DropDownAvailabilityActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
         // TODO add your handling code here:
-        SearchByModelNo ModelNoSearchPanel = new SearchByModelNo(history, getConfig);
-        rightSplitPane.add("Search by Model Number",ModelNoSearchPanel);
+        searchMainJPanel BackHome = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BackHomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnSearch;
     private javax.swing.JTextField CitySearch;
     private javax.swing.JComboBox<String> DropDownAvailability;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
-    private javax.swing.JButton jButton1;
     private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailability;

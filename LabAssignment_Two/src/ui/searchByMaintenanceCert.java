@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -23,6 +24,7 @@ import model.carDetailsHistory;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
+import javax.swing.JPanel;
 
 /**
  *
@@ -34,9 +36,11 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
      * Creates new form searchByMaintenanceCert
      */
     carDetailsHistory history;
-    public searchByMaintenanceCert(carDetailsHistory history) {
+    JPanel rightSplitPane;
+    public searchByMaintenanceCert(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
         this.history = history;
+        this.rightSplitPane = rightSplitPane;
         
         getConfigFile();
         populatetable();
@@ -60,6 +64,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         carTableCity = new javax.swing.JTable();
         BtnExpiry = new javax.swing.JButton();
         LblExpiryCount = new javax.swing.JLabel();
+        BackHome = new javax.swing.JButton();
 
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,6 +97,14 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
             }
         });
 
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,21 +113,25 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LblExpiryCount, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(473, 473, 473))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnExpiry, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(LblExpiryCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BtnExpiry, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(LblExpiryCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(323, Short.MAX_VALUE))
@@ -146,8 +163,17 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count);
     }//GEN-LAST:event_BtnExpiryActionPerformed
 
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
+        // TODO add your handling code here:
+        searchMainJPanel BackHome = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BackHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnExpiry;
     private javax.swing.JLabel LblExpiryCount;
     private javax.swing.JTable carTableCity;
