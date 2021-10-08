@@ -75,12 +75,14 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblEnterCity = new javax.swing.JLabel();
         DropDownAvailability = new javax.swing.JComboBox<>();
         lblAvailability = new javax.swing.JLabel();
-        lblAvailableCount = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
 
-        TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TitleCity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleCity.setText("Search By City");
+        add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 1040, 31));
 
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,6 +107,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTableCity);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 1020, 210));
+        add(CitySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 185, 32));
+
         BtnSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnSearch.setText("Search");
         BtnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +117,10 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                 BtnSearchActionPerformed(evt);
             }
         });
+        add(BtnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 98, 35));
 
-        lblEnterCity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblEnterCity.setText("Enter the City:");
+        add(lblEnterCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 100, 32));
 
         DropDownAvailability.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         DropDownAvailability.addActionListener(new java.awt.event.ActionListener() {
@@ -122,9 +128,10 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                 DropDownAvailabilityActionPerformed(evt);
             }
         });
+        add(DropDownAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 73, -1));
 
-        lblAvailability.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAvailability.setText("Availability:");
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 32));
 
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BackHome.setText("<<Back");
@@ -133,67 +140,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                 BackHomeActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TitleCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 104, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DropDownAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(lblAvailableCount, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DropDownAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(346, Short.MAX_VALUE))
-        );
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 116, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -265,7 +212,6 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailability;
-    private javax.swing.JLabel lblAvailableCount;
     private javax.swing.JLabel lblEnterCity;
     // End of variables declaration//GEN-END:variables
 //
