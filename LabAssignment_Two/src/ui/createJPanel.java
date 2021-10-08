@@ -251,20 +251,24 @@ public class createJPanel extends javax.swing.JPanel {
         carDetails cd = history.addNewCarDetails();
         viewJPanel viewPanel = new viewJPanel(history);
         DefaultTableModel viewmodel = (DefaultTableModel) viewPanel.carTable.getModel();
-        for (int i = 0;i<viewmodel.getRowCount();i++){
+        
+        boolean flag = false;
+        
+          for (int i = 0;i<viewmodel.getRowCount();i++){
                  if (carSerialNumber.equals(viewmodel.getValueAt(i, 0))) {
                      TxtCarSerialNo.setText(" ");
                      carSerialNumber = TxtCarSerialNo.getText();
                      JOptionPane.showMessageDialog(this, "This Serial Number already exists! Re-Enter to proceed.");
-                     
-                     
+                 }
                  }
         
- 
-            
-            
-            
-        }
+                
+                         
+
+                     
+                     
+                     
+                 
         
         
         cd.setCarModel(carModel); 
@@ -278,6 +282,9 @@ public class createJPanel extends javax.swing.JPanel {
         cd.setAvailability(availability);
         cd.setLastMaintenanceDate(maintenanceDate);
         cd.setDate(Date);
+       
+        
+        
         
        JOptionPane.showMessageDialog(this, manufacturedBy+" "+carModel+" - "+modelNumber+" "+ df.format(now));
 //        LblModifiedDateView.setText("Fleet Database was last updated on: "+Date);

@@ -34,7 +34,7 @@ public class SearchByModelNo extends javax.swing.JPanel {
         this.history = history;
         this.getConfig  = getConfig;
          getConfigFile();
-        populatetable();
+//        populatetable();
     }
 
     /**

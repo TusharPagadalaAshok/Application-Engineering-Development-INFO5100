@@ -47,6 +47,9 @@ public class viewJPanel extends javax.swing.JPanel {
         initComponents();
         this.history = history;
         populateTable();
+        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
+         carTable.setModel(tblmodel);
+        
         String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
         File file = new File(FilePath);
         
@@ -95,6 +98,12 @@ public class viewJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "File not found!");
         }
         
+//        for(int i=0;i<tblmodel.getRowCount()-1;i++){    
+//            if (tblmodel.getValueAt(i, 0)== null) {
+////                JOptionPane.showMessageDialog(this,"row"+i);
+//                tblmodel.removeRow(i);
+//            }
+//        }
         
     }
 
@@ -534,12 +543,12 @@ public class viewJPanel extends javax.swing.JPanel {
              
             
         }
-        for(int i=0;i<model.getRowCount();i++){    
-            if (model.getValueAt(i, 0)== " ") {
-                model.removeRow(i);
-    }
-            
-        }
+//        for(int i=0;i<model.getRowCount();i++){    
+//            if (model.getValueAt(i, 0)== "") {
+//                model.removeRow(i);
+//    }
+//            
+//        }
         
     }
 
