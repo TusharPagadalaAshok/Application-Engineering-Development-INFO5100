@@ -43,74 +43,124 @@ public class MainJFrame extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnViewModify = new javax.swing.JButton();
         BtnSearch = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         rightSplitPane = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         leftSplitPane.setBackground(new java.awt.Color(153, 0, 255));
+        leftSplitPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnCreate.setBackground(new java.awt.Color(255, 153, 153));
         btnCreate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCreate.setText("Create");
+        btnCreate.setText("Add Cab");
+        btnCreate.setActionCommand("Add a Cab");
+        btnCreate.setOpaque(false);
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
+        leftSplitPane.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 171, 40));
 
+        btnViewModify.setBackground(new java.awt.Color(255, 153, 153));
         btnViewModify.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnViewModify.setText("View/Modify");
+        btnViewModify.setOpaque(false);
         btnViewModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewModifyActionPerformed(evt);
             }
         });
+        leftSplitPane.add(btnViewModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 171, 40));
 
+        BtnSearch.setBackground(new java.awt.Color(255, 153, 153));
         BtnSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnSearch.setText("Search");
+        BtnSearch.setOpaque(false);
         BtnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSearchActionPerformed(evt);
             }
         });
+        leftSplitPane.add(BtnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 170, 42));
 
-        javax.swing.GroupLayout leftSplitPaneLayout = new javax.swing.GroupLayout(leftSplitPane);
-        leftSplitPane.setLayout(leftSplitPaneLayout);
-        leftSplitPaneLayout.setHorizontalGroup(
-            leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftSplitPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(BtnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewModify, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        leftSplitPaneLayout.setVerticalGroup(
-            leftSplitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftSplitPaneLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewModify, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(778, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/3844432_magnifier_search_zoom_icon.png"))); // NOI18N
+        jLabel1.setEnabled(false);
+        jLabel1.setOpaque(true);
+        leftSplitPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 240, 60));
+
+        jLabel2.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/2639891_plus_icon.png"))); // NOI18N
+        jLabel2.setEnabled(false);
+        jLabel2.setOpaque(true);
+        leftSplitPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 240, 60));
+
+        jLabel3.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/2639799_create_new_icon.png"))); // NOI18N
+        jLabel3.setEnabled(false);
+        jLabel3.setOpaque(true);
+        leftSplitPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 240, 60));
 
         splitPane.setLeftComponent(leftSplitPane);
 
         rightSplitPane.setLayout(new java.awt.CardLayout());
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(200, 200));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(204, 102, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setBackground(new java.awt.Color(255, 102, 51));
+        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Welcome to Cab Management Tool!");
+        jLabel4.setOpaque(true);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 590, 90));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 49, 1039, 91));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/5452472_automobile_cab_car_taxi_transportation_icon.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 660, 520));
+
+        rightSplitPane.add(jPanel2, "card2");
+
         splitPane.setRightComponent(rightSplitPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1298, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -190,6 +240,13 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BtnSearch;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnViewModify;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel leftSplitPane;
     private javax.swing.JPanel rightSplitPane;
     private javax.swing.JSplitPane splitPane;
