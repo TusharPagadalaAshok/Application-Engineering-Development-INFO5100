@@ -265,8 +265,9 @@ public class createJPanel extends javax.swing.JPanel {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 //        
+
         String Date = df.format(now);
-        
+       
         
         carDetails cd = history.addNewCarDetails();
          
@@ -282,6 +283,9 @@ public class createJPanel extends javax.swing.JPanel {
         cd.setAvailability(availability);
         cd.setLastMaintenanceDate(maintenanceDate);
         cd.setDate(Date);
+         
+
+
       
         
         JOptionPane.showMessageDialog(this, carModel+" - "+modelNumber+" is added at "+ df.format(now));

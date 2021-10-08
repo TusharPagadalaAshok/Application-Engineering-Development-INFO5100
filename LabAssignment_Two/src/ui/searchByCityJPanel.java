@@ -45,7 +45,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         this.getConfig  = getConfig;
 //        this.createJPanel = createJPanel;
         getConfigFile();
-        populatetable();
+//        populatetable();
 //        sortTable();
         
         
@@ -72,6 +72,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         DropDownAvailability = new javax.swing.JComboBox<>();
         lblAvailability = new javax.swing.JLabel();
         lblAvailableCount = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -121,11 +122,23 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblAvailability.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAvailability.setText("Availability:");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("<<Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TitleCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -153,9 +166,14 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton1)))
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CitySearch, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEnterCity, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,6 +242,14 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_DropDownAvailabilityActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        SearchByModelNo ModelNoSearchPanel = new SearchByModelNo(history, getConfig);
+        rightSplitPane.add("Search by Model Number",ModelNoSearchPanel);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSearch;
@@ -231,6 +257,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> DropDownAvailability;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
+    private javax.swing.JButton jButton1;
     private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailability;
@@ -279,9 +306,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             // get the columns name from the first line
             // set columns name to the jtable model
             String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
+//            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
-            model.setColumnIdentifiers(columnsName);
+//            model.setColumnIdentifiers(columnsName);
             
             // get lines from txt file
             Object[] tableLines = br.lines().toArray();

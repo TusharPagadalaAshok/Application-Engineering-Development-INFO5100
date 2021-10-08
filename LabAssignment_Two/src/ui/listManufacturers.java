@@ -328,9 +328,9 @@ public class listManufacturers extends javax.swing.JPanel {
             // get the columns name from the first line
             // set columns name to the jtable model
             String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
+//            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
-            model.setColumnIdentifiers(columnsName);
+//            model.setColumnIdentifiers(columnsName);
             
             // get lines from txt file
             Object[] tableLines = br.lines().toArray();
@@ -386,9 +386,9 @@ public class listManufacturers extends javax.swing.JPanel {
             // get the columns name from the first line
             // set columns name to the jtable model
             String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
+//            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCityYear.getModel();
-            model.setColumnIdentifiers(columnsName);
+//            model.setColumnIdentifiers(columnsName);
             
             // get lines from txt file
             Object[] tableLines = br.lines().toArray();

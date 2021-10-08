@@ -6,6 +6,7 @@
 package ui;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.lang.System.Logger;
@@ -20,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
 import model.carDetails;
 import model.carDetailsHistory;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.temporal.TemporalAccessor;
@@ -53,9 +56,9 @@ public class viewJPanel extends javax.swing.JPanel {
             // get the columns name from the first line
             // set columns name to the jtable model
             String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
+//            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTable.getModel();
-            model.setColumnIdentifiers(columnsName);
+//            model.setColumnIdentifiers(columnsName);
             
             // get lines from txt file
             Object[] tableLines = br.lines().toArray();
@@ -443,6 +446,7 @@ public class viewJPanel extends javax.swing.JPanel {
                     //setting value of the "View"
                     
                     tblmodel.setValueAt(carSerialNum,carTable.getSelectedRow(),0);
+                    
                     tblmodel.setValueAt(carModel,carTable.getSelectedRow(),1);
                     tblmodel.setValueAt(manufacturedBy,carTable.getSelectedRow(),2);
                     tblmodel.setValueAt(availability,carTable.getSelectedRow(),3);
@@ -453,7 +457,12 @@ public class viewJPanel extends javax.swing.JPanel {
                     tblmodel.setValueAt(geoLocation,carTable.getSelectedRow(),8);
                     tblmodel.setValueAt(modelNumber,carTable.getSelectedRow(),9);
                     tblmodel.setValueAt(Date,carTable.getSelectedRow(),10);
-                    
+                    try {
+                        ExporttoFile();
+                    } catch (IOException ex) {
+                        java.util.logging.Logger.getLogger(viewJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    }
+                            
                    JOptionPane.showMessageDialog(this,"Updated Successfully at "+Date);
                    lblModifiedDateView.setText("Fleet Database was last updated on: "+Date);
                 
@@ -526,6 +535,31 @@ public class viewJPanel extends javax.swing.JPanel {
             
         }
         
+    }
+
+    private void ExporttoFile() throws IOException {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File file = new File("C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt");
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+               BufferedWriter bw = new BufferedWriter(fw);
+               
+               //loop for jtable rows
+               for(int i = 0; i < carTable.getRowCount(); i++){
+                   //loop for jtable column
+                   for(int j = 0; j < carTable.getColumnCount(); j++){
+                       bw.write(carTable.getModel().getValueAt(i, j)+"/");
+                   }
+                   //break line at the begin 
+                   //break line at the end 
+                   bw.write("\n");
+               }
+               //close BufferedWriter
+               bw.close();
+               //close FileWriter 
+               fw.close();
+
+
+
     }
 }
         
