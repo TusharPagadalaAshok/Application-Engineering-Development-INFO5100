@@ -145,10 +145,19 @@ public class viewJPanel extends javax.swing.JPanel {
         TxtGeoLocation = new javax.swing.JComboBox<>();
         LastMaintenanceDateView = new com.toedter.calendar.JDateChooser();
 
-        Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("View and Update Car Details");
+        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Title.setBackground(new java.awt.Color(255, 102, 51));
+        Title.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title.setText("View and Update Car Availability");
+        Title.setOpaque(true);
+        add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 1078, 27));
+
+        carTable.setAutoCreateRowSorter(true);
+        carTable.setBackground(new java.awt.Color(153, 255, 153));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -165,6 +174,10 @@ public class viewJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTable.setGridColor(new java.awt.Color(0, 0, 51));
+        carTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTable.setSelectionForeground(new java.awt.Color(0, 0, 204));
+        carTable.setShowGrid(true);
         carTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableMouseClicked(evt);
@@ -172,183 +185,100 @@ public class viewJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1010, 139));
+
+        btnUpdate.setBackground(new java.awt.Color(255, 153, 153));
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setOpaque(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 180, 50));
+        add(TxtManufacturedBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 174, 30));
+        add(TxtManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 174, 30));
+        add(TxtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 174, 30));
 
+        lblCarModel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCarModel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCarModel.setText("Car Model:");
+        add(lblCarModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 157, -1));
 
+        lblMinPassengerCap.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMinPassengerCap.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMinPassengerCap.setText("Min Passenger Capacity:");
+        add(lblMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 157, -1));
+        add(TxtCarModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 174, 30));
 
+        lblMaxPassengerCap.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMaxPassengerCap.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMaxPassengerCap.setText("Max Passenger Capacity:");
+        add(lblMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 157, -1));
+        add(TxtMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 174, 30));
 
+        lblManufacturedDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblManufacturedDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblManufacturedDate.setText("Manufactured Year:");
+        add(lblManufacturedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 157, -1));
+        add(TxtMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 174, 30));
 
+        lblCarSerialNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCarSerialNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCarSerialNo.setText("Car Serial Number:");
+        add(lblCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 157, -1));
 
+        lblManufacturedBy.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblManufacturedBy.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblManufacturedBy.setText("Manufacturer By:");
+        add(lblManufacturedBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 157, -1));
+        add(TxtCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 370, 174, 30));
 
+        lblGeoLocation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblGeoLocation.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGeoLocation.setText("Geo Location:");
+        add(lblGeoLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 157, 21));
 
+        lblModelNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModelNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblModelNumber.setText("Model Number:");
+        add(lblModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 157, 21));
 
+        lblLastMaintenanceDate1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         lblLastMaintenanceDate1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate1.setText("Available?:");
+        add(lblLastMaintenanceDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, 210, 20));
 
+        lblLastMaintenanceDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblLastMaintenanceDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate.setText("Last Maintenance Date:");
+        lblLastMaintenanceDate.setVerifyInputWhenFocusTarget(false);
+        lblLastMaintenanceDate.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        add(lblLastMaintenanceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 148, 30));
 
         buttonGroupAvailableView.add(RbAvailabilityYes);
+        RbAvailabilityYes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RbAvailabilityYes.setText("Yes");
+        add(RbAvailabilityYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, -1, 20));
 
         buttonGroupAvailableView.add(RbAvailabilityNo);
+        RbAvailabilityNo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RbAvailabilityNo.setText("No");
         RbAvailabilityNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RbAvailabilityNoActionPerformed(evt);
             }
         });
+        add(RbAvailabilityNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, -1, 20));
 
         lblModifiedDateView.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModifiedDateView.setForeground(new java.awt.Color(255, 0, 51));
+        add(lblModifiedDateView, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 417, 22));
 
         TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "New York City", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Jose", "Fort Worth", "Jacksonville", "Columbus", "Charlotte", "Indianapolis", "San Francisco", "Seattle", "Denver", "Washington", "Boston", "El Paso", "Nashville", "Oklahoma City", "Las Vegas", "Detroit", "Portland", "Memphis", "Louisville", "Milwaukee", "Baltimore", "Albuquerque", "Tucson", "Mesa", "Fresno", "Sacramento", "Atlanta", "Kansas City", "Colorado Springs", "Raleigh", "Omaha", "Miami", "Long Beach", "Virginia Beach", "Oakland", "Minneapolis", "Tampa", "Tulsa", "Arlington", "Wichita", "Bakersfield", "Aurora", "New Orleans", "Cleveland", "Anaheim", "Henderson", "Honolulu", "Riverside", "Santa Ana", "Corpus Christi", "Lexington", "San Juan", "Stockton", "St. Paul", "Cincinnati", "Greensboro", "Pittsburgh", "Irvine", "St. Louis", "Lincoln", "Orlando", "Durham", "Plano", "Anchorage", "Newark", "Chula Vista", "Fort Wayne", "Chandler", "Toledo", "St. Petersburg", "Reno", "Laredo", "Scottsdale", "North Las Vegas", "Lubbock", "Madison", "Gilbert", "Jersey City", "Glendale", "Buffalo", "Winston-Salem", "Chesapeake", "Fremont", "Norfolk", "Irving", "Garland", "Paradise", "Arlington", "Richmond", "Hialeah", "Boise", "Spokane", "Frisco", "Moreno Valley", "Tacoma", "Fontana", "Modesto", "Baton Rouge", "Port St. Lucie", "San Bernardino", "McKinney", "Fayetteville", "Santa Clarita", "Des Moines", "Oxnard", "Birmingham", "Spring Valley", "Huntsville", "Rochester", "Cape Coral", "Tempe", "Grand Rapids", "Yonkers", "Overland Park", "Salt Lake City", "Amarillo", "Augusta", "Columbus", "Tallahassee", "Montgomery", "Huntington Beach", "Akron", "Little Rock", "Glendale", "Grand Prairie", "Aurora", "Sunrise Manor", "Ontario", "Sioux Falls", "Knoxville", "Vancouver", "Mobile", "Worcester", "Chattanooga", "Brownsville", "Peoria", "Fort Lauderdale", "Shreveport", "Newport News", "Providence", "Elk Grove", "Rancho Cucamonga", "Salem", "Pembroke Pines", "Santa Rosa", "Eugene", "Oceanside", "Cary", "Fort Collins", "Corona", "Enterprise", "Garden Grove", "Springfield", "Clarksville", "Bayamon", "Lakewood", "Alexandria", "Hayward", "Murfreesboro", "Killeen", "Hollywood", "Lancaster", "Salinas", "Jackson", "Midland", "Macon County", "Kansas City", "Palmdale", "Sunnyvale", "Springfield", "Escondido", "Pomona", "Bellevue", "Surprise", "Naperville", "Pasadena", "Denton", "Roseville", "Joliet", "Thornton", "McAllen", "Paterson", "Rockford", "Carrollton", "Bridgeport", "Miramar", "Round Rock", "Metairie", "Olathe", "Waco" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(lblLastMaintenanceDate, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(LastMaintenanceDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblMinPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtMinPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(lblLastMaintenanceDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(RbAvailabilityYes)
-                        .addGap(7, 7, 7)
-                        .addComponent(RbAvailabilityNo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblMaxPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtMaxPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblManufacturedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblCarSerialNo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtCarSerialNo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(236, 236, 236)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblManufacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtManufacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblGeoLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtGeoLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(lblModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(TxtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(210, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
-            .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(lblModifiedDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCarModel)
-                    .addComponent(TxtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblLastMaintenanceDate, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LastMaintenanceDateView, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMinPassengerCap)
-                    .addComponent(TxtMinPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLastMaintenanceDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RbAvailabilityYes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RbAvailabilityNo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMaxPassengerCap)
-                    .addComponent(TxtMaxPassengerCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManufacturedDate)
-                    .addComponent(TxtManufacturedYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(lblCarSerialNo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(TxtCarSerialNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManufacturedBy)
-                    .addComponent(TxtManufacturedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGeoLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtGeoLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        add(TxtGeoLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 174, 30));
+        add(LastMaintenanceDateView, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 180, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void RbAvailabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbAvailabilityNoActionPerformed
