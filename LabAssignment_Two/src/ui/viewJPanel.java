@@ -46,7 +46,7 @@ public class viewJPanel extends javax.swing.JPanel {
     public viewJPanel(carDetailsHistory history) {
         initComponents();
         this.history = history;
-        populateTable();
+        
         DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
          carTable.setModel(tblmodel);
         
@@ -97,6 +97,7 @@ public class viewJPanel extends javax.swing.JPanel {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "File not found!");
         }
+        populateTable();
         
 //        for(int i=0;i<tblmodel.getRowCount()-1;i++){    
 //            if (tblmodel.getValueAt(i, 0)== null) {
@@ -156,7 +157,6 @@ public class viewJPanel extends javax.swing.JPanel {
         Title.setOpaque(true);
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 1078, 27));
 
-        carTable.setAutoCreateRowSorter(true);
         carTable.setBackground(new java.awt.Color(153, 255, 153));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -410,7 +410,7 @@ public class viewJPanel extends javax.swing.JPanel {
                     if(carTable.getRowCount()== 0)
                         JOptionPane.showMessageDialog(this,"Table is empty!");
                     else
-                        JOptionPane.showMessageDialog(this,"Select just one row!");
+                        JOptionPane.showMessageDialog(this,"Select a row!");
                                          
                     }
                 

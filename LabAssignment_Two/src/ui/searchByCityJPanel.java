@@ -77,6 +77,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblAvailability = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TitleCity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -133,8 +134,10 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblAvailability.setText("Availability:");
         add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 32));
 
-        BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BackHome.setBackground(new java.awt.Color(255, 204, 153));
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BackHome.setText("<<Back");
+        BackHome.setOpaque(false);
         BackHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackHomeActionPerformed(evt);

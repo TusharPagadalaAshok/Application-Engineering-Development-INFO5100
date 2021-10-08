@@ -214,7 +214,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
     private void BtnMinMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMinMaxActionPerformed
         // TODO add your handling code here:
         
-        searchByMinMaxPassenger minmaxpassenger = new searchByMinMaxPassenger(history);
+        searchByMinMaxPassenger minmaxpassenger = new searchByMinMaxPassenger(history,rightSplitPane);
         rightSplitPane.add("Search by Min/Max Passenger",minmaxpassenger);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

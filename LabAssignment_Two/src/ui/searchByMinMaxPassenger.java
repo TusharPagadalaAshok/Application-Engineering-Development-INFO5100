@@ -5,11 +5,13 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.RowFilter.ComparisonType;
 import javax.swing.table.DefaultTableModel;
@@ -28,10 +30,12 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
      * Creates new form searchByMinMaxPassenger
      */
     carDetailsHistory history;
-    public searchByMinMaxPassenger(carDetailsHistory history) {
+    JPanel rightSplitPane;
+    public searchByMinMaxPassenger(carDetailsHistory history, JPanel rightSplitPane) {
         initComponents();
         
         this.history = history;
+        this.rightSplitPane = rightSplitPane;
         
         getConfigFile();
         populatetable();
@@ -86,6 +90,9 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         lblMax = new javax.swing.JLabel();
         lblMin = new javax.swing.JLabel();
         BtnMinMaxSearch = new javax.swing.JButton();
+        BackHome = new javax.swing.JButton();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,11 +124,17 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 882, 139));
+        add(TxtMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 139, 145, 32));
+        add(TxtMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 138, 145, 34));
+
         lblMax.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMax.setText("Max:");
+        add(lblMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 107, 32, 25));
 
         lblMin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMin.setText("Min:");
+        add(lblMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 107, 32, 25));
 
         BtnMinMaxSearch.setText("Search");
         BtnMinMaxSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -129,47 +142,18 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
                 BtnMinMaxSearchActionPerformed(evt);
             }
         });
+        add(BtnMinMaxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 138, 129, 34));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtMin, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMax, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TxtMax, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54)
-                                .addComponent(BtnMinMaxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMax, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtMax, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtMin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnMinMaxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(341, Short.MAX_VALUE))
-        );
+        BackHome.setBackground(new java.awt.Color(255, 204, 153));
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.setOpaque(false);
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackHomeActionPerformed(evt);
+            }
+        });
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 116, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
@@ -268,8 +252,17 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnMinMaxSearchActionPerformed
 
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
+        // TODO add your handling code here:
+        searchMainJPanel BackHome = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BackHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnMinMaxSearch;
     private javax.swing.JTextField TxtMax;
     private javax.swing.JTextField TxtMin;
