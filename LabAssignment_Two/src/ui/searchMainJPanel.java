@@ -49,43 +49,60 @@ public class searchMainJPanel extends javax.swing.JPanel {
         BtnSerialNumber = new javax.swing.JButton();
         BtnMinMax = new javax.swing.JButton();
         BtnFirstAvailableCab = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnSearchByCity.setBackground(new java.awt.Color(255, 153, 153));
         BtnSearchByCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByCity.setText("Search by City & Availability>>");
         BtnSearchByCity.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSearchByCity.setOpaque(false);
         BtnSearchByCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSearchByCityActionPerformed(evt);
             }
         });
+        add(BtnSearchByCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 80, 350, 30));
 
+        BtnSearchByModelNumber.setBackground(new java.awt.Color(255, 153, 153));
         BtnSearchByModelNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByModelNumber.setText("Search by Model No.>>");
         BtnSearchByModelNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSearchByModelNumber.setOpaque(false);
         BtnSearchByModelNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSearchByModelNumberActionPerformed(evt);
             }
         });
+        add(BtnSearchByModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 140, 350, 30));
 
+        BtnSearchByModel.setBackground(new java.awt.Color(255, 153, 153));
         BtnSearchByModel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSearchByModel.setText("Search by Model>>");
         BtnSearchByModel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSearchByModel.setOpaque(false);
         BtnSearchByModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSearchByModelActionPerformed(evt);
             }
         });
+        add(BtnSearchByModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 200, 350, 30));
 
+        BtnListManufacturers.setBackground(new java.awt.Color(255, 153, 153));
         BtnListManufacturers.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnListManufacturers.setText("List all Manufacturers>>");
         BtnListManufacturers.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnListManufacturers.setOpaque(false);
         BtnListManufacturers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnListManufacturersActionPerformed(evt);
             }
         });
+        add(BtnListManufacturers, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 260, 350, 30));
 
+        BtnExpiredMaintenanceCert.setBackground(new java.awt.Color(255, 153, 153));
         BtnExpiredMaintenanceCert.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnExpiredMaintenanceCert.setText("Check for Maintenance Certificate Expiry>>");
         BtnExpiredMaintenanceCert.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -94,72 +111,46 @@ public class searchMainJPanel extends javax.swing.JPanel {
                 BtnExpiredMaintenanceCertActionPerformed(evt);
             }
         });
+        add(BtnExpiredMaintenanceCert, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 350, 30));
 
+        BtnSerialNumber.setBackground(new java.awt.Color(255, 153, 153));
         BtnSerialNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnSerialNumber.setText("List Attributes by Serial Number>>");
         BtnSerialNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnSerialNumber.setOpaque(false);
         BtnSerialNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSerialNumberActionPerformed(evt);
             }
         });
+        add(BtnSerialNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 350, 32));
 
+        BtnMinMax.setBackground(new java.awt.Color(255, 153, 153));
         BtnMinMax.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnMinMax.setText("Search Cars by Min and Max Passengers Capacity>>");
         BtnMinMax.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnMinMax.setOpaque(false);
         BtnMinMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMinMaxActionPerformed(evt);
             }
         });
+        add(BtnMinMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 440, 350, 32));
 
+        BtnFirstAvailableCab.setBackground(new java.awt.Color(255, 153, 153));
         BtnFirstAvailableCab.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnFirstAvailableCab.setText("Get the First Available Cab>>");
         BtnFirstAvailableCab.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        BtnFirstAvailableCab.setOpaque(false);
         BtnFirstAvailableCab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnFirstAvailableCabActionPerformed(evt);
             }
         });
+        add(BtnFirstAvailableCab, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 349, 32));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(136, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnSearchByCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSearchByModel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnListManufacturers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSerialNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnMinMax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnFirstAvailableCab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(115, 115, 115))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(BtnSearchByCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnSearchByModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnSearchByModel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnListManufacturers, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnExpiredMaintenanceCert, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnMinMax, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnFirstAvailableCab, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/320px-Taxi_picture.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 340, 260));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSearchByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByCityActionPerformed
@@ -250,5 +241,6 @@ public class searchMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton BtnSearchByModel;
     private javax.swing.JButton BtnSearchByModelNumber;
     private javax.swing.JButton BtnSerialNumber;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
