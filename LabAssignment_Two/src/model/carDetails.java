@@ -23,7 +23,7 @@ public class carDetails {
     public void setManufacturedYear(long manufacturedYear) {
         this.manufacturedYear = manufacturedYear;
     }
-    private long carSerialNo;
+    private String carSerialNo;
     private String manufacturedBy;
     private String geoLocation;
     private double modelNumber;
@@ -74,11 +74,11 @@ public class carDetails {
 
     
 
-    public long getCarSerialNo() {
+    public String getCarSerialNo() {
         return carSerialNo;
     }
 
-    public void setCarSerialNo(long carSerialNo) {
+    public void setCarSerialNo(String carSerialNo) {
         this.carSerialNo = carSerialNo;
     }
 

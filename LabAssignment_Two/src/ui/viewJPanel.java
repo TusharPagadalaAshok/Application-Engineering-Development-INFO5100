@@ -46,7 +46,7 @@ public class viewJPanel extends javax.swing.JPanel {
     public viewJPanel(carDetailsHistory history) {
         initComponents();
         this.history = history;
-        
+        populateTable();
         String FilePath = "C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt";
         File file = new File(FilePath);
         
@@ -95,7 +95,7 @@ public class viewJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "File not found!");
         }
         
-        populateTable();
+        
     }
 
     /**
@@ -495,7 +495,7 @@ public class viewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroupAvailableView;
     private javax.swing.ButtonGroup buttonGroupMaintenanceCheckView;
-    private javax.swing.JTable carTable;
+    public javax.swing.JTable carTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCarModel;
     private javax.swing.JLabel lblCarSerialNo;
@@ -515,7 +515,7 @@ public class viewJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) carTable.getModel();
 //        model.setRowCount(0);
-        
+    
         for(carDetails cdh: history.getHistory()){
              Object[] row = new Object[11];
              row[0] = cdh.getCarSerialNo();
@@ -532,6 +532,12 @@ public class viewJPanel extends javax.swing.JPanel {
              lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
              model.addRow(row);
              
+            
+        }
+        for(int i=0;i<model.getRowCount();i++){    
+            if (model.getValueAt(i, 0)== " ") {
+                model.removeRow(i);
+    }
             
         }
         
