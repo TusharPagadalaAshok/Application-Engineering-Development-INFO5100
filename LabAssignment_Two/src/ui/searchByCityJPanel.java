@@ -80,11 +80,15 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TitleCity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        TitleCity.setBackground(new java.awt.Color(255, 102, 51));
+        TitleCity.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        TitleCity.setForeground(new java.awt.Color(255, 255, 255));
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleCity.setText("Search By City");
-        add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 1040, 31));
+        TitleCity.setOpaque(true);
+        add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 1060, 31));
 
+        carTableCity.setBackground(new java.awt.Color(153, 255, 153));
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -94,13 +98,16 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        carTableCity.setSelectionBackground(new java.awt.Color(204, 255, 102));
+        carTableCity.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        carTableCity.setShowGrid(true);
         carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableCityMouseClicked(evt);
@@ -108,7 +115,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTableCity);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 1020, 210));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1040, 270));
         add(CitySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 185, 32));
 
         BtnSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -118,10 +125,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
                 BtnSearchActionPerformed(evt);
             }
         });
-        add(BtnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 98, 35));
+        add(BtnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 98, 35));
 
+        lblEnterCity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblEnterCity.setText("Enter the City:");
-        add(lblEnterCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 100, 32));
+        add(lblEnterCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 90, 32));
 
         DropDownAvailability.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
         DropDownAvailability.addActionListener(new java.awt.event.ActionListener() {
@@ -131,8 +139,9 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         add(DropDownAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 73, -1));
 
+        lblAvailability.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblAvailability.setText("Availability:");
-        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 32));
+        add(lblAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 80, 32));
 
         BackHome.setBackground(new java.awt.Color(255, 204, 153));
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -162,23 +171,19 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         carTableCity.setRowSorter(myTableRowSorter);
                
         java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
-            filters.add(RowFilter.regexFilter("(?i)" + CitySearch.getText().toString(),8));
+            filters.add(RowFilter.regexFilter("(?i)" + CitySearch.getText(),8));
             String availability = (String) DropDownAvailability.getSelectedItem();
             filters.add(RowFilter.regexFilter("(?i)" + availability,3));
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
-//            
-//         int count = 0;
-////        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
-//        for(int i = 0;i<model.getRowCount();i++){
-//            if((model.getValueAt(i, 8)==CitySearch.getText())){
-//                count++;
-//            }
-//            
-//        }
-//        String s = String.valueOf(count);
-//        lblAvailableCount.setText(s);
+       
+
+
+
+
+            
+         
             
             
             

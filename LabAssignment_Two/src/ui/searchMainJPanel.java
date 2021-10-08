@@ -149,8 +149,8 @@ public class searchMainJPanel extends javax.swing.JPanel {
         });
         add(BtnFirstAvailableCab, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 349, 32));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/320px-Taxi_picture.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 340, 260));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMages/magnifying-glass-g5e936bf2b_640.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 90, 660, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSearchByCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByCityActionPerformed
@@ -166,7 +166,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
     private void BtnSearchByModelNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModelNumberActionPerformed
         // TODO add your handling code here:
         
-        SearchByModelNo ModelNoSearchPanel = new SearchByModelNo(history, getConfig);
+        SearchByModelNo ModelNoSearchPanel = new SearchByModelNo(history, getConfig,rightSplitPane);
         rightSplitPane.add("Search by Model Number",ModelNoSearchPanel);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

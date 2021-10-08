@@ -349,7 +349,7 @@ public class viewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
                 DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-                    
+                    carTable.setModel(tblmodel);
                 if(carTable.getSelectedRowCount() == 1){
                     
                     String carSerialNum = TxtCarSerialNo.getText();
@@ -487,12 +487,14 @@ public class viewJPanel extends javax.swing.JPanel {
         File file = new File("C:\\Users\\patus\\Documents\\git\\PagadalaAshok_Tushar_002130680\\LabAssignment_Two\\CarData.txt");
         FileWriter fw = new FileWriter(file.getAbsoluteFile());
                BufferedWriter bw = new BufferedWriter(fw);
-               
+               DefaultTableModel model = (DefaultTableModel) carTable.getModel();
                //loop for jtable rows
-               for(int i = 0; i < carTable.getRowCount(); i++){
+               carTable.setModel(model);
+               bw.write("\n");
+               for(int i = 0; i < model.getRowCount(); i++){
                    //loop for jtable column
-                   for(int j = 0; j < carTable.getColumnCount(); j++){
-                       bw.write(carTable.getModel().getValueAt(i, j)+"/");
+                   for(int j = 0; j < model.getColumnCount(); j++){
+                       bw.write(model.getValueAt(i, j)+"/");
                    }
                    //break line at the begin 
                    //break line at the end 

@@ -234,6 +234,7 @@ public class createJPanel extends javax.swing.JPanel {
                 JRadioButton Radio2 = (JRadioButton) bg1.nextElement();
                 if(Radio2.isSelected())
                      availability = Radio2.getText();
+                     
                 
                 
         

@@ -5,11 +5,13 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -22,6 +24,7 @@ import model.myRowFilterModelNo;
  *
  * @author patus
  */
+
 public class SearchByModelNo extends javax.swing.JPanel {
 
     /**
@@ -29,10 +32,12 @@ public class SearchByModelNo extends javax.swing.JPanel {
      */
        carDetailsHistory history;
     carDetailsHistory getConfig;
-    public SearchByModelNo(carDetailsHistory history,carDetailsHistory getConfig) {
+    JPanel rightSplitPane;
+    public SearchByModelNo(carDetailsHistory history,carDetailsHistory getConfig, JPanel rightSplitPane) {
         initComponents();
         this.history = history;
         this.getConfig  = getConfig;
+        this.rightSplitPane = rightSplitPane;
          getConfigFile();
 //        populatetable();
     }
@@ -51,11 +56,22 @@ public class SearchByModelNo extends javax.swing.JPanel {
         carTableCity = new javax.swing.JTable();
         SearchByModelNo = new javax.swing.JTextField();
         BtnSearchByModelNo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        BackHome = new javax.swing.JButton();
 
-        TitleCity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        setBackground(new java.awt.Color(153, 153, 255));
+        setToolTipText("");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TitleCity.setBackground(new java.awt.Color(255, 102, 51));
+        TitleCity.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        TitleCity.setForeground(new java.awt.Color(255, 255, 255));
         TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleCity.setText("Search By Model Number");
+        TitleCity.setOpaque(true);
+        add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1170, 31));
 
+        carTableCity.setBackground(new java.awt.Color(153, 255, 153));
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,6 +88,7 @@ public class SearchByModelNo extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTableCity.setGridColor(new java.awt.Color(0, 0, 0));
         carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableCityMouseClicked(evt);
@@ -79,49 +96,38 @@ public class SearchByModelNo extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTableCity);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 201, 990, 230));
+
         SearchByModelNo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 SearchByModelNoKeyReleased(evt);
             }
         });
+        add(SearchByModelNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 193, 33));
 
-        BtnSearchByModelNo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnSearchByModelNo.setText("Search Model No.");
+        BtnSearchByModelNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BtnSearchByModelNo.setText("Search");
         BtnSearchByModelNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSearchByModelNoActionPerformed(evt);
             }
         });
+        add(BtnSearchByModelNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, 33));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TitleCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnSearchByModelNo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(TitleCity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnSearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchByModelNo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Enter the Model Number:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 160, 30));
+
+        BackHome.setBackground(new java.awt.Color(255, 204, 153));
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.setOpaque(false);
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackHomeActionPerformed(evt);
+            }
+        });
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 116, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -158,12 +164,22 @@ public class SearchByModelNo extends javax.swing.JPanel {
             myTableRowSorter.setRowFilter(serviceFilter);
     }//GEN-LAST:event_BtnSearchByModelNoActionPerformed
 
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
+        // TODO add your handling code here:
+        searchMainJPanel BackHome1 = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome1);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BackHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnSearchByModelNo;
     private javax.swing.JTextField SearchByModelNo;
     private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
@@ -218,17 +234,36 @@ public class SearchByModelNo extends javax.swing.JPanel {
             {
                 String line = tableLines[i].toString().trim();
                 String[] dataRow = line.split("/");
-                System.out.println(dataRow[i]);
-                model.addRow(dataRow);
-              
+                
+                    model.addRow(dataRow);
+                
+                
+                
+//                carDetails cdf = getConfig.addNewCarDetailsConfig();
+//                cdf.setCarModel(dataRow[i]);
+//                cdf.setMinPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setMaxPassengerCap(Integer.parseInt(dataRow[i]));
+//                cdf.setManufacturedYear(Long.parseLong(dataRow[i]));
+//                cdf.setCarSerialNo(Long.parseLong(dataRow[i]));
+//                cdf.setManufacturedBy(dataRow[i]);
+//                cdf.setGeoLocation(dataRow[i]);
+//                cdf.setModelNumber(Double.parseDouble(dataRow[i]));
+//                cdf.setAvailability(dataRow[i]);
+//                cdf.setLastMaintenanceDate(dataRow[i]);
+//                cdf.setDate(dataRow[i]);
+            
             }
-        
+            
+            
+             
+             
+            
+ 
+            
         } catch (Exception ex) {
 //            Logger.getLogger(TextFileDataToJTable.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "File not found!");
         }
-
-
     }
 }
 
