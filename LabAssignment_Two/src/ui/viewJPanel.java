@@ -184,7 +184,7 @@ public class viewJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1010, 139));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1010, 150));
 
         btnUpdate.setBackground(new java.awt.Color(255, 153, 153));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N

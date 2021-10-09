@@ -36,10 +36,21 @@ public class FirstAvailableCar extends javax.swing.JPanel {
         initComponents();
         this.history = history;
         getConfigFile();
-        populatetable();
+//        populatetable();
 //        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
 //        carTable.setModel(model);
 //        model.addColumn("Fist Available Car");
+DefaultTableModel model = (DefaultTableModel) carTable.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTable.setModel(model);
+        carTable.setRowSorter(myTableRowSorter);
+//               
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+//        buttonGroupAvailableCar.clearSelection();
+        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
+        filters.add(RowFilter.regexFilter("Yes",3));
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
     }
 
     /**
@@ -128,7 +139,7 @@ public class FirstAvailableCar extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 464, 888, 106));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 464, 930, 180));
 
         lblManufacturedDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblManufacturedDate.setText("Manufactured Year:");
@@ -195,55 +206,46 @@ public class FirstAvailableCar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
         // TODO add your handling code here:
 
+//         buttonGroupMaintenanceCheckView.clearSelection();
         buttonGroupAvailableCar.clearSelection();
         DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-
-        TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),0).toString());
-        TxtCarModel.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),1).toString());
-        TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),2).toString());
-//        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
-//        String dd = tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),4).toString();
-//        Date date;
-//        try {
-//            date = new SimpleDateFormat("yyyy-MM-dd").parse(dd);
-//            LastMaintenanceDateView.setDate(date);
-//        } catch (ParseException ex) {
-//            java.util.logging.Logger.getLogger(viewJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-
-        TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),5).toString());
-        TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),6).toString());
-        TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),7).toString());
-        TxtGeoLocation.setSelectedItem(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),8).toString());
-        TxtModelNumber.setText(tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),9).toString());
-        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
+        
+       TxtCarSerialNo.setText(tblmodel.getValueAt(carTable.getSelectedRow(),0).toString());
+       TxtCarModel.setText(tblmodel.getValueAt(carTable.getSelectedRow(),1).toString());
+       TxtManufacturedBy.setText(tblmodel.getValueAt(carTable.getSelectedRow(),2).toString());
+//       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
+        String dd = tblmodel.getValueAt(carTable.getSelectedRow(),4 ).toString();
+        Date date;
+        try {
+            date = new SimpleDateFormat("yyyy-mm-dd").parse(dd);
+            LastMaintenanceDateView.setDate(date);
+        } catch (ParseException ex) {
+            java.util.logging.Logger.getLogger(viewJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+       
+       TxtMinPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),5).toString());
+       TxtMaxPassengerCap.setText(tblmodel.getValueAt(carTable.getSelectedRow(),6).toString());
+       TxtManufacturedYear.setText(tblmodel.getValueAt(carTable.getSelectedRow(),7).toString());
+       TxtGeoLocation.setSelectedItem(tblmodel.getValueAt(carTable.getSelectedRow(),8).toString());
+       TxtModelNumber.setText(tblmodel.getValueAt(carTable.getSelectedRow(),9).toString());
+//       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
         //Availability
-        String availability = tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),3).toString();
-
+       String availability = tblmodel.getValueAt(carTable.getSelectedRow(),3).toString();
+       
         if (availability.equals("Yes")) {
             RbAvailabilityYes.setSelected(true);
         }
         else {
             RbAvailabilityNo.setSelected(true);
         }
-        //Maintenance Check
-
-        String maintenanceChk = tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),4).toString();
-
-        //        if (maintenanceChk.equals("Yes")) {
-            //            RbMaintenanceYes.setSelected(true);
-            //        }
-        //        else {
-            //            RbMaintenanceNo.setSelected(true);
-            //        }
-        //
     }//GEN-LAST:event_carTableMouseClicked
 
     private void RbAvailabilityNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbAvailabilityNoActionPerformed
@@ -252,66 +254,51 @@ public class FirstAvailableCar extends javax.swing.JPanel {
 
     private void BtnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFindActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
-        TableRowSorter myTableRowSorter = new TableRowSorter(model);
-        carTable.setModel(model);
-        carTable.setRowSorter(myTableRowSorter);
-//               
-        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
-        buttonGroupAvailableCar.clearSelection();
-        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
-        filters.add(RowFilter.regexFilter("Yes",3));
-            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
-            myTableRowSorter.setRowFilter(serviceFilter);
-
-        TxtCarSerialNo.setText(tblmodel.getValueAt(0,0).toString());
-        TxtCarModel.setText(tblmodel.getValueAt(0,1).toString());
-        TxtManufacturedBy.setText(tblmodel.getValueAt(0,2).toString());
-//        //       TxtAvailability.setText(tblmodel.getValueAt(carTable.getSelectedRow(),3).toString());
-//        String dd = tblmodel.getValueAt(carTable.convertRowIndexToModel(carTable.getSelectedRow()),4).toString();
-//        Date date;
-//        try {
-//            date = new SimpleDateFormat("yyyy-MM-dd").parse(dd);
-//            LastMaintenanceDateView.setDate(date);
-//        } catch (ParseException ex) {
-//            java.util.logging.Logger.getLogger(viewJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-
-        TxtMinPassengerCap.setText(tblmodel.getValueAt(0,5).toString());
-        TxtMaxPassengerCap.setText(tblmodel.getValueAt(0,6).toString());
-        TxtManufacturedYear.setText(tblmodel.getValueAt(0,7).toString());
-        TxtGeoLocation.setSelectedItem(tblmodel.getValueAt(0,8).toString());
-        TxtModelNumber.setText(tblmodel.getValueAt(0,9).toString());
-        //       lblDate.setText(tblmodel.getValueAt(carTable.getSelectedRow(),10).toString());
-        //Availability
-        String availability = tblmodel.getValueAt(0,3).toString();
-
-        if (availability.equals("Yes")) {
-            RbAvailabilityYes.setSelected(true);
-        }
-        else {
-            RbAvailabilityNo.setSelected(true);
-        }
-        //Maintenance Check
-        String dd = tblmodel.getValueAt(0,4).toString();
-        Date date;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(dd);
-            LastMaintenanceDateView.setDate(date);
-        } catch (ParseException ex) {
-            Logger.getLogger(FirstAvailableCar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DefaultTableModel tblmodel = (DefaultTableModel) carTable.getModel();
+//        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTable.setModel(tblmodel);
+//        carTable.setRowSorter(myTableRowSorter);
+           buttonGroupAvailableCar.clearSelection();    
+//        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+//        buttonGroupAvailableCar.clearSelection();
+//        DefaultTableModel tblmodel = (DefaultTableModel)carTable.getModel();
+//        filters.add(RowFilter.regexFilter("Yes",3));
+//            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+//            myTableRowSorter.setRowFilter(serviceFilter);
+        TxtCarSerialNo.setText(carTable.getValueAt(1,1).toString());
+//       for(int i = 0; i<carTable.getRowCount();i++){
+//           if ((String) carTable.getValueAt(i,3) == "Yes") {
+////                TxtCarSerialNo.setText("Found it!");
+                TxtCarModel.setText(carTable.getValueAt(1,1).toString());
+                TxtManufacturedBy.setText(carTable.getValueAt(1,2).toString());
+                TxtMinPassengerCap.setText(carTable.getValueAt(1,5).toString());
+                TxtMaxPassengerCap.setText(carTable.getValueAt(1,6).toString());
+                TxtManufacturedYear.setText(carTable.getValueAt(1,7).toString());
+                TxtGeoLocation.setSelectedItem(carTable.getValueAt(1,8).toString());
+                TxtModelNumber.setText(carTable.getValueAt(1,9).toString());
+                String availability = carTable.getValueAt(1,3).toString();
+                if (availability.equals("Yes")) {
+                    RbAvailabilityYes.setSelected(true);
+                }
+                else {
+                    RbAvailabilityNo.setSelected(true);
+                }
+//                Maintenance Check
+                String dd = carTable.getValueAt(1,4).toString();
+                Date date;
+                try {
+                    date = new SimpleDateFormat("yyyy-mm-dd").parse(dd);
+                    LastMaintenanceDateView.setDate(date);
+                } catch (ParseException ex) {
+                    Logger.getLogger(FirstAvailableCar.class.getName()).log(Level.SEVERE, null, ex);
+                }
         
-
-        String maintenanceChk = tblmodel.getValueAt(0,4).toString();
-            
-        //        if (maintenanceChk.equals("Yes")) {
-            //            RbMaintenanceYes.setSelected(true);
-            //        }
-        //        else {
-            //            RbMaintenanceNo.setSelected(true);
-            //        }
-        //
+//                break;
+//           }
+           
+       
+        
+//       }
     }//GEN-LAST:event_BtnFindActionPerformed
 
 
