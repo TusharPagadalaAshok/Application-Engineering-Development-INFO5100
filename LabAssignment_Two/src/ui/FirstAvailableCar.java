@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -31,10 +33,12 @@ public class FirstAvailableCar extends javax.swing.JPanel {
      */
     
     carDetailsHistory history;
+    JPanel rightSplitPane;
     
-    public FirstAvailableCar(carDetailsHistory history) {
+    public FirstAvailableCar(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
         this.history = history;
+        this.rightSplitPane = rightSplitPane;
         getConfigFile();
 //        populatetable();
 //        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
@@ -80,7 +84,6 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
         lblCarSerialNo = new javax.swing.JLabel();
         RbAvailabilityNo = new javax.swing.JRadioButton();
         TxtManufacturedBy = new javax.swing.JTextField();
-        Title = new javax.swing.JLabel();
         lblGeoLocation = new javax.swing.JLabel();
         LastMaintenanceDateView = new com.toedter.calendar.JDateChooser();
         RbAvailabilityYes = new javax.swing.JRadioButton();
@@ -89,29 +92,36 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
         TxtCarSerialNo = new javax.swing.JTextField();
         lblManufacturedBy = new javax.swing.JLabel();
         BtnFind = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
+        BackHome = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblMaxPassengerCap.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMaxPassengerCap.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMaxPassengerCap.setText("Max Passenger Capacity:");
         jPanel1.add(lblMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 237, 157, -1));
 
         TxtGeoLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "New York City", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "Austin", "San Jose", "Fort Worth", "Jacksonville", "Columbus", "Charlotte", "Indianapolis", "San Francisco", "Seattle", "Denver", "Washington", "Boston", "El Paso", "Nashville", "Oklahoma City", "Las Vegas", "Detroit", "Portland", "Memphis", "Louisville", "Milwaukee", "Baltimore", "Albuquerque", "Tucson", "Mesa", "Fresno", "Sacramento", "Atlanta", "Kansas City", "Colorado Springs", "Raleigh", "Omaha", "Miami", "Long Beach", "Virginia Beach", "Oakland", "Minneapolis", "Tampa", "Tulsa", "Arlington", "Wichita", "Bakersfield", "Aurora", "New Orleans", "Cleveland", "Anaheim", "Henderson", "Honolulu", "Riverside", "Santa Ana", "Corpus Christi", "Lexington", "San Juan", "Stockton", "St. Paul", "Cincinnati", "Greensboro", "Pittsburgh", "Irvine", "St. Louis", "Lincoln", "Orlando", "Durham", "Plano", "Anchorage", "Newark", "Chula Vista", "Fort Wayne", "Chandler", "Toledo", "St. Petersburg", "Reno", "Laredo", "Scottsdale", "North Las Vegas", "Lubbock", "Madison", "Gilbert", "Jersey City", "Glendale", "Buffalo", "Winston-Salem", "Chesapeake", "Fremont", "Norfolk", "Irving", "Garland", "Paradise", "Arlington", "Richmond", "Hialeah", "Boise", "Spokane", "Frisco", "Moreno Valley", "Tacoma", "Fontana", "Modesto", "Baton Rouge", "Port St. Lucie", "San Bernardino", "McKinney", "Fayetteville", "Santa Clarita", "Des Moines", "Oxnard", "Birmingham", "Spring Valley", "Huntsville", "Rochester", "Cape Coral", "Tempe", "Grand Rapids", "Yonkers", "Overland Park", "Salt Lake City", "Amarillo", "Augusta", "Columbus", "Tallahassee", "Montgomery", "Huntington Beach", "Akron", "Little Rock", "Glendale", "Grand Prairie", "Aurora", "Sunrise Manor", "Ontario", "Sioux Falls", "Knoxville", "Vancouver", "Mobile", "Worcester", "Chattanooga", "Brownsville", "Peoria", "Fort Lauderdale", "Shreveport", "Newport News", "Providence", "Elk Grove", "Rancho Cucamonga", "Salem", "Pembroke Pines", "Santa Rosa", "Eugene", "Oceanside", "Cary", "Fort Collins", "Corona", "Enterprise", "Garden Grove", "Springfield", "Clarksville", "Bayamon", "Lakewood", "Alexandria", "Hayward", "Murfreesboro", "Killeen", "Hollywood", "Lancaster", "Salinas", "Jackson", "Midland", "Macon County", "Kansas City", "Palmdale", "Sunnyvale", "Springfield", "Escondido", "Pomona", "Bellevue", "Surprise", "Naperville", "Pasadena", "Denton", "Roseville", "Joliet", "Thornton", "McAllen", "Paterson", "Rockford", "Carrollton", "Bridgeport", "Miramar", "Round Rock", "Metairie", "Olathe", "Waco" }));
-        jPanel1.add(TxtGeoLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 386, 174, -1));
+        jPanel1.add(TxtGeoLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 386, 174, 30));
 
+        lblModelNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblModelNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblModelNumber.setText("Model Number:");
         jPanel1.add(lblModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 425, 157, 21));
-        jPanel1.add(TxtMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 234, 174, -1));
-        jPanel1.add(TxtManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 272, 174, -1));
-        jPanel1.add(TxtMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 191, 174, -1));
+        jPanel1.add(TxtMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 234, 174, 30));
+        jPanel1.add(TxtManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 272, 174, 30));
+        jPanel1.add(TxtMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 191, 174, 30));
 
+        lblCarModel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCarModel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCarModel.setText("Car Model:");
         jPanel1.add(lblCarModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 146, 157, -1));
-        jPanel1.add(TxtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 425, 174, -1));
-        jPanel1.add(TxtCarModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 143, 174, -1));
+        jPanel1.add(TxtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 425, 174, 30));
+        jPanel1.add(TxtCarModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 143, 174, 30));
 
+        lblLastMaintenanceDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblLastMaintenanceDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate.setText("Last Maintenance Date:");
         jPanel1.add(lblLastMaintenanceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 143, 148, 20));
@@ -141,10 +151,12 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 464, 930, 180));
 
+        lblManufacturedDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblManufacturedDate.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblManufacturedDate.setText("Manufactured Year:");
         jPanel1.add(lblManufacturedDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 275, 157, -1));
 
+        lblCarSerialNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCarSerialNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCarSerialNo.setText("Car Serial Number:");
         jPanel1.add(lblCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 313, 157, -1));
@@ -156,13 +168,9 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
             }
         });
         jPanel1.add(RbAvailabilityNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(859, 208, -1, 20));
-        jPanel1.add(TxtManufacturedBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 348, 174, -1));
+        jPanel1.add(TxtManufacturedBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 348, 174, 30));
 
-        Title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("Get the First Available Cab");
-        jPanel1.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 868, 27));
-
+        lblGeoLocation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblGeoLocation.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblGeoLocation.setText("Geo Location:");
         jPanel1.add(lblGeoLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 386, 157, 21));
@@ -171,26 +179,48 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
         RbAvailabilityYes.setText("Yes");
         jPanel1.add(RbAvailabilityYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(798, 208, -1, 20));
 
+        lblMinPassengerCap.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblMinPassengerCap.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblMinPassengerCap.setText("Min Passenger Capacity:");
         jPanel1.add(lblMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 194, 157, -1));
 
+        lblLastMaintenanceDate1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblLastMaintenanceDate1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblLastMaintenanceDate1.setText("Available?:");
         jPanel1.add(lblLastMaintenanceDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 208, 193, 20));
-        jPanel1.add(TxtCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 310, 174, -1));
+        jPanel1.add(TxtCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 310, 174, 30));
 
+        lblManufacturedBy.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblManufacturedBy.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblManufacturedBy.setText("Manufacturer By:");
         jPanel1.add(lblManufacturedBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 351, 157, -1));
 
+        BtnFind.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BtnFind.setText("Find");
         BtnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnFindActionPerformed(evt);
             }
         });
-        jPanel1.add(BtnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 66, 165, -1));
+        jPanel1.add(BtnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 180, 50));
+
+        Title.setBackground(new java.awt.Color(255, 102, 51));
+        Title.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title.setText("Get First Available Car");
+        Title.setOpaque(true);
+        jPanel1.add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1078, 27));
+
+        BackHome.setBackground(new java.awt.Color(255, 204, 204));
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackHomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 116, 32));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -287,7 +317,7 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
                 String dd = carTable.getValueAt(1,4).toString();
                 Date date;
                 try {
-                    date = new SimpleDateFormat("yyyy-mm-dd").parse(dd);
+                    date = new SimpleDateFormat("yyyy-MM-dd").parse(dd);
                     LastMaintenanceDateView.setDate(date);
                 } catch (ParseException ex) {
                     Logger.getLogger(FirstAvailableCar.class.getName()).log(Level.SEVERE, null, ex);
@@ -301,8 +331,17 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
 //       }
     }//GEN-LAST:event_BtnFindActionPerformed
 
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
+        // TODO add your handling code here:
+        searchMainJPanel BackHome = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BackHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnFind;
     private com.toedter.calendar.JDateChooser LastMaintenanceDateView;
     private javax.swing.JRadioButton RbAvailabilityNo;

@@ -158,6 +158,7 @@ public class viewJPanel extends javax.swing.JPanel {
         add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 1078, 27));
 
         carTable.setBackground(new java.awt.Color(153, 255, 153));
+        carTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

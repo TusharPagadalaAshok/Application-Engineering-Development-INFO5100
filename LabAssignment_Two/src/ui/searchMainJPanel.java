@@ -223,7 +223,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnFirstAvailableCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFirstAvailableCabActionPerformed
         // TODO add your handling code here:
-        FirstAvailableCar firstcar = new FirstAvailableCar(history);
+        FirstAvailableCar firstcar = new FirstAvailableCar(history,rightSplitPane);
         rightSplitPane.add("Search by First Available Cab",firstcar);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
