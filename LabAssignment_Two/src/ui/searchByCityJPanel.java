@@ -76,6 +76,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         DropDownAvailability = new javax.swing.JComboBox<>();
         lblAvailability = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
+        AvailableCount = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,11 +95,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified", "AvailCount"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, false, false, true, false, false
+                true, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -115,7 +116,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTableCity);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1040, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 970, 270));
         add(CitySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 185, 32));
 
         BtnSearch.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -153,6 +154,10 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             }
         });
         add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 116, 32));
+
+        AvailableCount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AvailableCount.setForeground(new java.awt.Color(0, 255, 255));
+        add(AvailableCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 340, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -164,10 +169,22 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 
     private void BtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchActionPerformed
         // TODO add your handling code here:
-        
         DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
-        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+            
+            TableRowSorter myTableRowSorter = new TableRowSorter(model);
+//            DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        
         carTableCity.setModel(model);
+        int count=0;
+            for(int i = 0; i< carTableCity.getRowCount();i++){
+                if(carTableCity.getValueAt(i,3).equals((String) DropDownAvailability.getSelectedItem())){
+                    count++;
+                }
+            }
+//            String s = String.valueOf(count);
+            AvailableCount.setText("Total Available Cars: " + count);
+            
+        
         carTableCity.setRowSorter(myTableRowSorter);
                
         java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
@@ -177,6 +194,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);
+            
        
 
 
@@ -211,6 +229,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AvailableCount;
     private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnSearch;
     private javax.swing.JTextField CitySearch;
