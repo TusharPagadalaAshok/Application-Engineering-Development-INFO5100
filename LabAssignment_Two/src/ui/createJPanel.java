@@ -237,23 +237,12 @@ public class createJPanel extends javax.swing.JPanel {
         String maintenanceDate = dfs.format(MaintenanceDateCreate.getDate());
         
       
-//        Enumeration<AbstractButton> bg = buttonGroupMaintenanceCheckCreate.getElements();
-//        while(bg.hasMoreElements()){
-//                JRadioButton Radio1 = (JRadioButton) bg.nextElement();
-//                if(Radio1.isSelected())
-//                    maintenanceCheck = Radio1.getText();
-//        }
-//        
         Enumeration<AbstractButton> bg1 = buttonGroupAvailabilityCreate.getElements();
         while(bg1.hasMoreElements()){
                 JRadioButton Radio2 = (JRadioButton) bg1.nextElement();
                 if(Radio2.isSelected())
                      availability = Radio2.getText();
-                     
-                
-                
-        
-        }
+           }
         
         //date
         
@@ -274,9 +263,24 @@ public class createJPanel extends javax.swing.JPanel {
                  if (carSerialNumber.equals(viewmodel.getValueAt(i, 0))) {
                      TxtCarSerialNo.setText(" ");
                      carSerialNumber = TxtCarSerialNo.getText();
-                     JOptionPane.showMessageDialog(this, "This Serial Number already exists! Re-Enter to proceed.");
+                     JOptionPane.showMessageDialog(this, carSerialNumber + " Serial Number already exists! Re-Enter to proceed.");
+                     flag = true;
                  }
                  }
+          
+          if(flag = false){
+              cd.setCarModel(carModel); 
+                cd.setMinPassengerCap(minPassengerCap);
+                cd.setMaxPassengerCap(maxPassengerCap);
+                cd.setManufacturedYear(manufacturedYear);
+                cd.setCarSerialNo(carSerialNumber);
+                cd.setManufacturedBy(manufacturedBy);
+                cd.setGeoLocation(geoLocation);
+                cd.setModelNumber(modelNumber);
+                cd.setAvailability(availability);
+                cd.setLastMaintenanceDate(maintenanceDate);
+                cd.setDate(Date);
+          }
         
                 
                          
@@ -287,17 +291,7 @@ public class createJPanel extends javax.swing.JPanel {
                  
         
         
-        cd.setCarModel(carModel); 
-        cd.setMinPassengerCap(minPassengerCap);
-        cd.setMaxPassengerCap(maxPassengerCap);
-        cd.setManufacturedYear(manufacturedYear);
-        cd.setCarSerialNo(carSerialNumber);
-        cd.setManufacturedBy(manufacturedBy);
-        cd.setGeoLocation(geoLocation);
-        cd.setModelNumber(modelNumber);
-        cd.setAvailability(availability);
-        cd.setLastMaintenanceDate(maintenanceDate);
-        cd.setDate(Date);
+        
        
         
         

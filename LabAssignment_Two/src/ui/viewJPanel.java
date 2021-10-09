@@ -185,7 +185,7 @@ public class viewJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1010, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1010, 130));
 
         btnUpdate.setBackground(new java.awt.Color(255, 153, 153));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -458,6 +458,7 @@ public class viewJPanel extends javax.swing.JPanel {
     
         for(carDetails cdh: history.getHistory()){
              Object[] row = new Object[11];
+             if ((String) cdh.getCarSerialNo() != null){
              row[0] = cdh.getCarSerialNo();
              row[1] = cdh.getCarModel();
              row[2] = cdh.getManufacturedBy();
@@ -472,7 +473,7 @@ public class viewJPanel extends javax.swing.JPanel {
              lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
              model.addRow(row);
              
-            
+             }
         }
 //        for(int i=0;i<model.getRowCount();i++){    
 //            if (model.getValueAt(i, 0)== "") {
