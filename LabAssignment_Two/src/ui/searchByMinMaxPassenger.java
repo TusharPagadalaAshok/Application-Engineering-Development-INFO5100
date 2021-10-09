@@ -38,7 +38,7 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         this.rightSplitPane = rightSplitPane;
         
         getConfigFile();
-        populatetable();
+//        populatetable();
 //        DefaultTableModel model = (DefaultTableModel) carTable.getModel();
 //        carTable.setModel(model);
 //        model.addColumn("Passegn Cap?");
@@ -253,6 +253,8 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
                     model.setValueAt("N",i,11);
                 }
             }
+            
+            
             filters.add(RowFilter.regexFilter("Y",11));
             RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
             myTableRowSorter.setRowFilter(serviceFilter);

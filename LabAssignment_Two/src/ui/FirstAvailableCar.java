@@ -126,6 +126,7 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
         lblLastMaintenanceDate.setText("Last Maintenance Date:");
         jPanel1.add(lblLastMaintenanceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 143, 148, 20));
 
+        carTable.setBackground(new java.awt.Color(153, 255, 153));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -142,6 +143,8 @@ DefaultTableModel model = (DefaultTableModel) carTable.getModel();
                 return canEdit [columnIndex];
             }
         });
+        carTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
         carTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableMouseClicked(evt);

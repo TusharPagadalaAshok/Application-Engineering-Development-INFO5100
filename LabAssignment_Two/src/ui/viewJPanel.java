@@ -99,12 +99,12 @@ public class viewJPanel extends javax.swing.JPanel {
         }
         populateTable();
         
-//        for(int i=0;i<tblmodel.getRowCount()-1;i++){    
-//            if (tblmodel.getValueAt(i, 0)== null) {
-////                JOptionPane.showMessageDialog(this,"row"+i);
-//                tblmodel.removeRow(i);
-//            }
-//        }
+        for(int i=0;i<carTable.getRowCount();i++){    
+            if (tblmodel.getValueAt(i, 0)== null) {
+//                JOptionPane.showMessageDialog(this,"row"+i);
+                tblmodel.removeRow(i);
+            }
+        }
         
     }
 

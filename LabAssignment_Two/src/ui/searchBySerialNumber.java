@@ -36,7 +36,7 @@ public class searchBySerialNumber extends javax.swing.JPanel {
         this.history = history;
         this.rightSplitPane = rightSplitPane;
          getConfigFile();
-        populatetable();
+//        populatetable();
     }
 
     /** This method is called from within the constructor to
