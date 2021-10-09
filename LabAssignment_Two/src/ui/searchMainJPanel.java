@@ -174,7 +174,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnSearchByModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSearchByModelActionPerformed
         // TODO add your handling code here:
-        searchByModel ModelSearchPanel = new searchByModel(history, getConfig);
+        searchByModel ModelSearchPanel = new searchByModel(history, getConfig, rightSplitPane);
         rightSplitPane.add("Search by Model",ModelSearchPanel);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);

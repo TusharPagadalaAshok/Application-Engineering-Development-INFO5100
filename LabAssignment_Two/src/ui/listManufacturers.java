@@ -37,9 +37,9 @@ public class listManufacturers extends javax.swing.JPanel {
         initComponents();
         this.history = history;
         getConfigFile();
-        populatetable();
+//        populatetable();
         getConfigFileYear();
-        populatetableYear();
+//        populatetableYear();
         
         
     }
@@ -327,7 +327,7 @@ public class listManufacturers extends javax.swing.JPanel {
             // get the first line
             // get the columns name from the first line
             // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
+//            String firstLine = br.readLine().trim();
 //            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
 //            model.setColumnIdentifiers(columnsName);
@@ -385,7 +385,7 @@ public class listManufacturers extends javax.swing.JPanel {
             // get the first line
             // get the columns name from the first line
             // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
+//            String firstLine = br.readLine().trim();
 //            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCityYear.getModel();
 //            model.setColumnIdentifiers(columnsName);

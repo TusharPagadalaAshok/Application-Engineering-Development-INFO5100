@@ -25,6 +25,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -43,7 +45,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         this.rightSplitPane = rightSplitPane;
         
         getConfigFile();
-        populatetable();
+//        populatetable();
         DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
         carTableCity.setModel(model);
         model.addColumn("Expired?");
@@ -65,17 +67,20 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         BtnExpiry = new javax.swing.JButton();
         LblExpiryCount = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
+        BtnExpiry1 = new javax.swing.JButton();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified", "Expired?"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -89,6 +94,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(carTableCity);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1097, 220));
+
         BtnExpiry.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnExpiry.setText("Check for Expiry");
         BtnExpiry.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +103,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 BtnExpiryActionPerformed(evt);
             }
         });
+        add(BtnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 270, 40));
+        add(LblExpiryCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 350, 40));
 
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BackHome.setText("<<Back");
@@ -104,38 +113,16 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 BackHomeActionPerformed(evt);
             }
         });
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 93, 116, 32));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LblExpiryCount, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(473, 473, 473))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1097, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(BtnExpiry, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                        .addComponent(LblExpiryCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(BackHome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
-        );
+        BtnExpiry1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnExpiry1.setText("Show Expired Certificates");
+        BtnExpiry1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExpiry1ActionPerformed(evt);
+            }
+        });
+        add(BtnExpiry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 100, 200, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -148,7 +135,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         carTableCity.setModel(model);
         
         ArrayList<String> cd = new ArrayList<>();
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyy-MM-dd");
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         int count = 0;
 //        JOptionPane.showMessageDialog(this,getDayCount((String) model.getValueAt(1, 4),df.format(LocalDateTime.now())));
         for(int i = 0;i<model.getRowCount();i++){
@@ -161,6 +148,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
             }
         }
         LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count);
+        
+        
     }//GEN-LAST:event_BtnExpiryActionPerformed
 
     private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
@@ -171,10 +160,28 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         layout.next(rightSplitPane);
     }//GEN-LAST:event_BackHomeActionPerformed
 
+    private void BtnExpiry1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExpiry1ActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) carTableCity.getModel();
+        TableRowSorter myTableRowSorter = new TableRowSorter(model);
+        carTableCity.setModel(model);
+        carTableCity.setRowSorter(myTableRowSorter);
+               
+        java.util.List<RowFilter<Object,Object>> filters = new ArrayList<RowFilter<Object,Object>>(3);
+            filters.add(RowFilter.regexFilter("Yes",11));
+//            String availability = (String) DropDownAvailability.getSelectedItem();
+//            filters.add(RowFilter.regexFilter("(?i)" + availability,3));
+            
+            RowFilter<Object,Object> serviceFilter = RowFilter.andFilter(filters);
+            myTableRowSorter.setRowFilter(serviceFilter);
+    }//GEN-LAST:event_BtnExpiry1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnExpiry;
+    private javax.swing.JButton BtnExpiry1;
     private javax.swing.JLabel LblExpiryCount;
     private javax.swing.JTable carTableCity;
     private javax.swing.JScrollPane jScrollPane2;
@@ -190,7 +197,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
             // get the first line
             // get the columns name from the first line
             // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
+//            String firstLine = br.readLine().trim();
 //            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
 //            model.setColumnIdentifiers(columnsName);
