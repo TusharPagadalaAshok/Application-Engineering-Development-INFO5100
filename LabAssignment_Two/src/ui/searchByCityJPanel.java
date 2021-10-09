@@ -77,6 +77,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         lblAvailability = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
         AvailableCount = new javax.swing.JLabel();
+        UnavailableCount = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,11 +96,11 @@ public class searchByCityJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified", "AvailCount"
+                "Serial No", "Model", "Manufacturer", "Availability", "Maintenance?", "Min Pssgr", "Max Pssgr", "Manufd Year", "City", "Model No", "Date Modified"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -155,9 +156,19 @@ public class searchByCityJPanel extends javax.swing.JPanel {
         });
         add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 116, 32));
 
+        AvailableCount.setBackground(new java.awt.Color(255, 102, 102));
         AvailableCount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AvailableCount.setForeground(new java.awt.Color(0, 255, 255));
-        add(AvailableCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 340, 30));
+        AvailableCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AvailableCount.setOpaque(true);
+        add(AvailableCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 340, 30));
+
+        UnavailableCount.setBackground(new java.awt.Color(255, 102, 102));
+        UnavailableCount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        UnavailableCount.setForeground(new java.awt.Color(0, 255, 255));
+        UnavailableCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UnavailableCount.setOpaque(true);
+        add(UnavailableCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 340, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -183,6 +194,15 @@ public class searchByCityJPanel extends javax.swing.JPanel {
             }
 //            String s = String.valueOf(count);
             AvailableCount.setText("Total Available Cars: " + count);
+            
+//            int count1=0;
+//            for(int i = 0; i< carTableCity.getRowCount();i++){
+//                if(carTableCity.getValueAt(i,3).equals((String) DropDownAvailability.getSelectedItem())){
+//                    count1++;
+//                }
+//            }
+            String s = String.valueOf(826-count);
+            UnavailableCount.setText("Total Unavailable Cars: " + s);
             
         
         carTableCity.setRowSorter(myTableRowSorter);
@@ -235,6 +255,7 @@ public class searchByCityJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField CitySearch;
     private javax.swing.JComboBox<String> DropDownAvailability;
     private javax.swing.JLabel TitleCity;
+    private javax.swing.JLabel UnavailableCount;
     private javax.swing.JTable carTableCity;
     private com.toedter.plaf.JCalendarTheme jCalendarTheme1;
     private javax.swing.JScrollPane jScrollPane1;
