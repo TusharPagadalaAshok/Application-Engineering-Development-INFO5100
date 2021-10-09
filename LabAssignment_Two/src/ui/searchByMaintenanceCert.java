@@ -65,10 +65,10 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
         BtnExpiry = new javax.swing.JButton();
-        LblExpiryCount = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
         BtnExpiry1 = new javax.swing.JButton();
         TitleCity = new javax.swing.JLabel();
+        LblExpiryCount = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,10 +111,6 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         });
         add(BtnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 230, 40));
 
-        LblExpiryCount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        LblExpiryCount.setForeground(new java.awt.Color(255, 255, 255));
-        add(LblExpiryCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 740, 60));
-
         BackHome.setBackground(new java.awt.Color(255, 204, 204));
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BackHome.setText("<<Back");
@@ -141,6 +137,10 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         TitleCity.setText("Check for Maintenance Certificate Expiry");
         TitleCity.setOpaque(true);
         add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 1060, 31));
+
+        LblExpiryCount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LblExpiryCount.setOpaque(true);
+        add(LblExpiryCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 490, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -165,8 +165,12 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 model.setValueAt("No",i,11);
             }
         }
+        
+        
         String d1 = String.valueOf(carTableCity.getRowCount());
-        LblExpiryCount.setText("Number of cars with expired Maintenance Certificates = " + count + " out of " + d1 + " Cars.");
+        String d2 = String.valueOf(count);
+        
+        LblExpiryCount.setText("Number of cars with expired Maintenance Certificates = " + d2 + " out of " + d1 + " Cars.");
         
         
     }//GEN-LAST:event_BtnExpiryActionPerformed

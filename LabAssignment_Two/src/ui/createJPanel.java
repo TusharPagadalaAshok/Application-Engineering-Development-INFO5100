@@ -73,6 +73,7 @@ public class createJPanel extends javax.swing.JPanel {
         LblMaxPassgnrWarning = new javax.swing.JLabel();
         YearChooserManufacturerYear = new com.toedter.calendar.JYearChooser();
         jLabel1 = new javax.swing.JLabel();
+        LblwarningMaintenanceDate = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -217,6 +218,7 @@ public class createJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("*Mandatory fields");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 140, -1));
+        add(LblwarningMaintenanceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 464, 330, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
@@ -268,7 +270,20 @@ public class createJPanel extends javax.swing.JPanel {
                  }
                  }
           
-          if(flag = false){
+//                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                  Date currentDate = new Date();
+          //        Date InvalidDate = new Date("1870-01-01");
+                  if(MaintenanceDateCreate.getDate().after(currentDate)){
+          //            Lbl_DOBWarning.setText("This field is mandatory");
+                      LblwarningMaintenanceDate.setText("This date cannot be in the future!");
+                      JOptionPane.showMessageDialog(this,"Please correct the date."); 
+                      flag = true;
+
+          //            TxtDOB.setText(null);
+            
+        }
+          
+          if(flag == false){
               cd.setCarModel(carModel); 
                 cd.setMinPassengerCap(minPassengerCap);
                 cd.setMaxPassengerCap(maxPassengerCap);
@@ -281,6 +296,7 @@ public class createJPanel extends javax.swing.JPanel {
                 cd.setLastMaintenanceDate(maintenanceDate);
                 cd.setDate(Date);
           }
+          
         
                 
                          
@@ -431,6 +447,7 @@ public class createJPanel extends javax.swing.JPanel {
     private javax.swing.JButton BtnSave;
     private javax.swing.JLabel LblMaxPassgnrWarning;
     private javax.swing.JLabel LblMinPassgnrWarning;
+    private javax.swing.JLabel LblwarningMaintenanceDate;
     private com.toedter.calendar.JDateChooser MaintenanceDateCreate;
     private javax.swing.JRadioButton RbAvailabilityNo;
     private javax.swing.JRadioButton RbAvailabilityYes;

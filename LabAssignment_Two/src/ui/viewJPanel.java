@@ -458,7 +458,7 @@ public class viewJPanel extends javax.swing.JPanel {
     
         for(carDetails cdh: history.getHistory()){
              Object[] row = new Object[11];
-             if ((String) cdh.getCarSerialNo() != null){
+            
              row[0] = cdh.getCarSerialNo();
              row[1] = cdh.getCarModel();
              row[2] = cdh.getManufacturedBy();
@@ -473,7 +473,7 @@ public class viewJPanel extends javax.swing.JPanel {
              lblModifiedDateView.setText("Fleet Database was last updated on: "+cdh.getDate());
              model.addRow(row);
              
-             }
+             
         }
 //        for(int i=0;i<model.getRowCount();i++){    
 //            if (model.getValueAt(i, 0)== "") {
