@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -31,11 +32,13 @@ public class listManufacturers extends javax.swing.JPanel {
      */
     
    carDetailsHistory history;
+   JPanel rightSplitPane;
 
    
-    public listManufacturers(carDetailsHistory history) {
+    public listManufacturers(carDetailsHistory history,JPanel rightSplitPane) {
         initComponents();
         this.history = history;
+        this.rightSplitPane = rightSplitPane;
         getConfigFile();
 //        populatetable();
         getConfigFileYear();
@@ -56,7 +59,6 @@ public class listManufacturers extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         listManufacturer = new javax.swing.JList<>();
         List = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         carTableCity = new javax.swing.JTable();
         BtnbClearSelection = new javax.swing.JButton();
@@ -67,7 +69,10 @@ public class listManufacturers extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         carTableCityYear = new javax.swing.JTable();
         BtnbClearSelectionYears = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        BackHome = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listManufacturer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,19 +82,18 @@ public class listManufacturers extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(listManufacturer);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 220));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 210, 220));
 
+        List.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         List.setText("List");
         List.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListActionPerformed(evt);
             }
         });
-        add(List, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        add(List, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 80, 30));
 
-        jLabel1.setText("The following are the Car manufacturers used by this Cab Company:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
-
+        carTableCity.setBackground(new java.awt.Color(153, 255, 153));
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -106,6 +110,9 @@ public class listManufacturers extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTableCity.setGridColor(new java.awt.Color(51, 51, 51));
+        carTableCity.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTableCity.setSelectionForeground(new java.awt.Color(0, 0, 0));
         carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableCityMouseClicked(evt);
@@ -113,15 +120,16 @@ public class listManufacturers extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(carTableCity);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 810, 220));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 780, 220));
 
+        BtnbClearSelection.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnbClearSelection.setText("Clear Selection");
         BtnbClearSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnbClearSelectionActionPerformed(evt);
             }
         });
-        add(BtnbClearSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        add(BtnbClearSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 130, 30));
 
         listManufacturerYear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,17 +138,25 @@ public class listManufacturers extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(listManufacturerYear);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 170, 220));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 200, 220));
 
+        ListYears.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ListYears.setText("List");
         ListYears.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ListYearsActionPerformed(evt);
             }
         });
-        add(ListYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 490, 30));
+        add(ListYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 80, 30));
 
+        jLabel2.setBackground(new java.awt.Color(255, 102, 51));
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("List of Cars with their Manufactured Years");
+        jLabel2.setOpaque(true);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 800, 30));
+
+        carTableCityYear.setBackground(new java.awt.Color(153, 255, 153));
         carTableCityYear.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -157,6 +173,9 @@ public class listManufacturers extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTableCityYear.setGridColor(new java.awt.Color(0, 0, 0));
+        carTableCityYear.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTableCityYear.setSelectionForeground(new java.awt.Color(0, 0, 0));
         carTableCityYear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableCityYearMouseClicked(evt);
@@ -164,15 +183,34 @@ public class listManufacturers extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(carTableCityYear);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 810, 220));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 770, 220));
 
+        BtnbClearSelectionYears.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnbClearSelectionYears.setText("Clear Selection");
         BtnbClearSelectionYears.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnbClearSelectionYearsActionPerformed(evt);
             }
         });
-        add(BtnbClearSelectionYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
+        add(BtnbClearSelectionYears, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 120, 30));
+
+        jLabel3.setBackground(new java.awt.Color(255, 102, 51));
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("List of Cars with their Manufacturers");
+        jLabel3.setOpaque(true);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 800, 30));
+
+        BackHome.setBackground(new java.awt.Color(255, 204, 153));
+        BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BackHome.setText("<<Back");
+        BackHome.setOpaque(false);
+        BackHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackHomeActionPerformed(evt);
+            }
+        });
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 116, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListActionPerformed
@@ -296,16 +334,25 @@ public class listManufacturers extends javax.swing.JPanel {
         listManufacturerYear.clearSelection();
     }//GEN-LAST:event_BtnbClearSelectionYearsActionPerformed
 
+    private void BackHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackHomeActionPerformed
+        // TODO add your handling code here:
+        searchMainJPanel BackHome4 = new searchMainJPanel(history, rightSplitPane);
+        rightSplitPane.add("Back to Main Menu",BackHome4);
+        CardLayout layout = (CardLayout)rightSplitPane.getLayout();
+        layout.next(rightSplitPane);
+    }//GEN-LAST:event_BackHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnbClearSelection;
     private javax.swing.JButton BtnbClearSelectionYears;
     private javax.swing.JButton List;
     private javax.swing.JButton ListYears;
     private javax.swing.JTable carTableCity;
     private javax.swing.JTable carTableCityYear;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

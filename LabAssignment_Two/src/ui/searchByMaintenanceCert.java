@@ -68,9 +68,12 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         LblExpiryCount = new javax.swing.JLabel();
         BackHome = new javax.swing.JButton();
         BtnExpiry1 = new javax.swing.JButton();
+        TitleCity = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        carTableCity.setBackground(new java.awt.Color(153, 255, 153));
         carTableCity.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -87,6 +90,9 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTableCity.setGridColor(new java.awt.Color(0, 0, 0));
+        carTableCity.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTableCity.setSelectionForeground(new java.awt.Color(0, 0, 0));
         carTableCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableCityMouseClicked(evt);
@@ -94,7 +100,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(carTableCity);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 1097, 220));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 1097, 220));
 
         BtnExpiry.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnExpiry.setText("Check for Expiry");
@@ -103,9 +109,13 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 BtnExpiryActionPerformed(evt);
             }
         });
-        add(BtnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 270, 40));
-        add(LblExpiryCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 350, 40));
+        add(BtnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 230, 40));
 
+        LblExpiryCount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LblExpiryCount.setForeground(new java.awt.Color(255, 255, 255));
+        add(LblExpiryCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 740, 60));
+
+        BackHome.setBackground(new java.awt.Color(255, 204, 204));
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BackHome.setText("<<Back");
         BackHome.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +132,15 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 BtnExpiry1ActionPerformed(evt);
             }
         });
-        add(BtnExpiry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 100, 200, 40));
+        add(BtnExpiry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 230, 40));
+
+        TitleCity.setBackground(new java.awt.Color(255, 102, 51));
+        TitleCity.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        TitleCity.setForeground(new java.awt.Color(255, 255, 255));
+        TitleCity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitleCity.setText("Check for Maintenance Certificate Expiry");
+        TitleCity.setOpaque(true);
+        add(TitleCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 20, 1060, 31));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableCityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableCityMouseClicked
@@ -147,7 +165,8 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
                 model.setValueAt("No",i,11);
             }
         }
-        LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count);
+        String d1 = String.valueOf(carTableCity.getRowCount());
+        LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count + " out of " + d1 + " Cars.");
         
         
     }//GEN-LAST:event_BtnExpiryActionPerformed
@@ -183,6 +202,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
     private javax.swing.JButton BtnExpiry;
     private javax.swing.JButton BtnExpiry1;
     private javax.swing.JLabel LblExpiryCount;
+    private javax.swing.JLabel TitleCity;
     private javax.swing.JTable carTableCity;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

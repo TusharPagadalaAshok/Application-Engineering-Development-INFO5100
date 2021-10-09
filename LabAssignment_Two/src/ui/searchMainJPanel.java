@@ -184,7 +184,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnListManufacturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListManufacturersActionPerformed
         // TODO add your handling code here:
-        listManufacturers listmanu = new listManufacturers(history);
+        listManufacturers listmanu = new listManufacturers(history, rightSplitPane);
         rightSplitPane.add("Search by Model",listmanu);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
@@ -204,7 +204,7 @@ public class searchMainJPanel extends javax.swing.JPanel {
 
     private void BtnSerialNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSerialNumberActionPerformed
         // TODO add your handling code here:
-        searchBySerialNumber serialnumber = new searchBySerialNumber(history);
+        searchBySerialNumber serialnumber = new searchBySerialNumber(history,rightSplitPane);
         rightSplitPane.add("Search by Serial Number",serialnumber);
         CardLayout layout = (CardLayout)rightSplitPane.getLayout();
         layout.next(rightSplitPane);
