@@ -490,7 +490,7 @@ public class viewJPanel extends javax.swing.JPanel {
                DefaultTableModel model = (DefaultTableModel) carTable.getModel();
                //loop for jtable rows
                carTable.setModel(model);
-               bw.write("\n");
+//               bw.write("\n");
                for(int i = 0; i < model.getRowCount(); i++){
                    //loop for jtable column
                    for(int j = 0; j < model.getColumnCount(); j++){

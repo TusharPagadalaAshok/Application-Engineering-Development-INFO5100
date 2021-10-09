@@ -26,7 +26,7 @@ public class carDetails {
     private String carSerialNo;
     private String manufacturedBy;
     private String geoLocation;
-    private long modelNumber;
+    private double modelNumber;
     private String lastMaintenanceDate;
     private String availability;
     private String date;
@@ -98,11 +98,11 @@ public class carDetails {
         this.geoLocation = geoLocation;
     }
 
-    public long getModelNumber() {
+    public double getModelNumber() {
         return modelNumber;
     }
 
-    public void setModelNumber(long modelNumber) {
+    public void setModelNumber(double modelNumber) {
         this.modelNumber = modelNumber;
     }
 

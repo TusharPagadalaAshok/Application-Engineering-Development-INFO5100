@@ -374,7 +374,7 @@ public class listManufacturers extends javax.swing.JPanel {
             // get the first line
             // get the columns name from the first line
             // set columns name to the jtable model
-//            String firstLine = br.readLine().trim();
+            String firstLine = br.readLine().trim();
 //            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTableCity.getModel();
 //            model.setColumnIdentifiers(columnsName);

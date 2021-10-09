@@ -91,9 +91,12 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         lblMin = new javax.swing.JLabel();
         BtnMinMaxSearch = new javax.swing.JButton();
         BackHome = new javax.swing.JButton();
+        Title = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        carTable.setBackground(new java.awt.Color(153, 255, 153));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -117,6 +120,9 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        carTable.setGridColor(new java.awt.Color(51, 51, 51));
+        carTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        carTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
         carTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 carTableMouseClicked(evt);
@@ -124,25 +130,26 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(carTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 882, 139));
-        add(TxtMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 139, 145, 32));
-        add(TxtMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 138, 145, 34));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 229, 1000, 250));
+        add(TxtMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 145, 40));
+        add(TxtMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 145, 40));
 
-        lblMax.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblMax.setText("Max:");
-        add(lblMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 107, 32, 25));
+        lblMax.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMax.setText("Maximum:");
+        add(lblMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 100, 30));
 
-        lblMin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblMin.setText("Min:");
-        add(lblMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 107, 32, 25));
+        lblMin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblMin.setText("Minimum:");
+        add(lblMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 110, 30));
 
+        BtnMinMaxSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         BtnMinMaxSearch.setText("Search");
         BtnMinMaxSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMinMaxSearchActionPerformed(evt);
             }
         });
-        add(BtnMinMaxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 138, 129, 34));
+        add(BtnMinMaxSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 129, 40));
 
         BackHome.setBackground(new java.awt.Color(255, 204, 153));
         BackHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -153,7 +160,15 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
                 BackHomeActionPerformed(evt);
             }
         });
-        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 116, 32));
+        add(BackHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 116, 32));
+
+        Title.setBackground(new java.awt.Color(255, 102, 51));
+        Title.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title.setText("Search by Passenger Capacity");
+        Title.setOpaque(true);
+        add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 26, 1078, 27));
     }// </editor-fold>//GEN-END:initComponents
 
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
@@ -264,6 +279,7 @@ public class searchByMinMaxPassenger extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackHome;
     private javax.swing.JButton BtnMinMaxSearch;
+    private javax.swing.JLabel Title;
     private javax.swing.JTextField TxtMax;
     private javax.swing.JTextField TxtMin;
     private javax.swing.JTable carTable;

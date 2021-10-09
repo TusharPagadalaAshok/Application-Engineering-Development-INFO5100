@@ -72,6 +72,7 @@ public class createJPanel extends javax.swing.JPanel {
         LblMinPassgnrWarning = new javax.swing.JLabel();
         LblMaxPassgnrWarning = new javax.swing.JLabel();
         YearChooserManufacturerYear = new com.toedter.calendar.JYearChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,7 +100,7 @@ public class createJPanel extends javax.swing.JPanel {
 
         lblCarSerialNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCarSerialNo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lblCarSerialNo.setText("Car Serial Number:");
+        lblCarSerialNo.setText("Car Serial Number*:");
         add(lblCarSerialNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 193, -1));
 
         lblManufacturedBy.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -139,9 +140,17 @@ public class createJPanel extends javax.swing.JPanel {
         });
         add(TxtMinPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 70, 30));
 
+        TxtMaxPassengerCap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtMaxPassengerCapActionPerformed(evt);
+            }
+        });
         TxtMaxPassengerCap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TxtMaxPassengerCapKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtMaxPassengerCapKeyReleased(evt);
             }
         });
         add(TxtMaxPassengerCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 70, 30));
@@ -201,7 +210,13 @@ public class createJPanel extends javax.swing.JPanel {
         LblMaxPassgnrWarning.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         LblMaxPassgnrWarning.setForeground(new java.awt.Color(255, 51, 51));
         add(LblMaxPassgnrWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 310, 30));
+
+        YearChooserManufacturerYear.setEndYear(2021);
         add(YearChooserManufacturerYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 70, 30));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("*Mandatory fields");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
@@ -364,7 +379,7 @@ public class createJPanel extends javax.swing.JPanel {
             min_pass = Double.parseDouble(TxtMaxPassengerCap.getText());
             
             if(Integer.parseInt(TxtMinPassengerCap.getText()) > Integer.parseInt(TxtMaxPassengerCap.getText())){
-            LblMaxPassgnrWarning.setText("Greater than Minimum passenger Capacity!");
+            LblMaxPassgnrWarning.setText("Lesser than Minimum passenger Capacity!");
             }
             if(TxtMaxPassengerCap.getText().length() > 1){
                 LblMaxPassgnrWarning.setText("Re-Enter only 2 Numbers.");
@@ -383,6 +398,39 @@ public class createJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_TxtMaxPassengerCapKeyPressed
+
+    private void TxtMaxPassengerCapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtMaxPassengerCapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtMaxPassengerCapActionPerformed
+
+    private void TxtMaxPassengerCapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtMaxPassengerCapKeyReleased
+        // TODO add your handling code here:
+//         try
+//        {
+//            double min_pass;
+//            min_pass = Double.parseDouble(TxtMaxPassengerCap.getText());
+//            
+//            if(Integer.parseInt(TxtMinPassengerCap.getText()) > Integer.parseInt(TxtMaxPassengerCap.getText())){
+//            LblMaxPassgnrWarning.setText("Lesser than Minimum passenger Capacity!");
+//            }
+//            if(TxtMaxPassengerCap.getText().length() > 1){
+//                LblMaxPassgnrWarning.setText("Re-Enter only 2 Numbers.");
+//                TxtMaxPassengerCap.setText(null);
+//            }
+//            
+//        }
+//        catch(NumberFormatException e){
+//            //error if its not integer
+////            LblMaxPassgnrWarning.setText("Enter only numbers.");
+//
+//            //JOptionPane.showMessageDialog(null,"You have entered incorrect/blank Phone Number. This won't be saved! Re-Submit the form again.");
+//
+//            TxtMaxPassengerCap.setText(null);
+//        }
+        
+        
+        
+    }//GEN-LAST:event_TxtMaxPassengerCapKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -403,6 +451,7 @@ public class createJPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JYearChooser YearChooserManufacturerYear;
     private javax.swing.ButtonGroup buttonGroupAvailabilityCreate;
     private javax.swing.ButtonGroup buttonGroupMaintenanceCheckCreate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCarModel;
     private javax.swing.JLabel lblCarSerialNo;
     private javax.swing.JLabel lblDate;

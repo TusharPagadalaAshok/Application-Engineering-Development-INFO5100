@@ -166,7 +166,7 @@ public class searchByMaintenanceCert extends javax.swing.JPanel {
             }
         }
         String d1 = String.valueOf(carTableCity.getRowCount());
-        LblExpiryCount.setText("Number of cars went beyong the Maintenance Expiry Date = " + count + " out of " + d1 + " Cars.");
+        LblExpiryCount.setText("Number of cars with expired Maintenance Certificates = " + count + " out of " + d1 + " Cars.");
         
         
     }//GEN-LAST:event_BtnExpiryActionPerformed
