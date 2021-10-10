@@ -58,7 +58,7 @@ public class viewJPanel extends javax.swing.JPanel {
             // get the first line
             // get the columns name from the first line
             // set columns name to the jtable model
-            String firstLine = br.readLine().trim();
+//            String firstLine = br.readLine().trim();
 //            String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)carTable.getModel();
 //            model.setColumnIdentifiers(columnsName);
@@ -384,6 +384,20 @@ public class viewJPanel extends javax.swing.JPanel {
                     }
                     
                     //setting value of the "View"
+                    boolean flag = false;
+        String carSerialNumber;
+          for (int i = 0;i<tblmodel.getRowCount();i++){
+                 if (TxtCarSerialNo.getText().equals(tblmodel.getValueAt(i, 0))) {
+                     
+                     flag = true;
+                     TxtCarSerialNo.setText(" ");
+                     carSerialNumber = TxtCarSerialNo.getText();
+                     JOptionPane.showMessageDialog(this, carSerialNumber + " Serial Number already exists! Re-Enter to proceed.");
+                     
+                 }
+                 }
+                    if (flag == false) {
+                        
                     
                     tblmodel.setValueAt(carSerialNum,carTable.getSelectedRow(),0);
                     
@@ -397,14 +411,16 @@ public class viewJPanel extends javax.swing.JPanel {
                     tblmodel.setValueAt(geoLocation,carTable.getSelectedRow(),8);
                     tblmodel.setValueAt(modelNumber,carTable.getSelectedRow(),9);
                     tblmodel.setValueAt(Date,carTable.getSelectedRow(),10);
+                    JOptionPane.showMessageDialog(this,"Updated Successfully at "+Date);
+                   lblModifiedDateView.setText("Fleet Database was last updated on: "+Date);
+                    }
                     try {
                         ExporttoFile();
                     } catch (IOException ex) {
                         java.util.logging.Logger.getLogger(viewJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                     }
                             
-                   JOptionPane.showMessageDialog(this,"Updated Successfully at "+Date);
-                   lblModifiedDateView.setText("Fleet Database was last updated on: "+Date);
+                   
                 
                 }
                 else{

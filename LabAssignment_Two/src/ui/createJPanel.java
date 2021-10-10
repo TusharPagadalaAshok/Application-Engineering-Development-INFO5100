@@ -240,11 +240,17 @@ public class createJPanel extends javax.swing.JPanel {
         
       
         Enumeration<AbstractButton> bg1 = buttonGroupAvailabilityCreate.getElements();
+       
         while(bg1.hasMoreElements()){
                 JRadioButton Radio2 = (JRadioButton) bg1.nextElement();
                 if(Radio2.isSelected())
                      availability = Radio2.getText();
+//                else if(!Radio2.isSelected()){ 
+//                    JOptionPane.showMessageDialog(this,"Choose the availability of this car");
+//                }
+                
            }
+        
         
         //date
         
@@ -282,6 +288,12 @@ public class createJPanel extends javax.swing.JPanel {
           //            TxtDOB.setText(null);
             
         }
+                 
+          if(TxtCarSerialNo.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "Enter Serial Number");
+              flag = true;
+          }
+              
           
           if(flag == false){
               cd.setCarModel(carModel); 
@@ -295,6 +307,18 @@ public class createJPanel extends javax.swing.JPanel {
                 cd.setAvailability(availability);
                 cd.setLastMaintenanceDate(maintenanceDate);
                 cd.setDate(Date);
+                JOptionPane.showMessageDialog(this, manufacturedBy+" "+carModel+" - "+modelNumber+" "+ df.format(now));
+                
+                TxtCarModel.setText("");
+        TxtMinPassengerCap.setText("");
+        TxtMaxPassengerCap.setText("");
+        YearChooserManufacturerYear.removeAll();
+        TxtCarSerialNo.setText("");
+        TxtManufacturedBy.setText("");
+        TxtGeoLocation.setSelectedIndex(0);
+        TxtModelNumber.setText("");
+        
+        buttonGroupAvailabilityCreate.clearSelection();
           }
           
         
@@ -312,18 +336,9 @@ public class createJPanel extends javax.swing.JPanel {
         
         
         
-       JOptionPane.showMessageDialog(this, manufacturedBy+" "+carModel+" - "+modelNumber+" "+ df.format(now));
+       
 //        LblModifiedDateView.setText("Fleet Database was last updated on: "+Date);
-        TxtCarModel.setText("");
-        TxtMinPassengerCap.setText("");
-        TxtMaxPassengerCap.setText("");
-        YearChooserManufacturerYear.removeAll();
-        TxtCarSerialNo.setText("");
-        TxtManufacturedBy.setText("");
-        TxtGeoLocation.setSelectedIndex(0);
-        TxtModelNumber.setText("");
         
-        buttonGroupAvailabilityCreate.clearSelection();
         
         
         
