@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class CreatePatientJPanel extends javax.swing.JPanel {
     
@@ -25,14 +25,14 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
     private Person person;
     private JPanel userProcessContainer;
     
-    public CreatePatientJPanel(JPanel upc, Person person) {
+    public CreatePatientJPanel(JPanel panel, Person person) {
         initComponents();
-        this.userProcessContainer = upc;
+        this.userProcessContainer = panel;
         this.person=person;
-        addVerifiers();
+        checkVerifier();
     }
     
-    private void addVerifiers() {
+    private void checkVerifier() {
         InputVerifier stringVerifier = new MyStringVerifier();
         patientIDJTextField.setInputVerifier(stringVerifier);
         primaryDocNameJTextField.setInputVerifier(stringVerifier);
@@ -116,7 +116,7 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
             patient.setPrefferedPharmacy(prefferedPharmacyJTextField.getText());
             //Adding Patient to Person
             person.setPatient(patient);
-            JOptionPane.showMessageDialog(this, "Patient added!!", "Update", 
+            JOptionPane.showMessageDialog(this, "Patient added", "Update", 
                     JOptionPane.INFORMATION_MESSAGE);
             clearFields();
         }

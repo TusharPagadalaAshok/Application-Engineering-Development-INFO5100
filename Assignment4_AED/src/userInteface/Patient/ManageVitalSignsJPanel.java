@@ -35,7 +35,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     
@@ -59,16 +59,17 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     private void populatePatientsTable(ArrayList<Person> personList) {
         DefaultTableModel model = (DefaultTableModel) viewPatientsJTable.getModel();
         model.setRowCount(0);
-        if(personList.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "No Persons found. Please add Persons",
-                    "Error", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
+//        if(personList.isEmpty())
+//        {
+//            JOptionPane.showMessageDialog(this, "Please add Persons",
+//                    "Error", JOptionPane.INFORMATION_MESSAGE);
+//            return;
+//        }
         for (Person person : personList) {
-            Object[] row = new Object[3];
+            Object[] row = new Object[4];
             row[0] = person;
             row[1]= person.getAge();
+            row[3] = person.getCommunity();
             if(person.getPatient()!=null)
             {
                 row[2] = person.getPatient().getPatientID();
@@ -91,8 +92,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
             ArrayList<VitalSign> vitalSignList = person.getPatient().getVitalSignHistory().getHistory();
             
             if (vitalSignList.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No vital signs found. Please"
-                        + " add vital signs", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No vital signs found", "Error", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             for (VitalSign vitalSign : vitalSignList) {
@@ -107,44 +107,31 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     private String VitalSignStatus(int patientAge, VitalSign vitalSign) {
         String vitalSignStatus = "Normal";
         
-        int respirationRate = vitalSign.getRespiratoryRate();
-        int heartRate = vitalSign.getHeartRate();
+//        
         int bloodPressure = vitalSign.getBloodPressure();
-        float weight = vitalSign.getWeight();
+//      
         
-        /*Toddler*/
+        /*new born*/
         if (patientAge >= 1 && patientAge <= 3) {
-            if ((respirationRate < 20 || respirationRate > 30) /*Respiration Rate*/
-                    || (heartRate < 80 || heartRate > 130) /*Heart Rate*/
-                    || (bloodPressure < 80 || bloodPressure > 110) /*Blood Pressure*/
-                    || (weight < 22 || weight > 31)) /*Weight*/ {
+            if ((bloodPressure < 80 || bloodPressure > 110)) /*Weight*/ {
                 vitalSignStatus = "Abnormal";
             }
         }
-        /*Preschooler*/
+        /*pre school*/
         if (patientAge >= 4 && patientAge <= 5) {
-            if ((respirationRate < 20 || respirationRate > 30)
-                    || (heartRate < 80 || heartRate > 120)
-                    || (bloodPressure < 80 || bloodPressure > 110)
-                    || (weight < 31 || weight > 40)) {
+            if ((bloodPressure < 80 || bloodPressure > 110)) {
                 vitalSignStatus = "Abnormal";
             }
         }
         /*School Age*/
         if (patientAge >= 6 && patientAge <= 12) {
-            if ((respirationRate < 20 || respirationRate > 30)
-                    || (heartRate < 70 || heartRate > 110)
-                    || (bloodPressure < 80 || bloodPressure > 120)
-                    || (weight < 41 || weight > 92)) {
+            if ((bloodPressure < 80 || bloodPressure > 120)) {
                 vitalSignStatus = "Abnormal";
             }
         }
         /*Adolescent*/
         if (patientAge >= 13) {
-            if ((respirationRate < 12 || respirationRate > 20)
-                    || (heartRate < 55 || heartRate > 105)
-                    || (bloodPressure < 110 || bloodPressure > 120)
-                    || (weight < 110)) {
+            if ((bloodPressure < 110 || bloodPressure > 120)) {
                 vitalSignStatus = "Abnormal";
             }
         }
@@ -160,39 +147,42 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        displayDetailsJButton = new javax.swing.JButton();
+        searchBoxJTextField = new javax.swing.JTextField();
+        searchPatientJButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
         editVitalSignsJButton = new javax.swing.JButton();
+        displayDetailsJButton = new javax.swing.JButton();
         addVitalSignsJButton = new javax.swing.JButton();
         deleteVitalSignJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         viewPatientsJTable = new javax.swing.JTable();
-        backJButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         viewVitalSignsJTable = new javax.swing.JTable();
         viewVitalSignJButton = new javax.swing.JButton();
         refreshVitalSignsJButton = new javax.swing.JButton();
-        searchBoxJTextField = new javax.swing.JTextField();
-        searchPatientJButton = new javax.swing.JButton();
         refreshPatientsJButton = new javax.swing.JButton();
-        showChartJButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         generateTable = new javax.swing.JTable();
         Generate = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         CommunityList = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
         CountDisplay = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(500, 700));
-        setPreferredSize(new java.awt.Dimension(500, 700));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        displayDetailsJButton.setText("Display Details");
-        displayDetailsJButton.addActionListener(new java.awt.event.ActionListener() {
+        searchPatientJButton.setText("Search Patient");
+        searchPatientJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displayDetailsJButtonActionPerformed(evt);
+                searchPatientJButtonActionPerformed(evt);
             }
         });
-        add(displayDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 135, 113, -1));
+
+        backJButton.setText("<<Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
 
         editVitalSignsJButton.setText("Edit Vital Signs");
         editVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -200,37 +190,54 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 editVitalSignsJButtonActionPerformed(evt);
             }
         });
-        add(editVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 373, -1, -1));
 
-        addVitalSignsJButton.setText("Add Vital Sign");
+        setBackground(new java.awt.Color(0, 204, 204));
+        setMinimumSize(new java.awt.Dimension(500, 700));
+        setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        displayDetailsJButton.setBackground(new java.awt.Color(255, 255, 204));
+        displayDetailsJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        displayDetailsJButton.setText("Encounter History");
+        displayDetailsJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayDetailsJButtonActionPerformed(evt);
+            }
+        });
+        add(displayDetailsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 150, -1));
+
+        addVitalSignsJButton.setBackground(new java.awt.Color(255, 255, 204));
+        addVitalSignsJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        addVitalSignsJButton.setText("Add Blood Pressure");
         addVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addVitalSignsJButtonActionPerformed(evt);
             }
         });
-        add(addVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 135, 119, -1));
+        add(addVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 100, 150, -1));
 
-        deleteVitalSignJButton.setText("Delete Vital Sign");
+        deleteVitalSignJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        deleteVitalSignJButton.setText("Delete log");
         deleteVitalSignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteVitalSignJButtonActionPerformed(evt);
             }
         });
-        add(deleteVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 373, -1, -1));
+        add(deleteVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 110, 30));
 
         viewPatientsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Age", "Patient ID"
+                "Patient Name", "Age", "Patient ID", "Community"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -239,15 +246,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(viewPatientsJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 406, 106));
-
-        backJButton.setText("<<Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 135, 103, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 400, 230));
 
         viewVitalSignsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,7 +256,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Timestamp", "Status"
+                "Encountered at", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -274,48 +273,34 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
             viewVitalSignsJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, 406, 126));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 406, 230));
 
-        viewVitalSignJButton.setText("View Vital Signs");
+        viewVitalSignJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        viewVitalSignJButton.setText("View/Edit log");
         viewVitalSignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewVitalSignJButtonActionPerformed(evt);
             }
         });
-        add(viewVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 373, 131, -1));
+        add(viewVitalSignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 140, 30));
 
-        refreshVitalSignsJButton.setText("Refresh Vital Sign");
+        refreshVitalSignsJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        refreshVitalSignsJButton.setText("Refresh");
         refreshVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshVitalSignsJButtonActionPerformed(evt);
             }
         });
-        add(refreshVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 418, 131, -1));
-        add(searchBoxJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 170, 119, -1));
+        add(refreshVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 110, 30));
 
-        searchPatientJButton.setText("Search Patient");
-        searchPatientJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchPatientJButtonActionPerformed(evt);
-            }
-        });
-        add(searchPatientJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 169, -1, -1));
-
-        refreshPatientsJButton.setText("Refresh Patients");
+        refreshPatientsJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        refreshPatientsJButton.setText("Refresh");
         refreshPatientsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshPatientsJButtonActionPerformed(evt);
             }
         });
-        add(refreshPatientsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 169, -1, -1));
-
-        showChartJButton.setText("Show Chart");
-        showChartJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showChartJButtonActionPerformed(evt);
-            }
-        });
-        add(showChartJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 418, 107, -1));
+        add(refreshPatientsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         generateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -330,15 +315,16 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(generateTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 390, 140));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 570, 180));
 
-        Generate.setText("Generate Cases By Patient");
+        Generate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Generate.setText("Generate Abnormal Cases");
         Generate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GenerateActionPerformed(evt);
             }
         });
-        add(Generate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
+        add(Generate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 320, 60));
 
         CommunityList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -347,11 +333,22 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(CommunityList);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, -1));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 170, 150));
 
-        CountDisplay.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        add(CountDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 360, 100));
-        CountDisplay.getAccessibleContext().setAccessibleName("");
+        jLabel1.setBackground(new java.awt.Color(255, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Add BP and Report");
+        jLabel1.setOpaque(true);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1120, 30));
+
+        CountDisplay.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        add(CountDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 650, 80));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel2.setText("Select the Community to see the list of people with abnormalities or high blood pressure");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 500, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -370,9 +367,9 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
             return;
         }
         VitalSign vitalSign = (VitalSign) viewVitalSignsJTable.getValueAt(selectedRow, 0);
-        ViewUpdateVitalSignsJPanel vuvsJPanel = new ViewUpdateVitalSignsJPanel(userProcessContainer,
+        ViewUpdateVitalSignsJPanel viewjpanel = new ViewUpdateVitalSignsJPanel(userProcessContainer,
                 vitalSign, Boolean.FALSE);
-        userProcessContainer.add("vuvsJPanel", vuvsJPanel);
+        userProcessContainer.add("viewjpanel", viewjpanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_viewVitalSignJButtonActionPerformed
@@ -387,9 +384,9 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         }
         VitalSign vitalSign = (VitalSign) viewVitalSignsJTable.getValueAt(selectedRow, 0);
         
-        ViewUpdateVitalSignsJPanel vuvsJPanel = new ViewUpdateVitalSignsJPanel(userProcessContainer,
+        ViewUpdateVitalSignsJPanel viewp = new ViewUpdateVitalSignsJPanel(userProcessContainer,
                 vitalSign, Boolean.TRUE);
-        userProcessContainer.add("vuvsJPanel", vuvsJPanel);
+        userProcessContainer.add("viewp", viewp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_editVitalSignsJButtonActionPerformed
@@ -406,8 +403,8 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         Patient patient= person.getPatient();
         if(patient!=null)
         {
-            CreateVitalSignJPanel cvsJPanel = new CreateVitalSignJPanel(userProcessContainer, patient);
-            userProcessContainer.add("cvsJPanel", cvsJPanel);
+            CreateVitalSignJPanel viewpl = new CreateVitalSignJPanel(userProcessContainer, patient);
+            userProcessContainer.add("viewpl", viewpl);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }
@@ -434,8 +431,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Patient not created, Please create "
-                    + "Patient first.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Patient not created, Please create","ERROR" , JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_displayDetailsJButtonActionPerformed
 
@@ -496,17 +492,6 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         populatePatientsTable(personDirectory.getPersonHistory());
     }//GEN-LAST:event_refreshPatientsJButtonActionPerformed
 
-    private void showChartJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showChartJButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = viewPatientsJTable.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a patient from table.",
-                    "Error", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        createChart();
-    }//GEN-LAST:event_showChartJButtonActionPerformed
-
     private void GenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateActionPerformed
         // TODO add your handling code here:
        DefaultTableModel model = (DefaultTableModel) generateTable.getModel();
@@ -551,7 +536,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
          dm.addAll(unique);
           
         
-        
+//        CountDisplay.setText("Number of People = " + count);
         
         
         
@@ -584,7 +569,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
                     count++;
                 }
             }
-            CountDisplay.setText("C ="+ count);
+            CountDisplay.setText("Number of People with abnormal cases in the selected community ="+ count);
         
         
         
@@ -609,53 +594,7 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
         }
     }
     
-    private void createChart()
-    {
-        DefaultCategoryDataset vitalSignDataset=new DefaultCategoryDataset();
-        int selectedRow = viewPatientsJTable.getSelectedRow();
-        Person person = (Person) viewPatientsJTable.getValueAt(selectedRow, 0);
-        Patient patient= person.getPatient();
-        if(patient==null)
-        {
-            JOptionPane.showMessageDialog(this, "Patient not created, Please create "
-                    + "Patient first.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        ArrayList<VitalSign> vitalSignList = patient.getVitalSignHistory().getHistory();
-        /*At least 2 vital sign records needed to show chart */
-        if (vitalSignList.isEmpty() || vitalSignList.size() == 1) {
-            JOptionPane.showMessageDialog(this, "No vital signs or only one vital "
-                    + "sign found. At least 2 vital sign records needed to show chart!", 
-                    "Warning", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        for (VitalSign vitalSign : vitalSignList) {
-            vitalSignDataset.addValue(vitalSign.getRespiratoryRate(),"RR", vitalSign.getTimestamp());
-            vitalSignDataset.addValue(vitalSign.getHeartRate(),"HR", vitalSign.getTimestamp());
-            vitalSignDataset.addValue(vitalSign.getBloodPressure(),"BP", vitalSign.getTimestamp());
-            vitalSignDataset.addValue(vitalSign.getWeight(),"WT", vitalSign.getTimestamp());
-        }
-        
-        JFreeChart vitalSignChart= ChartFactory.createBarChart3D("Vital Sign Chart", 
-                "Time Stamp", "Rate", vitalSignDataset, PlotOrientation.VERTICAL, true, false, false);
-        vitalSignChart.setBackgroundPaint(Color.white);
-        CategoryPlot vitalSignChartPlot = vitalSignChart.getCategoryPlot();
-        vitalSignChartPlot.setBackgroundPaint(Color.lightGray);
-        
-        CategoryAxis vitalSignDomainAxis = vitalSignChartPlot.getDomainAxis();
-        vitalSignDomainAxis.setCategoryLabelPositions(
-                CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 6.0)
-        );
-        
-        NumberAxis vitalSignRangeAxis = (NumberAxis) vitalSignChartPlot.getRangeAxis();
-        vitalSignRangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-        
-        ChartFrame chartFrame = new ChartFrame("Chart", vitalSignChart);
-        chartFrame.setVisible(true);
-        chartFrame.setSize(500, 500);
-        
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> CommunityList;
@@ -667,6 +606,8 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton displayDetailsJButton;
     private javax.swing.JButton editVitalSignsJButton;
     private javax.swing.JTable generateTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -675,7 +616,6 @@ public class ManageVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton refreshVitalSignsJButton;
     private javax.swing.JTextField searchBoxJTextField;
     private javax.swing.JButton searchPatientJButton;
-    private javax.swing.JButton showChartJButton;
     private javax.swing.JTable viewPatientsJTable;
     private javax.swing.JButton viewVitalSignJButton;
     private javax.swing.JTable viewVitalSignsJTable;

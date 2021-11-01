@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class ManagePersonsJPanel extends javax.swing.JPanel {
 
@@ -35,8 +35,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         if(personsList.isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "No Person's found. Please add"
-                    + " Person's", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No Person's found", "Warning", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
         for (Person person : personsList) {
@@ -52,7 +51,7 @@ public class ManagePersonsJPanel extends javax.swing.JPanel {
             }
             else
             {
-                row[2] = "Patient Not Created";
+                row[2] = "Not a Patient";
             }
             model.addRow(row);
         }

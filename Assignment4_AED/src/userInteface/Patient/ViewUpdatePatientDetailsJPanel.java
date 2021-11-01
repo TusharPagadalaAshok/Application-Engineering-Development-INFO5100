@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
     
@@ -32,7 +32,7 @@ public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
         this.isEdit = isEdit;
         addVerifiers();
         populatePatientDetails();
-        modifyTextFields(this.isEdit);
+
     }
     
     private void addVerifiers() {
@@ -56,6 +56,7 @@ public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        editJButton = new javax.swing.JButton();
         patientIDJLabel = new javax.swing.JLabel();
         primaryDocNameJLabel = new javax.swing.JLabel();
         prefferedPharmacyJLabel = new javax.swing.JLabel();
@@ -64,39 +65,7 @@ public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
         prefferedPharmacyJTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
-        editJButton = new javax.swing.JButton();
         saveJButton = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(0, 204, 204));
-        setToolTipText("");
-        setMinimumSize(new java.awt.Dimension(500, 700));
-        setPreferredSize(new java.awt.Dimension(500, 700));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        patientIDJLabel.setText("Patient ID:");
-        add(patientIDJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 106, -1));
-
-        primaryDocNameJLabel.setText("Primary Doctor Name");
-        add(primaryDocNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
-
-        prefferedPharmacyJLabel.setText("Preffered Pharmacy");
-        add(prefferedPharmacyJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 106, -1));
-        add(patientIDJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 150, -1));
-        add(primaryDocNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 150, -1));
-        add(prefferedPharmacyJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 150, -1));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Patient Details");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, 1000, 30));
-
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 100, -1));
 
         editJButton.setText("Edit");
         editJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,34 +73,62 @@ public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
                 editJButtonActionPerformed(evt);
             }
         });
-        add(editJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 100, -1));
 
+        setBackground(new java.awt.Color(0, 204, 204));
+        setToolTipText("");
+        setMinimumSize(new java.awt.Dimension(500, 700));
+        setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        patientIDJLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        patientIDJLabel.setText("Patient ID:");
+        add(patientIDJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 106, -1));
+
+        primaryDocNameJLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        primaryDocNameJLabel.setText("Physician Name:");
+        add(primaryDocNameJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+
+        prefferedPharmacyJLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        prefferedPharmacyJLabel.setText("Medical Department:");
+        add(prefferedPharmacyJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 170, -1));
+        add(patientIDJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 150, -1));
+        add(primaryDocNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 150, -1));
+        add(prefferedPharmacyJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 150, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Patient Details");
+        jLabel1.setOpaque(true);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, 1000, 30));
+
+        backJButton.setBackground(new java.awt.Color(255, 255, 204));
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, -1));
+
+        saveJButton.setBackground(new java.awt.Color(255, 255, 204));
+        saveJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         saveJButton.setText("Save");
         saveJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveJButtonActionPerformed(evt);
             }
         });
-        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 100, -1));
+        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 100, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void editJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editJButtonActionPerformed
         // TODO add your handling code here:
-        modifyTextFields(true);
+//     
     }//GEN-LAST:event_editJButtonActionPerformed
     
-    private void modifyTextFields(Boolean isEdit) {
-        if (isEdit) {
-            patientIDJTextField.setEnabled(true);
-            primaryDocNameJTextField.setEnabled(true);
-            prefferedPharmacyJTextField.setEnabled(true);
-        } else {
-            patientIDJTextField.setEnabled(false);
-            primaryDocNameJTextField.setEnabled(false);
-            prefferedPharmacyJTextField.setEnabled(false);
-        }
-    }
-
+//   
     private void saveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJButtonActionPerformed
         // TODO add your handling code here:
         
@@ -141,7 +138,7 @@ public class ViewUpdatePatientDetailsJPanel extends javax.swing.JPanel {
             patient.setPrefferedPharmacy(prefferedPharmacyJTextField.getText());
             JOptionPane.showMessageDialog(this, "Patient updated!!", "Update", 
                     JOptionPane.INFORMATION_MESSAGE);
-            modifyTextFields(false);
+
         } else {
             JOptionPane.showMessageDialog(this, "Please enter correct values", 
                     "Error", JOptionPane.ERROR_MESSAGE);

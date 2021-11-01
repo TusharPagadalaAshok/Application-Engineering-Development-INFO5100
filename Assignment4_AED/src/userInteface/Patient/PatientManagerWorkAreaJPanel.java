@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form PatientManagerWorkAreaJPanel
+     *
      */
     private PersonDirectory personDirectory;
     private JPanel userProcessContainer;
@@ -40,43 +40,30 @@ public class PatientManagerWorkAreaJPanel extends javax.swing.JPanel {
         managePatientsJButton = new javax.swing.JButton();
         manageVitalSignsJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
         setMinimumSize(new java.awt.Dimension(500, 700));
         setPreferredSize(new java.awt.Dimension(500, 700));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        managePatientsJButton.setText("Manage Patients");
+        managePatientsJButton.setBackground(new java.awt.Color(255, 255, 204));
+        managePatientsJButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        managePatientsJButton.setText("Go to Patient Directory>>");
         managePatientsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managePatientsJButtonActionPerformed(evt);
             }
         });
+        add(managePatientsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 350, 250));
 
-        manageVitalSignsJButton.setText("Manage Vital Signs");
+        manageVitalSignsJButton.setBackground(new java.awt.Color(255, 255, 204));
+        manageVitalSignsJButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        manageVitalSignsJButton.setText("Add BP and Reports>>");
         manageVitalSignsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageVitalSignsJButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageVitalSignsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(managePatientsJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(347, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(managePatientsJButton)
-                .addGap(18, 18, 18)
-                .addComponent(manageVitalSignsJButton)
-                .addContainerGap(619, Short.MAX_VALUE))
-        );
+        add(manageVitalSignsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 360, 240));
     }// </editor-fold>//GEN-END:initComponents
 
     private void managePatientsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePatientsJButtonActionPerformed

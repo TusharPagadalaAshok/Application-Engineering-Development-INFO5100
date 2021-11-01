@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
 
@@ -33,7 +33,7 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
         this.isEdit = isEdit;
         addVerifiers();
         populatePatientDetails();
-        modifyTextFields(this.isEdit);
+//        modifyTextFields(this.isEdit);
     }
 
     private void addVerifiers() {
@@ -66,7 +66,6 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         patientNameJLabel = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
-        editJButton = new javax.swing.JButton();
         saveJButton = new javax.swing.JButton();
         HouseJTextField = new javax.swing.JTextField();
         CommunityJTextField = new javax.swing.JTextField();
@@ -109,16 +108,6 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 100, -1));
 
-        editJButton.setBackground(new java.awt.Color(255, 255, 204));
-        editJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        editJButton.setText("Edit");
-        editJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editJButtonActionPerformed(evt);
-            }
-        });
-        add(editJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 100, -1));
-
         saveJButton.setBackground(new java.awt.Color(255, 255, 204));
         saveJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         saveJButton.setText("Save");
@@ -127,7 +116,7 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
                 saveJButtonActionPerformed(evt);
             }
         });
-        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 100, -1));
+        add(saveJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 100, -1));
         add(HouseJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 200, 30));
         add(CommunityJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 200, 30));
         add(cityJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 200, 30));
@@ -148,26 +137,6 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editJButtonActionPerformed
-        // TODO add your handling code here:
-        modifyTextFields(true);
-    }//GEN-LAST:event_editJButtonActionPerformed
-
-    private void modifyTextFields(Boolean isEdit) {
-        if (isEdit) {
-            personNameJTextField.setEnabled(true);
-            personAgeJTextField.setEnabled(true);
-            cityJTextField.setEnabled(true);
-            HouseJTextField.setEnabled(true);
-            CommunityJTextField.setEnabled(true);
-        } else {
-            personNameJTextField.setEnabled(false);
-            personAgeJTextField.setEnabled(false);
-            cityJTextField.setEnabled(false);
-            HouseJTextField.setEnabled(false);
-            CommunityJTextField.setEnabled(false);
-        }
-    }
 
     private void saveJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJButtonActionPerformed
         // TODO add your handling code here:
@@ -175,12 +144,13 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
         if (checkBlankInput()) {
             person.setAge(Integer.parseInt(personAgeJTextField.getText()));
             person.setPersonName(personNameJTextField.getText());
-            cityJTextField.setText(person.getCity());
-            HouseJTextField.setText(person.getHouse());
-            CommunityJTextField.setText(person.getCommunity());
-            JOptionPane.showMessageDialog(this, "Person updated!!",
+            person.setCity(cityJTextField.getText());
+            person.setHouse(HouseJTextField.getText());
+            person.setCommunity(CommunityJTextField.getText());
+            
+            JOptionPane.showMessageDialog(this, "Person updated",
                     "Update", JOptionPane.INFORMATION_MESSAGE);
-            modifyTextFields(false);
+
         } else {
             JOptionPane.showMessageDialog(this, "Please enter correct values", 
                     "Error", JOptionPane.ERROR_MESSAGE);
@@ -209,7 +179,6 @@ public class ViewUpdatePersonDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField HouseJTextField;
     private javax.swing.JButton backJButton;
     private javax.swing.JTextField cityJTextField;
-    private javax.swing.JButton editJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -2,7 +2,7 @@ package business;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class Patient {
     

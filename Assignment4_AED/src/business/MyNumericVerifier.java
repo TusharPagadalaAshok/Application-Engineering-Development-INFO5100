@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class MyNumericVerifier extends InputVerifier {
     
@@ -21,20 +21,18 @@ public class MyNumericVerifier extends InputVerifier {
                 input.setBackground(Color.white);
                 if(i<=0)
                 {
-                    input.setBackground(Color.red);
-                    JOptionPane.showMessageDialog(input, "Please enter positive"
-                            + " integer value", "Error", JOptionPane.ERROR_MESSAGE);
+                   
+                    JOptionPane.showMessageDialog(input, "Please enter positive integer value", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
                 return true;
             } catch (NumberFormatException e) {
-                input.setBackground(Color.red);
-                JOptionPane.showMessageDialog(input, "Please enter integer"
-                        + " value", "Error", JOptionPane.ERROR_MESSAGE);
+                
+                JOptionPane.showMessageDialog(input, "Please enter integer value", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         } else {
-            input.setBackground(Color.white);
+   
             return true;
         }
     }

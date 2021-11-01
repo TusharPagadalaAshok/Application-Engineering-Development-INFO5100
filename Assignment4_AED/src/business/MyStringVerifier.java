@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class MyStringVerifier extends InputVerifier {
     
@@ -19,18 +19,17 @@ public class MyStringVerifier extends InputVerifier {
         if (text.length() > 0) {
             if (text.toLowerCase().startsWith(" ") || text.length() == 0 ||
                     text.matches(pattern) != true) {
-                input.setBackground(Color.red);
-                JOptionPane.showMessageDialog(input, "Please enter valid string."
-                        + " Special characters are not allowed", "Error", JOptionPane.ERROR_MESSAGE);
+               
+                JOptionPane.showMessageDialog(input, "Please enter valid string", "Error", JOptionPane.ERROR_MESSAGE);
                 return false;
             } else {
-                input.setBackground(Color.white);
+                
                 return true;
             }
         }
         else
         {
-            input.setBackground(Color.white);
+            
             return true;
         }
     }

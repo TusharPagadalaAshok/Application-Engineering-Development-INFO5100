@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class CreatePersonJPanel extends javax.swing.JPanel {
     
@@ -131,7 +131,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
             person.setHouse(HouseJTextField.getText());
             person.setCity(CityJTextField.getText());
             person.setCommunity(CommunityJTextField.getText());
-            JOptionPane.showMessageDialog(this, "Person added!!", "Update",
+            JOptionPane.showMessageDialog(this, "Person Created", "Update",
                     JOptionPane.INFORMATION_MESSAGE);
             clearFields();
         }
@@ -145,6 +145,10 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     {
         pesonNameJTextField.setText("");
         personAgeJTextField.setText("");
+        HouseJTextField.setText("");
+        CityJTextField.setText("");
+        CommunityJTextField.setText("");
+                
     }
     private Boolean checkBlankInput()
     {

@@ -8,7 +8,7 @@ package business;
 
 /**
  *
- * @author akshay
+ * @author Tushar
  */
 public class Person {
     private String personName;
