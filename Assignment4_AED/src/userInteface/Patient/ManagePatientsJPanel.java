@@ -61,7 +61,7 @@ public class ManagePatientsJPanel extends javax.swing.JPanel {
             }
             else
             {
-                row[2] = "Patient Not Created";
+                row[2] = "Not a Patient";
             }
             
             model.addRow(row);
