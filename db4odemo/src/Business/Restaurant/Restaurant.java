@@ -18,6 +18,12 @@ public class Restaurant {
     private ArrayList<Order> orderList;
     int id=1000;
     
+        public Restaurant(String UName) {
+        this.ResName=UName;
+        menuItem = new ArrayList<Menu>();
+        orderList=new ArrayList<Order>();
+    }
+    
      public void addDishes(Menu Item){
         
         menuItem.add(Item);
@@ -49,7 +55,7 @@ public class Restaurant {
     
     public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress) {
         Order order=new Order();
-       
+        order.setOrderId(String.valueOf(id));
         order.setCustomerName(customerName);
         order.setRestaurantName(restaurantName);
         order.setDeliveryMan(deliveryMan);

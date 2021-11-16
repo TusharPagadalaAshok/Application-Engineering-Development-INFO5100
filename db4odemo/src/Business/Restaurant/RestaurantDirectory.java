@@ -37,7 +37,7 @@ public class RestaurantDirectory {
     
     public void deleteRestaurent(String username){
         for(int i=0;i<restaurantList.size();i++){
-            if(restaurantList.get(i).getAdminUName().equals(username)){
+            if(restaurantList.get(i).getResName().equals(username)){
                 restaurantList.remove(i);
             }
         }
@@ -49,13 +49,13 @@ public class RestaurantDirectory {
         restro.setNumber(number);
     }
     
-    public Dishes AddMenuDishes(Restaurant restro,String name,String desc,String amount){
-        menu=new Dishes(name, desc, amount);
+    public Menu AddMenuDishes(Restaurant restro,String name,String desc,String amount){
+        menu=new Menu(name, desc, amount);
         restro.addDishes(menu);
         return menu;
     }
     
-    public void DeleteDishes(Restaurant restro,Dishes menu){
+    public void DeleteDishes(Restaurant restro,Menu menu){
         restro.removeDishes(menu);
         
     }
