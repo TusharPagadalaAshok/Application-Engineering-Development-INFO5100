@@ -49,7 +49,7 @@ public class Restaurant {
     
     public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress) {
         Order order=new Order();
-        order.setOrderId(String.valueOf(id));
+       
         order.setCustomerName(customerName);
         order.setRestaurantName(restaurantName);
         order.setDeliveryMan(deliveryMan);
