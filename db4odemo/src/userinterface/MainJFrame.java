@@ -6,7 +6,6 @@ package userinterface;
 
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-
 import Business.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -123,6 +122,31 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
+        //creating a user account in the ecosystem       
+        
+        UserAccount newua = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());  
+         try {
+             if(newua==null){
+                 
+                 JOptionPane.showMessageDialog(this,"Invalid User Name or Password ");
+                 userNameJTextField.setText("");
+                 passwordField.setText("");
+                 
+             }
+            
+        } catch (Exception e) {
+             return;
+        }
+        CardLayout layout = (CardLayout) container.getLayout();
+         container.add(newua.getRole().createWorkArea(container, newua, system));
+        layout.next(container);
+//       userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+        loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
