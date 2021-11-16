@@ -5,6 +5,9 @@
  */
 package Business.Order;
 
+import Business.Restaurant.Menu;
+import java.util.ArrayList;
+
 /**
  *
  * @author patus
@@ -17,6 +20,16 @@ public class Order {
     private String orderCost;
     private String orderStatus;
     private String deliveryAddress;
+    
+    private ArrayList<Menu> Order;
+
+    public ArrayList<Menu> getOrder() {
+        return Order;
+    }
+
+    public void setOrder(ArrayList<Menu> Order) {
+        this.Order = Order;
+    }
 
     public String getOrderId() {
         return orderId;
