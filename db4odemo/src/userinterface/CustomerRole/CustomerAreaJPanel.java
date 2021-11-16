@@ -4,11 +4,15 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Order.Order;
+import Business.Restaurant.Restaurant;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,24 +23,36 @@ import javax.swing.table.DefaultTableModel;
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
     private UserAccount userAccount;
+    EcoSystem system;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
+        this.system = system;
         this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
+        Greeting.setText(account.getUsername());
+        populateRestaurantTable();
+//        populateAvailableOrders();
     }
     
-    public void populateRequestTable(){
+    public void populateRestaurantTable(){
         
-    }
+        DefaultTableModel model = (DefaultTableModel) AvailableResTable.getModel();
+        
+                 model.setRowCount(0);
+                Object[] row = new Object[3];
+                for(Restaurant res:system.getRestaurantDirectory().getRestaurantList()){
+                     row[0] = res;
+                     row[1] = res.getAddress();
+                     row[2] = res.getNumber();
+                     model.addRow(row);
+                }
+               
+            }
 
     
     /**
@@ -48,123 +64,127 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Greeting = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        workRequestJTable = new javax.swing.JTable();
-        requestTestJButton = new javax.swing.JButton();
-        refreshTestJButton = new javax.swing.JButton();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        AvailableResTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        RecentOrderTable = new javax.swing.JTable();
+        TitlePastOrders = new javax.swing.JLabel();
+        RefreshCustomerOrders = new javax.swing.JButton();
+        OrderFoodButton = new javax.swing.JButton();
 
-        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(Greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 400, 30));
+
+        AvailableResTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Message", "Receiver", "Status", "Result"
+                "Name", "Address", "Number"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+        ));
+        jScrollPane1.setViewportView(AvailableResTable);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 570, 120));
+
+        RecentOrderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "OrderID", "Name", "Status"
             }
+        ));
+        jScrollPane2.setViewportView(RecentOrderTable);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(workRequestJTable);
-        if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
-        }
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 570, 120));
 
-        requestTestJButton.setText("Request Test");
-        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        TitlePastOrders.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TitlePastOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitlePastOrders.setText("Check for Open Orders Below");
+        add(TitlePastOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 400, 30));
+
+        RefreshCustomerOrders.setText("Refresh");
+        RefreshCustomerOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestTestJButtonActionPerformed(evt);
+                RefreshCustomerOrdersActionPerformed(evt);
             }
         });
+        add(RefreshCustomerOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
 
-        refreshTestJButton.setText("Refresh");
-        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        OrderFoodButton.setText("Order");
+        OrderFoodButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTestJButtonActionPerformed(evt);
+                OrderFoodButtonActionPerformed(evt);
             }
         });
-
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("EnterPrise :");
-
-        valueLabel.setText("<value>");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(requestTestJButton)
-                        .addGap(86, 86, 86))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(refreshTestJButton)
-                .addGap(103, 103, 103))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(refreshTestJButton)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(requestTestJButton)
-                .addContainerGap(202, Short.MAX_VALUE))
-        );
+        add(OrderFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
+    private void RefreshCustomerOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshCustomerOrdersActionPerformed
+        // TODO add your handling code here:
         
-        
-        
-    }//GEN-LAST:event_requestTestJButtonActionPerformed
+        populateAvailableOrders();
+    }//GEN-LAST:event_RefreshCustomerOrdersActionPerformed
 
-    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
-
-        populateRequestTable();
-        
-    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+    private void OrderFoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderFoodButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = AvailableResTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+           Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(selectedRow, 0);
+                       
+              MenuPanel manageMenu=new MenuPanel(userProcessContainer,userAccount,system,restaurant);
+             userProcessContainer.add("Manage Restaurents",manageMenu);
+            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+        }
+    }//GEN-LAST:event_OrderFoodButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JTable AvailableResTable;
+    private javax.swing.JLabel Greeting;
+    private javax.swing.JButton OrderFoodButton;
+    private javax.swing.JTable RecentOrderTable;
+    private javax.swing.JButton RefreshCustomerOrders;
+    private javax.swing.JLabel TitlePastOrders;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton refreshTestJButton;
-    private javax.swing.JButton requestTestJButton;
-    private javax.swing.JLabel valueLabel;
-    private javax.swing.JTable workRequestJTable;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
+
+    private void populateAvailableOrders() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    DefaultTableModel model = (DefaultTableModel) AvailableResTable.getModel();
+        
+        model.setRowCount(0);
+         
+       
+          for (Customer cust:system.getCustomerDirectory().getCustList()) {
+           
+            if (cust.getUserName().equals(userAccount.getUsername())) {
+               // System.out.println(restro.getOrderList());
+               for(Order menu:cust.getOrderList()){
+                Object[] row = new Object[4];
+                row[0] = menu;
+                row[1] = menu.getRestaurantName();
+               
+//                row[2] = menu.getOrderCost();
+                row[2] = menu.getOrderStatus();
+                model.addRow(row);
+               }
+                
+            }
+          }
+
+
+    }
 }
