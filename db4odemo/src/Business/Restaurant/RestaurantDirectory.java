@@ -43,20 +43,20 @@ public class RestaurantDirectory {
         }
     }
     
-    public void updateRestaurantInfo(Restaurant restro,String name,String number,String address){
-        restro.setName(name);
-        restro.setAddress(address);
-        restro.setNumber(number);
+    public void updateRestaurantInfo(Restaurant restname,String name,String number,String address){
+        restname.setName(name);
+        restname.setAddress(address);
+        restname.setNumber(number);
     }
     
-    public Menu AddMenuDishes(Restaurant restro,String name,String desc,String amount){
+    public Menu AddMenuItems(Restaurant restname,String name,String desc,String amount){
         menu=new Menu(name, desc, amount);
-        restro.addDishes(menu);
+        restname.addDishes(menu);
         return menu;
     }
     
-    public void DeleteDishes(Restaurant restro,Menu menu){
-        restro.removeDishes(menu);
+    public void DeleteItems(Restaurant restname,Menu menu){
+        restname.removeDishes(menu);
         
     }
     
