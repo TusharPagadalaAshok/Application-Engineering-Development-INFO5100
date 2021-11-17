@@ -105,6 +105,13 @@ public class Restaurant {
         
         menuItem.remove(Item);
     }
+    
+    
+     @Override
+    public String toString() {
+        return name;
+    }
+    
 
     
 }

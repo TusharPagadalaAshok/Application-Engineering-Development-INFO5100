@@ -46,7 +46,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                  model.setRowCount(0);
                 Object[] row = new Object[3];
                 for(Restaurant res:system.getRestaurantDirectory().getRestaurantList()){
-                     row[0] = res.getResName();
+                     row[0] = res;
                      row[1] = res.getAddress();
                      row[2] = res.getNumber();
                      model.addRow(row);
@@ -136,18 +136,20 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void OrderFoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderFoodButtonActionPerformed
         // TODO add your handling code here:
+        System.out.println("HERE IN ORDER ");
         int selectedRow = AvailableResTable.getSelectedRow();
         if(selectedRow<0){
             JOptionPane.showMessageDialog(null,"Please select a row","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
            Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(selectedRow, 0);
-                       
+                  System.out.println("HERE IN if condition ");     
               MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant);
              userProcessContainer.add("Manage Restaurant",manageMenu);
             CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
         }
+        System.out.println("HERE out of if condition ");   
     }//GEN-LAST:event_OrderFoodButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -31,8 +31,10 @@ public class MenuJPanel extends javax.swing.JPanel {
     /**
      * Creates new form MenuJPanel
      */
+     
     public MenuJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system,Restaurant res) {
         initComponents();
+        System.out.println("in MenuJpanel");
         this.userProcessContainer = userProcessContainer;
         this.system=system;
         this.userAccount = account;
@@ -267,7 +269,7 @@ public class MenuJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
                 Object[] row = new Object[3];
                 for(Menu item:res.getMenuItem()){
-                     row[0] = item.getName();
+                     row[0] = item;
                      row[1] = item.getIngredients();
                      row[2] = item.getPrice();
                      model.addRow(row);
@@ -275,7 +277,7 @@ public class MenuJPanel extends javax.swing.JPanel {
     }
     public void populateCart(Menu OrderItem){
         DefaultTableModel model = (DefaultTableModel) CartTable.getModel();
-        model.setRowCount(0);
+//        model.setRowCount(0);
         
          items.add(OrderItem);
          Object[] row = new Object[3];
