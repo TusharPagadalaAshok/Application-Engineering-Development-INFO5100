@@ -5,19 +5,44 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
+import Business.EcoSystem;
+import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author patus
  */
 public class MenuJPanel extends javax.swing.JPanel {
-
+    Restaurant res;
+    EcoSystem system;
+    ArrayList<Menu> items=new ArrayList<Menu>();
+    private UserAccount userAccount;
+    private JPanel userProcessContainer;
+    int sum = 0;
     /**
      * Creates new form MenuJPanel
      */
-    public MenuJPanel() {
+    public MenuJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system,Restaurant res) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system=system;
+        this.userAccount = account;
+        this.res=res;
+        populateMenuTable();
+        
+        greetings.setText("Menu card of " +  res.getName());
+        
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +56,13 @@ public class MenuJPanel extends javax.swing.JPanel {
         MenuCardTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         CartTable = new javax.swing.JTable();
+        TxtAddress = new javax.swing.JTextField();
+        lbldeliveryAddress = new javax.swing.JLabel();
+        RemoveFromCart = new javax.swing.JButton();
+        AddtoOrder = new javax.swing.JButton();
+        greetings = new javax.swing.JLabel();
+        BtnBacktoCustomerPage = new javax.swing.JButton();
+        OrderToRestaurant = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,14 +105,187 @@ public class MenuJPanel extends javax.swing.JPanel {
             CartTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 640, 180));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 350, 190));
+        add(TxtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 140, 170));
+
+        lbldeliveryAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbldeliveryAddress.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lbldeliveryAddress.setText("Delivery Address:");
+        add(lbldeliveryAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 150, 70));
+        lbldeliveryAddress.getAccessibleContext().setAccessibleName("Delivery Address:");
+
+        RemoveFromCart.setText("Remove");
+        RemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveFromCartActionPerformed(evt);
+            }
+        });
+        add(RemoveFromCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
+
+        AddtoOrder.setText("Add To Order");
+        AddtoOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddtoOrderActionPerformed(evt);
+            }
+        });
+        add(AddtoOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
+
+        greetings.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        add(greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 570, 30));
+
+        BtnBacktoCustomerPage.setText("<<Back");
+        BtnBacktoCustomerPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBacktoCustomerPageActionPerformed(evt);
+            }
+        });
+        add(BtnBacktoCustomerPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        OrderToRestaurant.setText("Order");
+        OrderToRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderToRestaurantActionPerformed(evt);
+            }
+        });
+        add(OrderToRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AddtoOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddtoOrderActionPerformed
+        // TODO add your handling code here:
+        
+        
+         int selectedRow = MenuCardTable.getSelectedRow();
+        if((MenuCardTable.getSelectedRow())==0){
+            JOptionPane.showMessageDialog(this,"select a row","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Menu item=(Menu)MenuCardTable.getValueAt(selectedRow, 0);
+            
+            populateCart(item);
+          
+        }
+    }//GEN-LAST:event_AddtoOrderActionPerformed
+
+    private void BtnBacktoCustomerPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBacktoCustomerPageActionPerformed
+        // TODO add your handling code here:
+        
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CustomerAreaJPanel cuspanel = (CustomerAreaJPanel) component;
+        cuspanel.populateRestaurantTable();
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_BtnBacktoCustomerPageActionPerformed
+
+    private void OrderToRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderToRestaurantActionPerformed
+        // TODO add your handling code here:
+        String address=TxtAddress.getText();
+        try{
+        if(address==null || address.isEmpty())
+        {
+            
+            throw new NullPointerException("Address field is Empty");
+            
+        }
+        }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Address field is empty");
+            return;
+        }
+        
+        res.addNewOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+        for(Customer cust:system.getCustomerDirectory().getCustList()){
+            if(userAccount.getUsername().equals(cust.getUserName())){
+                cust.addOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+            }
+        }
+        
+        
+        JOptionPane.showMessageDialog(null,"Your Order is placed!");
+        sum=0;
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CustomerAreaJPanel cuspage = (CustomerAreaJPanel) component;
+        cuspage.populateRestaurantTable();
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+             
+        
+        
+        
+        
+    }//GEN-LAST:event_OrderToRestaurantActionPerformed
+
+    private void RemoveFromCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRow = CartTable.getSelectedRow();
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Menu item=(Menu)CartTable.getValueAt(selectedRow, 0);
+            
+            items.remove(item);
+            sum=sum-Integer.parseInt(item.getPrice());
+            DefaultTableModel model = (DefaultTableModel) CartTable.getModel();
+        model.setRowCount(0);
+            Object[] row = new Object[3];
+                for(Menu dish:items){
+                     row[0] = dish;
+                     row[1] = dish.getIngredients();
+                     row[2] = dish.getPrice();
+                     
+                     model.addRow(row);
+                }  
+          
+        }
+    }//GEN-LAST:event_RemoveFromCartActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddtoOrder;
+    private javax.swing.JButton BtnBacktoCustomerPage;
     private javax.swing.JTable CartTable;
     private javax.swing.JTable MenuCardTable;
+    private javax.swing.JButton OrderToRestaurant;
+    private javax.swing.JButton RemoveFromCart;
+    private javax.swing.JTextField TxtAddress;
+    private javax.swing.JLabel greetings;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbldeliveryAddress;
     // End of variables declaration//GEN-END:variables
+
+    private void populateMenuTable() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+           DefaultTableModel model = (DefaultTableModel) MenuCardTable.getModel();
+        
+            model.setRowCount(0);
+                Object[] row = new Object[3];
+                for(Menu item:res.getMenuItem()){
+                     row[0] = item;
+                     row[1] = item.getIngredients();
+                     row[2] = item.getPrice();
+                     model.addRow(row);
+                }
+    }
+    public void populateCart(Menu OrderItem){
+        DefaultTableModel model = (DefaultTableModel) CartTable.getModel();
+        model.setRowCount(0);
+        
+         items.add(OrderItem);
+         Object[] row = new Object[3];
+                for(Menu item: items){
+                     row[0] = item;
+                     row[1] = item.getIngredients();
+                     row[2] = item.getPrice();
+                     sum = sum+Integer.parseInt(item.getPrice());
+                     model.addRow(row);
+                }  
+     }
+    
 }

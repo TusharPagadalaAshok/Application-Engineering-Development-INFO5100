@@ -143,7 +143,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         else{
            Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(selectedRow, 0);
                        
-              MenuPanel manageMenu=new MenuPanel(userProcessContainer,userAccount,system,restaurant);
+              MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant );
              userProcessContainer.add("Manage Restaurents",manageMenu);
             CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
@@ -187,4 +187,5 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
 
     }
+
 }
