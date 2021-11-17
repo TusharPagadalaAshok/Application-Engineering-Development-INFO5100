@@ -62,6 +62,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         });
         add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, 20));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Status:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 90, 80, 20));
@@ -76,6 +77,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 20));
 
+        DeliveryStatusComboBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         DeliveryStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delayed", "Delivered", "Customer Unreachable" }));
         DeliveryStatusComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {

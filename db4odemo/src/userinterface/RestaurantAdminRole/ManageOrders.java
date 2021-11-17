@@ -53,6 +53,7 @@ public class ManageOrders extends javax.swing.JPanel {
         AssignBtn1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -85,6 +86,8 @@ public class ManageOrders extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 580, 120));
 
+        backBtn.setBackground(new java.awt.Color(255, 255, 204));
+        backBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +96,8 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        BtnReadytodeliver.setBackground(new java.awt.Color(255, 255, 204));
+        BtnReadytodeliver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnReadytodeliver.setText("Ready to Deliver");
         BtnReadytodeliver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +106,8 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(BtnReadytodeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
 
+        AssignBtn1.setBackground(new java.awt.Color(255, 255, 204));
+        AssignBtn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         AssignBtn1.setText("Assign to Delivery Man ");
         AssignBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +116,8 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 204));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Refresh");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

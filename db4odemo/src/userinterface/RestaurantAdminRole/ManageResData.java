@@ -58,16 +58,23 @@ public class ManageResData extends javax.swing.JPanel {
         SaveBtn = new javax.swing.JButton();
         UpdateBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Restaurant Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("Restaurant Name:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 150, 20));
 
-        jLabel3.setText("Phone Number");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel3.setText("Phone Number:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 160, 30));
 
-        jLabel4.setText("Address");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel4.setText("Address:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 150, 20));
 
         addressTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +82,12 @@ public class ManageResData extends javax.swing.JPanel {
             }
         });
         add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 150, -1));
+
+        nameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTxtActionPerformed(evt);
+            }
+        });
         add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 150, -1));
 
         numTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +140,7 @@ public class ManageResData extends javax.swing.JPanel {
 
     private void SaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveBtnActionPerformed
         // TODO add your handling code here:
+        SaveBtn.setEnabled(true);
         String name=nameTxt.getText();
         String address=addressTxt.getText();
         String number=numTxt.getText();
@@ -200,7 +214,7 @@ public class ManageResData extends javax.swing.JPanel {
         nameTxt.setEnabled(false);
         addressTxt.setEnabled(false);
         numTxt.setEnabled(false);
-        SaveBtn.setEnabled(false);
+//        SaveBtn.setEnabled(false);
         UpdateBtn.setEnabled(true);
 
     }//GEN-LAST:event_SaveBtnActionPerformed
@@ -214,6 +228,10 @@ public class ManageResData extends javax.swing.JPanel {
         UpdateBtn.setEnabled(false);
 
     }//GEN-LAST:event_UpdateBtnActionPerformed
+
+    private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTxtActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
