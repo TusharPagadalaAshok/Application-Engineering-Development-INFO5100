@@ -103,7 +103,7 @@ public class ManageMenuCard extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 830, 100));
 
-        jLabel2.setText("Dish Name");
+        jLabel2.setText("Item Name");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
         TxtItemName.addActionListener(new java.awt.event.ActionListener() {
@@ -225,12 +225,12 @@ public class ManageMenuCard extends javax.swing.JPanel {
 
             }
         } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Description is Empty");
+            JOptionPane.showMessageDialog(null, "Ingredients is Empty");
 
             return;
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " Description is invalid");
+            JOptionPane.showMessageDialog(null, " Ingredients is invalid");
 
             return;
         }
