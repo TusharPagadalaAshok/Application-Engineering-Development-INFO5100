@@ -36,7 +36,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         Greeting.setText(account.getUsername());
         populateRestaurantTable();
-//        populateAvailableOrders();
+        populateAvailableOrders();
     }
     
     public void populateRestaurantTable(){
@@ -46,7 +46,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                  model.setRowCount(0);
                 Object[] row = new Object[3];
                 for(Restaurant res:system.getRestaurantDirectory().getRestaurantList()){
-                     row[0] = res;
+                     row[0] = res.getResName();
                      row[1] = res.getAddress();
                      row[2] = res.getNumber();
                      model.addRow(row);
@@ -143,8 +143,8 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         else{
            Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(selectedRow, 0);
                        
-              MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant );
-             userProcessContainer.add("Manage Restaurents",manageMenu);
+              MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant);
+             userProcessContainer.add("Manage Restaurant",manageMenu);
             CardLayout layout=(CardLayout)userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
         }
@@ -163,7 +163,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void populateAvailableOrders() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    DefaultTableModel model = (DefaultTableModel) AvailableResTable.getModel();
+    DefaultTableModel model = (DefaultTableModel) RecentOrderTable.getModel();
         
         model.setRowCount(0);
          

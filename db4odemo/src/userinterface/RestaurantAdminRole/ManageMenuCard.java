@@ -19,6 +19,7 @@ import java.awt.CardLayout;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 public class ManageMenuCard extends javax.swing.JPanel {
 
@@ -261,7 +262,33 @@ public class ManageMenuCard extends javax.swing.JPanel {
     }//GEN-LAST:event_BtnAddDishActionPerformed
 
     private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    DefaultTableModel model = (DefaultTableModel) MenuTable.getModel();
+        
+        model.setRowCount(0);
+        
+       
+        for (Restaurant restro:system.getRestaurantDirectory().getRestaurantList()) {
+           
+            if (restro.getResName().equals(account.getUsername())) {
+                
+               for(Menu menu:restro.getMenuItem()){
+                Object[] row = new Object[3];
+                row[0] = menu.getName();
+                row[1] = menu.getIngredients();
+                row[2] = menu.getPrice();
+                model.addRow(row);
+               }
+                
+            }
+            
+        }
+
+
+
+
+
+
     }
 
 

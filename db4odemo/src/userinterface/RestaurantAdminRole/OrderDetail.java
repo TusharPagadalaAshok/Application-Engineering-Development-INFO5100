@@ -5,6 +5,15 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.Customer.Customer;
+import Business.EcoSystem;
+import Business.Order.Order;
+import Business.Restaurant.Menu;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author patus
@@ -14,8 +23,18 @@ public class OrderDetail extends javax.swing.JPanel {
     /**
      * Creates new form OrderDetail
      */
-    public OrderDetail() {
-        initComponents();
+    private JPanel userProcessContainer;
+    private UserAccount account;
+    Order order;
+    EcoSystem system;
+    public OrderDetail(JPanel userProcessContainer, UserAccount account, Order order, EcoSystem system) {
+      
+         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.order = order;
+        this.system = system;
+        populateTable();
     }
 
     /**
@@ -94,11 +113,11 @@ public class OrderDetail extends javax.swing.JPanel {
 
     private void statusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusBtnActionPerformed
         // TODO add your handling code here:
-        order.setStatus("Ready to Deliver");
+        order.setOrderStatus("Ready to Deliver");
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(order.getCustomerName().equals(cust.getUserName())){
                 for(Order order : cust.getOrderList()){
-                    order.setStatus("Ready to Deliver");
+                    order.setOrderStatus("Ready to Deliver");
                 }
             }
         }
@@ -116,4 +135,21 @@ public class OrderDetail extends javax.swing.JPanel {
     private javax.swing.JTable orderTable;
     private javax.swing.JButton statusBtn;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+jLabel1.setText("Order ID:"+order.getOrderId());
+         DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+        model.setRowCount(0);
+        
+         
+         Object[] row = new Object[3];
+                for(Menu dish:order.getOrder()){
+                     row[0] = dish;
+                     row[1] = dish.getIngredients();
+                     row[2] = dish.getPrice();
+                     model.addRow(row);
+                }  
+    }
 }

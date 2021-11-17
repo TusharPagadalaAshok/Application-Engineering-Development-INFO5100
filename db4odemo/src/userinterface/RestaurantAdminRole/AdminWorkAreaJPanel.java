@@ -98,7 +98,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
           ManageMenuCard manageMenu=new ManageMenuCard(userProcessContainer,account,system);
-        userProcessContainer.add("Manage Restaurents",manageMenu);
+        userProcessContainer.add("Manage Restaurants",manageMenu);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed

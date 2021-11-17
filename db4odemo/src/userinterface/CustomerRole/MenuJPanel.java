@@ -39,7 +39,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         this.res=res;
         populateMenuTable();
         
-        greetings.setText("Menu card of " +  res.getName());
+        greetings.setText("Menu card of " +  res.getResName());
         
         
     }
@@ -155,7 +155,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         
         
          int selectedRow = MenuCardTable.getSelectedRow();
-        if((MenuCardTable.getSelectedRow())==0){
+        if((MenuCardTable.getSelectedRow()<0)){
             JOptionPane.showMessageDialog(this,"select a row","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
@@ -267,7 +267,7 @@ public class MenuJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
                 Object[] row = new Object[3];
                 for(Menu item:res.getMenuItem()){
-                     row[0] = item;
+                     row[0] = item.getName();
                      row[1] = item.getIngredients();
                      row[2] = item.getPrice();
                      model.addRow(row);
