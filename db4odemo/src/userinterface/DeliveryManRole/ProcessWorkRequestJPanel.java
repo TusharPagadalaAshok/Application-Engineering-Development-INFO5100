@@ -4,6 +4,8 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.EcoSystem;
+import Business.Order.Order;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -17,11 +19,17 @@ import javax.swing.JPanel;
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
+
+    Order order;
+    EcoSystem system;
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer,Order order,EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.order = order;
+        this.system=system;
         
     }
 
