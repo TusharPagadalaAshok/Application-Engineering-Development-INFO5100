@@ -60,7 +60,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 BtnUpdateActionPerformed(evt);
             }
         });
-        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, 20));
+        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, 20));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -84,7 +84,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 DeliveryStatusComboBoxItemStateChanged(evt);
             }
         });
-        add(DeliveryStatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 110, -1));
+        add(DeliveryStatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 260, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
