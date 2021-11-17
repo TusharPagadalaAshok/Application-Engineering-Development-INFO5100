@@ -3,6 +3,8 @@
 package userinterface.RestaurantAdminRole;
 
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -13,11 +15,19 @@ import javax.swing.JPanel;
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
+    EcoSystem system;
+    UserAccount account;
     
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.account=account;
+        this.userProcessContainer = userProcessContainer;
+        this.system=system;
+        //this.account=account;
+      
+        valueLabel.setText(account.getUsername());
       
         //valueLabel.setText();
     }
@@ -78,14 +88,28 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
         // TODO add your handling code here:
         
+        ManageResData manageInfo=new ManageResData(userProcessContainer,account,system);
+        userProcessContainer.add("Manage Restaurents",manageInfo);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+        
     }//GEN-LAST:event_userJButtonActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-
+          ManageMenuCard manageMenu=new ManageMenuCard(userProcessContainer,account,system);
+        userProcessContainer.add("Manage Restaurents",manageMenu);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
-
+        ManageOrders manageOrder=new ManageOrders(userProcessContainer,account,system);
+        userProcessContainer.add("Manage Restaurents",manageOrder);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+        
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
     
     
