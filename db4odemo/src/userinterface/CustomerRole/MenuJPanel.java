@@ -66,6 +66,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         BtnBacktoCustomerPage = new javax.swing.JButton();
         OrderToRestaurant = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MenuCardTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -89,7 +90,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(MenuCardTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 640, 180));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 640, 180));
 
         CartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,49 +108,56 @@ public class MenuJPanel extends javax.swing.JPanel {
             CartTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 350, 190));
-        add(TxtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 140, 170));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 400, 190));
+        add(TxtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 160, 190));
 
         lbldeliveryAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbldeliveryAddress.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lbldeliveryAddress.setText("Delivery Address:");
-        add(lbldeliveryAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 150, 70));
-        lbldeliveryAddress.getAccessibleContext().setAccessibleName("Delivery Address:");
+        lbldeliveryAddress.setText("Delivery Address");
+        add(lbldeliveryAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 150, 70));
 
-        RemoveFromCart.setText("Remove");
+        RemoveFromCart.setBackground(new java.awt.Color(255, 255, 204));
+        RemoveFromCart.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        RemoveFromCart.setText("Remove From Cart");
         RemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveFromCartActionPerformed(evt);
             }
         });
-        add(RemoveFromCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
+        add(RemoveFromCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, -1, -1));
 
+        AddtoOrder.setBackground(new java.awt.Color(255, 255, 204));
+        AddtoOrder.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         AddtoOrder.setText("Add To Order");
         AddtoOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddtoOrderActionPerformed(evt);
             }
         });
-        add(AddtoOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
+        add(AddtoOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 160, -1));
 
         greetings.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        add(greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 570, 30));
+        add(greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 570, 30));
 
+        BtnBacktoCustomerPage.setBackground(new java.awt.Color(255, 255, 153));
+        BtnBacktoCustomerPage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnBacktoCustomerPage.setText("<<Back");
         BtnBacktoCustomerPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnBacktoCustomerPageActionPerformed(evt);
             }
         });
-        add(BtnBacktoCustomerPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        add(BtnBacktoCustomerPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        OrderToRestaurant.setText("Order");
+        OrderToRestaurant.setBackground(new java.awt.Color(255, 255, 204));
+        OrderToRestaurant.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        OrderToRestaurant.setText("Order>>");
         OrderToRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrderToRestaurantActionPerformed(evt);
             }
         });
-        add(OrderToRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+        add(OrderToRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddtoOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddtoOrderActionPerformed
@@ -161,6 +169,7 @@ public class MenuJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"select a row","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
+            
             Menu item=(Menu)MenuCardTable.getValueAt(selectedRow, 0);
             
             populateCart(item);
@@ -241,7 +250,10 @@ public class MenuJPanel extends javax.swing.JPanel {
                      row[2] = dish.getPrice();
                      
                      model.addRow(row);
-                }  
+                }
+                
+                                
+                 
           
         }
     }//GEN-LAST:event_RemoveFromCartActionPerformed
@@ -277,7 +289,7 @@ public class MenuJPanel extends javax.swing.JPanel {
     }
     public void populateCart(Menu OrderItem){
         DefaultTableModel model = (DefaultTableModel) CartTable.getModel();
-//        model.setRowCount(0);
+        model.setRowCount(0);
         
          items.add(OrderItem);
          Object[] row = new Object[3];

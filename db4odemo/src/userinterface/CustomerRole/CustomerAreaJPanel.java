@@ -34,7 +34,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
-        Greeting.setText(account.getUsername());
+        Greeting.setText("Welcome! " + account.getUsername());
         populateRestaurantTable();
         populateAvailableOrders();
     }
@@ -72,9 +72,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         TitlePastOrders = new javax.swing.JLabel();
         RefreshCustomerOrders = new javax.swing.JButton();
         OrderFoodButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(Greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 400, 30));
+
+        Greeting.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Greeting.setForeground(new java.awt.Color(255, 0, 204));
+        Greeting.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        add(Greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 400, 30));
 
         AvailableResTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +95,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(AvailableResTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 570, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 570, 120));
 
         RecentOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,28 +110,37 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(RecentOrderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 570, 120));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 570, 120));
 
-        TitlePastOrders.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TitlePastOrders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TitlePastOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitlePastOrders.setText("Check for Open Orders Below");
-        add(TitlePastOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 400, 30));
+        TitlePastOrders.setText("Order History");
+        add(TitlePastOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 400, 30));
 
+        RefreshCustomerOrders.setBackground(new java.awt.Color(255, 255, 204));
+        RefreshCustomerOrders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         RefreshCustomerOrders.setText("Refresh");
         RefreshCustomerOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RefreshCustomerOrdersActionPerformed(evt);
             }
         });
-        add(RefreshCustomerOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
+        add(RefreshCustomerOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 110, 60));
 
+        OrderFoodButton.setBackground(new java.awt.Color(255, 255, 204));
+        OrderFoodButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         OrderFoodButton.setText("Order");
         OrderFoodButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrderFoodButtonActionPerformed(evt);
             }
         });
-        add(OrderFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+        add(OrderFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 110, 60));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("List of Available restaurants");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 570, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void RefreshCustomerOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshCustomerOrdersActionPerformed
@@ -159,6 +174,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JTable RecentOrderTable;
     private javax.swing.JButton RefreshCustomerOrders;
     private javax.swing.JLabel TitlePastOrders;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

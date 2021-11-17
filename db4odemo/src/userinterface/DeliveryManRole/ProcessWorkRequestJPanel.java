@@ -46,30 +46,43 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         BtnUpdate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        TxtStatus = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
+        DeliveryStatusComboBox = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnUpdate.setBackground(new java.awt.Color(255, 255, 204));
+        BtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnUpdate.setText("Update");
         BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnUpdateActionPerformed(evt);
             }
         });
-        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 108, -1, -1));
+        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, 20));
 
-        jLabel1.setText("Status");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 47, -1, -1));
-        add(TxtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 44, 88, -1));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel1.setText("Status:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 90, 80, 20));
 
-        backJButton.setText("Back");
+        backJButton.setBackground(new java.awt.Color(255, 255, 204));
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 108, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 20));
+
+        DeliveryStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delayed", "Delivered", "Customer Unreachable" }));
+        DeliveryStatusComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                DeliveryStatusComboBoxItemStateChanged(evt);
+            }
+        });
+        add(DeliveryStatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -86,15 +99,16 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
        
-        String status=TxtStatus.getText();
-        try {
-             if(status==null || status.isEmpty()){
-                throw new Exception(" Status field is Empty");
-             }        
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, " Status is Empty");
-            return;
-        }
+//        String status=TxtStatus.getText();
+          String status=(String) DeliveryStatusComboBox.getSelectedItem();
+//        try {
+//             if(status==null || status.isEmpty()){
+//                throw new Exception(" Status field is Empty");
+//             }        
+//        } catch(Exception e){
+//            JOptionPane.showMessageDialog(null, " Status is Empty");
+//            return;
+//        }
         
         order.setOrderStatus(status);
          for(Customer cust:system.getCustomerDirectory().getCustList()){
@@ -104,16 +118,20 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 }
             }
         }
-         TxtStatus.setText("");
+         
          userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
         
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
+    private void DeliveryStatusComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_DeliveryStatusComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeliveryStatusComboBoxItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnUpdate;
-    private javax.swing.JTextField TxtStatus;
+    private javax.swing.JComboBox<String> DeliveryStatusComboBox;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

@@ -213,10 +213,10 @@ public class ManageMenuCard extends javax.swing.JPanel {
 
         try {
             if(desc==null || desc.isEmpty()){
-                throw new NullPointerException("Description  field is Empty");
+                throw new NullPointerException("Ingredients  field is Empty");
 
             }else if(desc.length()<5){
-                throw new Exception("Please enter valid Description ");
+                throw new Exception("Please enter valid list of Ingredients ");
 
             }
         } catch(NullPointerException e){
@@ -257,6 +257,7 @@ public class ManageMenuCard extends javax.swing.JPanel {
         TxtItemName.setText("");
         Txtingedients.setText("");
         TxtCost.setText("");
+        System.out.println("before populate table");
         populateTable();
 
     }//GEN-LAST:event_BtnAddDishActionPerformed
@@ -266,15 +267,15 @@ public class ManageMenuCard extends javax.swing.JPanel {
     DefaultTableModel model = (DefaultTableModel) MenuTable.getModel();
         
         model.setRowCount(0);
-        
+         System.out.println("here in for loop");
        
         for (Restaurant restro:system.getRestaurantDirectory().getRestaurantList()) {
            
             if (restro.getResName().equals(account.getUsername())) {
-                
+               
                for(Menu menu:restro.getMenuItem()){
                 Object[] row = new Object[3];
-                row[0] = menu.getName();
+                row[0] = menu;
                 row[1] = menu.getIngredients();
                 row[2] = menu.getPrice();
                 model.addRow(row);

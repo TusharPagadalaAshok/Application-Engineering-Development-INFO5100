@@ -38,7 +38,7 @@ public class Menu {
     private String price;
     private String ingredients;
 
-    public Menu(String name, String price, String ingredients) {
+    public Menu(String name, String ingredients, String price) {
         this.name = name;
         this.price = price;
         this.ingredients = ingredients;
