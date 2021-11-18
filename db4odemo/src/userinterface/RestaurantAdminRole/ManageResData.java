@@ -57,6 +57,7 @@ public class ManageResData extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         SaveBtn = new javax.swing.JButton();
         UpdateBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,62 +65,72 @@ public class ManageResData extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Restaurant Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 150, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 150, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Phone Number:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 160, 30));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Address:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 150, 20));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 150, 20));
 
         addressTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressTxtActionPerformed(evt);
             }
         });
-        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 150, -1));
+        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 150, -1));
 
         nameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTxtActionPerformed(evt);
             }
         });
-        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 150, -1));
+        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 150, -1));
 
         numTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numTxtActionPerformed(evt);
             }
         });
-        add(numTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 150, -1));
+        add(numTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 150, -1));
 
+        backBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         backBtn.setText("<<<Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        SaveBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         SaveBtn.setText("Save");
         SaveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveBtnActionPerformed(evt);
             }
         });
-        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, -1, -1));
+        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 120, 50));
 
-        UpdateBtn.setText("Update");
+        UpdateBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UpdateBtn.setText("Enable Update");
         UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UpdateBtnActionPerformed(evt);
             }
         });
-        add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+        add(UpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Edit Restuarant Information");
+        jLabel5.setOpaque(true);
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addressTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTxtActionPerformed
@@ -242,6 +253,7 @@ public class ManageResData extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JTextField numTxt;
     // End of variables declaration//GEN-END:variables

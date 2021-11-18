@@ -59,19 +59,22 @@ public class ManageMenuCard extends javax.swing.JPanel {
         deleteBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         BtnAddDish = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Ingredients:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 180, 30));
 
         TxtCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtCostActionPerformed(evt);
             }
         });
-        add(TxtCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, 100, -1));
+        add(TxtCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 450, 180, 30));
 
         MenuTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,27 +104,31 @@ public class ManageMenuCard extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(MenuTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 830, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 840, 130));
 
-        jLabel2.setText("Item Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("Item Name:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 180, 40));
 
         TxtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtItemNameActionPerformed(evt);
             }
         });
-        add(TxtItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 100, -1));
+        add(TxtItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 180, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Cost:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 180, 30));
 
         Txtingedients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtingedientsActionPerformed(evt);
             }
         });
-        add(Txtingedients, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 100, -1));
+        add(Txtingedients, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 180, 30));
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 204));
         deleteBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -131,7 +138,7 @@ public class ManageMenuCard extends javax.swing.JPanel {
                 deleteBtnActionPerformed(evt);
             }
         });
-        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, -1, -1));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 204));
         backBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -141,15 +148,24 @@ public class ManageMenuCard extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        BtnAddDish.setBackground(new java.awt.Color(255, 255, 204));
+        BtnAddDish.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         BtnAddDish.setText("Add Item");
         BtnAddDish.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAddDishActionPerformed(evt);
             }
         });
-        add(BtnAddDish, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, -1, -1));
+        add(BtnAddDish, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 520, -1, 30));
+
+        jLabel4.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Menu Card");
+        jLabel4.setOpaque(true);
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCostActionPerformed
@@ -309,6 +325,7 @@ public class ManageMenuCard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

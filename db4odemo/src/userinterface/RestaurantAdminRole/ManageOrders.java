@@ -52,6 +52,7 @@ public class ManageOrders extends javax.swing.JPanel {
         BtnReadytodeliver = new javax.swing.JButton();
         AssignBtn1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,7 +65,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Customer Name", "Delivery Address", "Amount", "Status"
+                "Order ID", "Customer Name", "Delivery Address", "Total Amount", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -84,7 +85,7 @@ public class ManageOrders extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 580, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 690, 120));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 204));
         backBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -94,7 +95,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
-        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         BtnReadytodeliver.setBackground(new java.awt.Color(255, 255, 204));
         BtnReadytodeliver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -104,7 +105,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 BtnReadytodeliverActionPerformed(evt);
             }
         });
-        add(BtnReadytodeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
+        add(BtnReadytodeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, -1, -1));
 
         AssignBtn1.setBackground(new java.awt.Color(255, 255, 204));
         AssignBtn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -114,7 +115,7 @@ public class ManageOrders extends javax.swing.JPanel {
                 AssignBtn1ActionPerformed(evt);
             }
         });
-        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
+        add(AssignBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -124,7 +125,14 @@ public class ManageOrders extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 150, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manage Order");
+        jLabel1.setOpaque(true);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1240, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -181,6 +189,7 @@ public class ManageOrders extends javax.swing.JPanel {
     private javax.swing.JButton BtnReadytodeliver;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderTable;
     // End of variables declaration//GEN-END:variables

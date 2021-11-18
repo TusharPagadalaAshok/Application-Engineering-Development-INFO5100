@@ -61,19 +61,20 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         PasswordField = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateBtn.setBackground(new java.awt.Color(255, 255, 204));
         updateBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        updateBtn.setText("Update");
+        updateBtn.setText("Edit");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateBtnActionPerformed(evt);
             }
         });
-        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 80, -1));
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 204));
         deleteBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -83,7 +84,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 deleteBtnActionPerformed(evt);
             }
         });
-        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 90, -1));
 
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,23 +114,23 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 760, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 760, 120));
 
         ConfirmBtn.setBackground(new java.awt.Color(255, 255, 204));
         ConfirmBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ConfirmBtn.setText("Confirm Update");
+        ConfirmBtn.setText("Update");
         ConfirmBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmBtnActionPerformed(evt);
             }
         });
-        add(ConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
+        add(ConfirmBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 120, 40));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Username:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 90, 20));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 144, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 90, 20));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 144, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 204));
         backJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -139,35 +140,35 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 204));
-        submitJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        submitJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 120, 50));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Name:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 80, -1));
-        add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 144, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, 80, -1));
+        add(uNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 144, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Password:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 90, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 90, -1));
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordFieldActionPerformed(evt);
             }
         });
-        add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 144, -1));
+        add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 144, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -177,7 +178,14 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, -1, -1));
+
+        jLabel1.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("DeliveryMan Directory");
+        jLabel1.setOpaque(true);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1160, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
@@ -442,6 +450,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JButton backJButton;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

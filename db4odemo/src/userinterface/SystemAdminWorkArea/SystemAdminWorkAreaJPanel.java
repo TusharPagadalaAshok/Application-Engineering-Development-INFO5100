@@ -103,9 +103,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageCustomers = new javax.swing.JButton();
         btnManageRestaurments = new javax.swing.JButton();
         btnManageDeliveryMan = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        jTree.setBackground(new java.awt.Color(255, 204, 0));
+        jTree.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -118,78 +123,64 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 118, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Selected Node:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 100, 20));
 
+        lblSelectedNode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSelectedNode.setForeground(new java.awt.Color(255, 0, 0));
         lblSelectedNode.setText("<View_selected_node>");
+        jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
 
-        btnManageCustomers.setText("Manage All Customers");
+        btnManageCustomers.setBackground(new java.awt.Color(255, 255, 204));
+        btnManageCustomers.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnManageCustomers.setText("Manage Customers");
         btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageCustomersActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 200, 60));
 
+        btnManageRestaurments.setBackground(new java.awt.Color(255, 255, 204));
+        btnManageRestaurments.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageRestaurments.setText("Manage Restaurants");
         btnManageRestaurments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRestaurmentsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageRestaurments, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 200, 60));
 
+        btnManageDeliveryMan.setBackground(new java.awt.Color(255, 255, 204));
+        btnManageDeliveryMan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnManageDeliveryMan.setText("Manage Deliveryman");
         btnManageDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageDeliveryManActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 200, 60));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSelectedNode))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnManageDeliveryMan)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnManageRestaurments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnManageCustomers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(240, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(54, 54, 54)
-                .addComponent(btnManageCustomers)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageRestaurments)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageDeliveryMan)
-                .addContainerGap(175, Short.MAX_VALUE))
-        );
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Administrator Area");
+        jLabel2.setOpaque(true);
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 920, 30));
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -231,6 +222,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageDeliveryMan;
     private javax.swing.JButton btnManageRestaurments;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

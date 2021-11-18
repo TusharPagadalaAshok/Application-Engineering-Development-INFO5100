@@ -52,7 +52,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         DeliveryManJTable = new javax.swing.JTable();
         AssignOrderBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,7 +85,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(DeliveryManJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 404, 91));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 620, 140));
 
         AssignOrderBtn.setBackground(new java.awt.Color(255, 255, 204));
         AssignOrderBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -95,7 +95,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
                 AssignOrderBtnActionPerformed(evt);
             }
         });
-        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
 
         BackBtn.setBackground(new java.awt.Color(255, 255, 204));
         BackBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -105,8 +105,14 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
                 BackBtnActionPerformed(evt);
             }
         });
-        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 190, 40));
+        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Assign Delivery");
+        jLabel2.setOpaque(true);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssignOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignOrderBtnActionPerformed
@@ -146,14 +152,14 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JButton AssignOrderBtn;
     private javax.swing.JButton BackBtn;
     private javax.swing.JTable DeliveryManJTable;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     private void populateNetworkTable() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-jLabel1.setText("Order ID:"+order.getOrderId());
+
         DefaultTableModel model = (DefaultTableModel) DeliveryManJTable.getModel();
         
         model.setRowCount(0);

@@ -50,6 +50,8 @@ public class OrderDetail extends javax.swing.JPanel {
         orderTable = new javax.swing.JTable();
         BackBtn = new javax.swing.JButton();
         statusBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        statusBtn1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +64,7 @@ public class OrderDetail extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Dish Name", "Description", "Amount"
+                "Item Name", "Ingredients", "Amount"
             }
         ) {
             Class[] types = new Class [] {
@@ -82,7 +84,7 @@ public class OrderDetail extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 520, 190));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 850, 190));
 
         BackBtn.setBackground(new java.awt.Color(255, 255, 204));
         BackBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -92,17 +94,34 @@ public class OrderDetail extends javax.swing.JPanel {
                 BackBtnActionPerformed(evt);
             }
         });
-        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         statusBtn.setBackground(new java.awt.Color(255, 255, 204));
-        statusBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        statusBtn.setText("Change Status to Ready to Deliver");
+        statusBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        statusBtn.setText("Ready for Delivery");
         statusBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusBtnActionPerformed(evt);
             }
         });
-        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
+        add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 220, 40));
+
+        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Assign Status to Order");
+        jLabel5.setOpaque(true);
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1240, 30));
+
+        statusBtn1.setBackground(new java.awt.Color(255, 255, 204));
+        statusBtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        statusBtn1.setText("Preparing Food");
+        statusBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusBtn1ActionPerformed(evt);
+            }
+        });
+        add(statusBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 220, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
@@ -128,12 +147,18 @@ public class OrderDetail extends javax.swing.JPanel {
 
     }//GEN-LAST:event_statusBtnActionPerformed
 
+    private void statusBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusBtn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderTable;
     private javax.swing.JButton statusBtn;
+    private javax.swing.JButton statusBtn1;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
