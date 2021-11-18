@@ -48,24 +48,25 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         backJButton = new javax.swing.JButton();
         DeliveryStatusComboBox = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnUpdate.setBackground(new java.awt.Color(255, 255, 204));
         BtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnUpdate.setText("Update");
+        BtnUpdate.setText("Set Status");
         BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnUpdateActionPerformed(evt);
             }
         });
-        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, 20));
+        add(BtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, 20));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Status:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 90, 80, 20));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 80, 20));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 204));
         backJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -75,7 +76,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 20));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 80, 20));
 
         DeliveryStatusComboBox.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         DeliveryStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Delayed", "Delivered", "Customer Unreachable" }));
@@ -84,7 +85,14 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 DeliveryStatusComboBoxItemStateChanged(evt);
             }
         });
-        add(DeliveryStatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 260, -1));
+        add(DeliveryStatusComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 260, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Set Delivery Status");
+        jLabel2.setOpaque(true);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -136,5 +144,6 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> DeliveryStatusComboBox;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

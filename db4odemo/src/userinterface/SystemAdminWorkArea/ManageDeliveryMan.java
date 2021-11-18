@@ -114,7 +114,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(networkJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 760, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 760, 120));
 
         ConfirmBtn.setBackground(new java.awt.Color(255, 255, 204));
         ConfirmBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

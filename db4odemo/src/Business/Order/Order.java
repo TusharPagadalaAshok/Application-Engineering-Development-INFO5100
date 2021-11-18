@@ -18,8 +18,17 @@ public class Order {
     private String customerName;
     private String deliveryMan;
     private String orderCost;
-    private String orderStatus;
+    public String orderStatus;
     private String deliveryAddress;
+    private String comments;
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
     
     private ArrayList<Menu> Order;
 

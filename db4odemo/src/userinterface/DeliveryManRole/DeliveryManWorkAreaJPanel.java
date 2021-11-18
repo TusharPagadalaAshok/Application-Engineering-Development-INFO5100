@@ -55,6 +55,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 row[2] = order.getCustomerName();
                 row[3] = order.getDeliveryAddress();
                 row[4] = order.getOrderStatus();
+                row[5] = order.getComments();
                
                 model.addRow(row);
                     
@@ -77,27 +78,27 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         DeliveryRequestTable = new javax.swing.JTable();
         updateStatus = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DeliveryRequestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "OrderID", "RestuarantName", "CustomerName", "CustomerAddress", "Status"
+                "OrderID", "RestuarantName", "CustomerName", "CustomerAddress", "Status", "Comments"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, false
+                false, false, false, true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -116,7 +117,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             DeliveryRequestTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 750, 130));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 850, 130));
 
         updateStatus.setBackground(new java.awt.Color(255, 255, 204));
         updateStatus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -126,7 +127,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 updateStatusActionPerformed(evt);
             }
         });
-        add(updateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+        add(updateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, -1, -1));
 
         refreshJButton.setBackground(new java.awt.Color(255, 255, 204));
         refreshJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -136,13 +137,14 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Orders Ready for Delivery");
-        jLabel1.setToolTipText("");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 370, 50));
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Orders Ready for Delivery");
+        jLabel2.setOpaque(true);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1230, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateStatusActionPerformed
@@ -173,7 +175,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable DeliveryRequestTable;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshJButton;
     private javax.swing.JButton updateStatus;

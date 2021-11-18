@@ -149,6 +149,18 @@ public class OrderDetail extends javax.swing.JPanel {
 
     private void statusBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusBtn1ActionPerformed
         // TODO add your handling code here:
+        
+         order.setOrderStatus("Preparing Food");
+        for(Customer cust:system.getCustomerDirectory().getCustList()){
+            if(order.getCustomerName().equals(cust.getUserName())){
+                for(Order order : cust.getOrderList()){
+                    order.setOrderStatus("Preparing Food");
+                }
+            }
+        }
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_statusBtn1ActionPerformed
 
 

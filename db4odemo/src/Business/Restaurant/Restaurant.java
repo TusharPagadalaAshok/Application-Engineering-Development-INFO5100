@@ -16,10 +16,11 @@ public class Restaurant {
     private String ResName;
        private ArrayList<Menu> menuItem;
     private ArrayList<Order> orderList;
-    int id=1000;
+    int id=100;
      private String name;
     private String address;
     private String number;
+    private String comments;
 
     public int getId() {
         return id;
@@ -88,7 +89,7 @@ public class Restaurant {
         this.orderList = orderList;
     }
     
-    public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress) {
+    public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress, String comments) {
         Order order=new Order();
         order.setOrderId(String.valueOf(id));
         order.setCustomerName(customerName);
@@ -97,6 +98,7 @@ public class Restaurant {
         order.setOrder(Order);
         order.setOrderCost(orderCost);
         order.setDeliveryAddress(deliveryAddress);
+        order.setComments(comments);
         order.setOrderStatus("New");
         orderList.add(order);
         id++;

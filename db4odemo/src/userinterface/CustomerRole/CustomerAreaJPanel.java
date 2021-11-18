@@ -36,7 +36,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         Greeting.setText("Welcome! " + account.getUsername());
         populateRestaurantTable();
-        populateAvailableOrders();
+        populateOrderHistory();
     }
     
     public void populateRestaurantTable(){
@@ -70,9 +70,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         RecentOrderTable = new javax.swing.JTable();
         TitlePastOrders = new javax.swing.JLabel();
-        RefreshCustomerOrders = new javax.swing.JButton();
         OrderFoodButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,7 +80,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         Greeting.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Greeting.setForeground(new java.awt.Color(255, 0, 204));
         Greeting.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        add(Greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 400, 30));
+        add(Greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 400, 30));
 
         AvailableResTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +95,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(AvailableResTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 570, 120));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 370, 210));
 
         RecentOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,22 +110,12 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(RecentOrderTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 570, 120));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 460, 220));
 
         TitlePastOrders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TitlePastOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitlePastOrders.setText("Order History");
-        add(TitlePastOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 400, 30));
-
-        RefreshCustomerOrders.setBackground(new java.awt.Color(255, 255, 204));
-        RefreshCustomerOrders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        RefreshCustomerOrders.setText("Refresh");
-        RefreshCustomerOrders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshCustomerOrdersActionPerformed(evt);
-            }
-        });
-        add(RefreshCustomerOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 110, 60));
+        add(TitlePastOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 400, 30));
 
         OrderFoodButton.setBackground(new java.awt.Color(255, 255, 204));
         OrderFoodButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -135,36 +125,35 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 OrderFoodButtonActionPerformed(evt);
             }
         });
-        add(OrderFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 110, 60));
+        add(OrderFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 210, 60));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("List of Available restaurants");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 570, 30));
-    }// </editor-fold>//GEN-END:initComponents
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 350, 30));
 
-    private void RefreshCustomerOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshCustomerOrdersActionPerformed
-        // TODO add your handling code here:
-        
-        populateAvailableOrders();
-    }//GEN-LAST:event_RefreshCustomerOrdersActionPerformed
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Customer Area");
+        jLabel2.setOpaque(true);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1230, 30));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void OrderFoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderFoodButtonActionPerformed
         // TODO add your handling code here:
         System.out.println("HERE IN ORDER ");
-        int selectedRow = AvailableResTable.getSelectedRow();
-        if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row","Warning",JOptionPane.WARNING_MESSAGE);
+        if(AvailableResTable.getSelectedRow()<0){
+            JOptionPane.showMessageDialog(null,"Please select a row");
         }
         else{
-           Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(selectedRow, 0);
-                  System.out.println("HERE IN if condition ");     
-              MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant);
-             userProcessContainer.add("Manage Restaurant",manageMenu);
-            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-                layout.next(userProcessContainer);
-        }
-        System.out.println("HERE out of if condition ");   
+           Restaurant restaurant = (Restaurant)AvailableResTable.getValueAt(AvailableResTable.getSelectedRow(), 0);
+           System.out.println("HERE IN if condition ");     
+           MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant);
+           userProcessContainer.add("Manage Restaurant",manageMenu);
+           CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+           layout.next(userProcessContainer);
+        }  
     }//GEN-LAST:event_OrderFoodButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,30 +161,23 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Greeting;
     private javax.swing.JButton OrderFoodButton;
     private javax.swing.JTable RecentOrderTable;
-    private javax.swing.JButton RefreshCustomerOrders;
     private javax.swing.JLabel TitlePastOrders;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
-    private void populateAvailableOrders() {
+    void populateOrderHistory() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     DefaultTableModel model = (DefaultTableModel) RecentOrderTable.getModel();
-        
-        model.setRowCount(0);
-         
-       
-          for (Customer cust:system.getCustomerDirectory().getCustList()) {
-           
-            if (cust.getUserName().equals(userAccount.getUsername())) {
-               // System.out.println(restro.getOrderList());
-               for(Order menu:cust.getOrderList()){
-                Object[] row = new Object[4];
+    model.setRowCount(0);
+    for (Customer cust:system.getCustomerDirectory().getCustList()) {
+        if (cust.getUserName().equals(userAccount.getUsername())) {
+            for(Order menu:cust.getOrderList()){
+                Object[] row = new Object[3];
                 row[0] = menu;
                 row[1] = menu.getRestaurantName();
-               
-//                row[2] = menu.getOrderCost();
                 row[2] = menu.getOrderStatus();
                 model.addRow(row);
                }

@@ -59,20 +59,20 @@ public class ManageOrders extends javax.swing.JPanel {
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Customer Name", "Delivery Address", "Total Amount", "Status"
+                "Order ID", "Customer Name", "Delivery Address", "Total Amount", "Status", "Comments"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -99,13 +99,13 @@ public class ManageOrders extends javax.swing.JPanel {
 
         BtnReadytodeliver.setBackground(new java.awt.Color(255, 255, 204));
         BtnReadytodeliver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnReadytodeliver.setText("Ready to Deliver");
+        BtnReadytodeliver.setText("Set Status");
         BtnReadytodeliver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnReadytodeliverActionPerformed(evt);
             }
         });
-        add(BtnReadytodeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, -1, -1));
+        add(BtnReadytodeliver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 120, -1));
 
         AssignBtn1.setBackground(new java.awt.Color(255, 255, 204));
         AssignBtn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -162,9 +162,15 @@ public class ManageOrders extends javax.swing.JPanel {
 
     private void AssignBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignBtn1ActionPerformed
         int selectedRow = orderTable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) orderTable.getModel();
+//        Order orderStatus  = (Order)orderTable.getValueAt(selectedRow, 6);
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select an order from the table.");
         }
+//        else if(model.getValueAt(selectedRow, 6) == "Delivered")
+//                {
+//                   JOptionPane.showMessageDialog(null,"Order is already delivered!"); 
+//                }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
             if(order.getOrderStatus().equals("Assign to Deliveryman")){
@@ -206,12 +212,13 @@ public class ManageOrders extends javax.swing.JPanel {
             if (restro.getResName().equals(account.getUsername())) {
                 //System.out.println(restro.getOrderList());
                for(Order menu:restro.getOrderList()){
-                Object[] row = new Object[5];
+                Object[] row = new Object[6];
                 row[0] = menu;
                 row[1] = menu.getCustomerName();
                 row[2] = menu.getDeliveryAddress();
                 row[3] = menu.getOrderCost();
                 row[4] = menu.getOrderStatus();
+                row[5] = menu.getComments();
                 model.addRow(row);
                }
                 
