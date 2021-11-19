@@ -35,8 +35,8 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         this.account = account;
         this.order = order;
         this.system = system;
-        initComponents();
-        populateNetworkTable();
+       
+        populateDeliveryTable();
     }
 
     /**
@@ -118,7 +118,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
     private void AssignOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignOrderBtnActionPerformed
         int selectedRow = DeliveryManJTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row");
         }
         else
         {
@@ -156,7 +156,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    private void populateNetworkTable() {
+    private void populateDeliveryTable() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
 

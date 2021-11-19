@@ -25,11 +25,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.account=account;
         this.userProcessContainer = userProcessContainer;
         this.system=system;
-        //this.account=account;
+       
       
-        valueLabel.setText(account.getUsername());
+        greeting.setText(account.getUsername());
       
-        //valueLabel.setText();
+      
     }
     
     /** This method is called from within the constructor to
@@ -44,7 +44,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmployeeJButton = new javax.swing.JButton();
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        greeting = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -62,7 +62,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         manageEmployeeJButton.setBackground(new java.awt.Color(255, 255, 204));
         manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        manageEmployeeJButton.setText("Manage menu");
+        manageEmployeeJButton.setText("Manage Menu");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
@@ -84,10 +84,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setText("Welcome!");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 120, 30));
 
-        valueLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(51, 0, 153));
-        valueLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 200, 70));
+        greeting.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        greeting.setForeground(new java.awt.Color(51, 0, 153));
+        greeting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(greeting, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 200, 70));
 
         jLabel2.setBackground(new java.awt.Color(255, 204, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -117,7 +117,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
         ManageOrders manageOrder=new ManageOrders(userProcessContainer,account,system);
-        userProcessContainer.add("Manage Restaurents",manageOrder);
+        userProcessContainer.add("Manage Restaurants",manageOrder);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
@@ -127,11 +127,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel greeting;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;
-    private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
     
 }

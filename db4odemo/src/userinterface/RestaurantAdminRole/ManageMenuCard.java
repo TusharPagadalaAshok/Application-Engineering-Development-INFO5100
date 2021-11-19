@@ -185,7 +185,7 @@ public class ManageMenuCard extends javax.swing.JPanel {
         int selectedRow = MenuTable.getSelectedRow();
         if(selectedRow>=0){
             int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??","Warning",selectionButton);
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?","Warning",selectionButton);
             if(selectionResult == JOptionPane.YES_OPTION){
 
                 for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
