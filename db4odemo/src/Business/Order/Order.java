@@ -7,6 +7,7 @@ package Business.Order;
 
 import Business.Restaurant.Menu;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -46,6 +47,8 @@ public class Order {
     }
 
     public void setOrderId(String orderId) {
+        int int_random = ThreadLocalRandom.current().nextInt(100, 999);
+        orderId = String.valueOf(int_random);
         this.orderId = orderId;
     }
 
@@ -103,6 +106,7 @@ public class Order {
     }
     
     public Order(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> items, String cost, String status, String deliveryAddress, String comments) {
+        int id = ThreadLocalRandom.current().nextInt(100, 9999);
        orderId = String.valueOf(id);
         this.orderId = orderId;
         this.restaurantName = restaurantName;
@@ -113,5 +117,6 @@ public class Order {
         this.orderStatus = status;
         this.deliveryAddress = deliveryAddress;
         this.comments = comments;
+      
     }
 }

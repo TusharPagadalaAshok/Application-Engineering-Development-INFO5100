@@ -234,7 +234,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         
         if(checkForEmpty(address, comments)==Boolean.TRUE) {
             if(address.length()>10){
-                Order order = new Order(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), "order placed", address, comments);
+                Order order = new Order(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), "New", address, comments);
                 res.getOrderList().add(order);
 //             res.addNewOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,  comments);
             for(Customer cust:system.getCustomerDirectory().getCustList()){

@@ -20,19 +20,19 @@ public class DeliveryMan {
      private ArrayList<Order> orderList;
      
      
-      public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Menu> Order, String cost, String deliveryAddress) {
-        Order order=new Order();
-        //order.setOrder_id(String.valueOf(id));
-        order.setCustomerName(customerName);
-        order.setRestaurantName(restaurentName);
-        order.setDeliveryMan(deliverMan);
-        order.setOrder(Order);
-        order.setOrderCost(cost);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setOrderStatus("New Order");
-        orderList.add(order);
-        
-    }
+//      public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Menu> Order, String cost, String deliveryAddress) {
+//        Order order=new Order();
+//        //order.setOrder_id(String.valueOf(id));
+//        order.setCustomerName(customerName);
+//        order.setRestaurantName(restaurentName);
+//        order.setDeliveryMan(deliverMan);
+//        order.setOrder(Order);
+//        order.setOrderCost(cost);
+//        order.setDeliveryAddress(deliveryAddress);
+//        order.setOrderStatus("New Order");
+//        orderList.add(order);
+//        
+//    }
 
     public String getUserName() {
         return UserName;
