@@ -14,24 +14,24 @@ import java.util.ArrayList;
  * @author harold
  */
 public class Customer {
-    int id=101;
+    int id=100;
     private String Name;
      private String UserName;
       private ArrayList<Order> orderList;
-     public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Menu> Order, String cost, String deliveryAddress, String comments) {
-        Order order=new Order();
-        order.setOrderId(String.valueOf(id));
-        order.setCustomerName(customerName);
-        order.setRestaurantName(restaurentName);
-        order.setDeliveryMan(deliverMan);
-        order.setOrder(Order);
-        order.setOrderCost(cost);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setComments(comments);
-        order.setOrderStatus("New Order");
-        orderList.add(order);
-        id++;
-    }
+//     public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Menu> Order, String cost, String deliveryAddress, String comments) {
+//        Order order=new Order();
+//        order.setOrderId(String.valueOf(id));
+//        order.setCustomerName(customerName);
+//        order.setRestaurantName(restaurentName);
+//        order.setDeliveryMan(deliverMan);
+//        order.setOrder(Order);
+//        order.setOrderCost(cost);
+//        order.setDeliveryAddress(deliveryAddress);
+//        order.setComments(comments);
+//        order.setOrderStatus("New Order");
+//        orderList.add(order);
+//        id++;
+//    }
 
     public String getUserName() {
         return UserName;

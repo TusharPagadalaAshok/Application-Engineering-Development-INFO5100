@@ -125,12 +125,12 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
 
             DeliveryMan deliveryMan  = (DeliveryMan)DeliveryManJTable.getValueAt(selectedRow, 0);
             deliveryMan.getOrderList().add(order);
-            order.setOrderStatus("Assign to Deliveryman");
+            order.setOrderStatus("Assigned for Delivery");
 
             for(Customer cust:system.getCustomerDirectory().getCustList()){
                 if(order.getCustomerName().equals(cust.getUserName())){
                     for(Order order : cust.getOrderList()){
-                        order.setOrderStatus("Assign to Deliveryman");
+                        order.setOrderStatus("Assigned for Delivery");
                     }
                 }
             }

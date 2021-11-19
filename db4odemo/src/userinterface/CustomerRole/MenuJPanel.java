@@ -7,6 +7,7 @@ package userinterface.CustomerRole;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.Restaurant.Menu;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
@@ -230,30 +231,31 @@ public class MenuJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String address=TxtAddress.getText();
         String comments = TxtComments.getText();
-        try{
-        if((address==null || address.isEmpty()) && comments==null || comments.isEmpty()) 
-        {
-            
-            throw new NullPointerException("Address or Comments field is Empty");
-            
-        }
-        }catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Address or Comments field is empty");
-            return;
-        }
         
-        res.addNewOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,  comments);
-        for(Customer cust:system.getCustomerDirectory().getCustList()){
+        if(checkForEmpty(address, comments)==Boolean.TRUE) {
+            if(address.length()>10){
+                Order order = new Order(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum), "order placed", address, comments);
+                res.getOrderList().add(order);
+//             res.addNewOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address,  comments);
+            for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(userAccount.getUsername().equals(cust.getUserName())){
-                cust.addOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address, comments);
+//                cust.addOrder(res.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address, comments);
+                cust.getOrderList().add(order);
+                             
             }
+            JOptionPane.showMessageDialog(null,"Your Order is placed!");
+            sum=0;
+            }          
         }
+            else{
+                JOptionPane.showMessageDialog(null,"Delivery address is incorrect");
+            }
+            }
+            else {
+            JOptionPane.showMessageDialog(null,"Please fill the delivery address or comments");
+            }
         
-        
-        JOptionPane.showMessageDialog(null,"Your Order is placed!");
-        sum=0;
-//        userProcessContainer.remove(this);
+
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         CustomerAreaJPanel cuspage = (CustomerAreaJPanel) component;
@@ -351,5 +353,15 @@ public class MenuJPanel extends javax.swing.JPanel {
 
 
     }
-    
+
+    private Boolean checkForEmpty(String address, String comments) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ;
+        if(address.length() == 0 || comments.length() == 0){
+            return false;
+        }
+        else {
+            return true;
+        }
+     }
 }

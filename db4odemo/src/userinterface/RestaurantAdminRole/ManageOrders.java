@@ -109,7 +109,7 @@ public class ManageOrders extends javax.swing.JPanel {
 
         AssignBtn1.setBackground(new java.awt.Color(255, 255, 204));
         AssignBtn1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        AssignBtn1.setText("Assign to Delivery Man ");
+        AssignBtn1.setText("Assign to Delivery Person ");
         AssignBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignBtn1ActionPerformed(evt);
@@ -145,11 +145,11 @@ public class ManageOrders extends javax.swing.JPanel {
     private void BtnReadytodeliverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReadytodeliverActionPerformed
         int selectedRow = orderTable.getSelectedRow();
         if(selectedRow<0){
-            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Please select a row from the table","Warning",JOptionPane.WARNING_MESSAGE);
         }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
-            if(order.getOrderStatus().equals("Ready to Deliver")){
+            if(order.getOrderStatus().equals("Ready for Delivery")){
                 JOptionPane.showMessageDialog(null,"Already Ready ","Warning",JOptionPane.WARNING_MESSAGE);
             }else{
                 OrderDetail viewOrder=new OrderDetail(userProcessContainer,account,order,system);
@@ -173,7 +173,7 @@ public class ManageOrders extends javax.swing.JPanel {
 //                }
         else{
             Order order  = (Order)orderTable.getValueAt(selectedRow, 0);
-            if(order.getOrderStatus().equals("Assign to Deliveryman")){
+            if(order.getOrderStatus().equals("Assigned for Delivery")){
                 JOptionPane.showMessageDialog(null,"Already Assigned Order","Warning",JOptionPane.WARNING_MESSAGE);
             }else{
                 AssignDeliveryMan viewOrder=new AssignDeliveryMan(userProcessContainer,account,order,system);

@@ -6,6 +6,7 @@
 package Business.Restaurant;
 
 import Business.Order.Order;
+import Business.Customer.Customer;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +18,7 @@ public class Restaurant {
        private ArrayList<Menu> menuItem;
     private ArrayList<Order> orderList;
     int id=100;
-     private String name;
+    private String name;
     private String address;
     private String number;
     private String comments;
@@ -89,20 +90,22 @@ public class Restaurant {
         this.orderList = orderList;
     }
     
-    public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress, String comments) {
-        Order order=new Order();
-        order.setOrderId(String.valueOf(id));
-        order.setCustomerName(customerName);
-        order.setRestaurantName(restaurantName);
-        order.setDeliveryMan(deliveryMan);
-        order.setOrder(Order);
-        order.setOrderCost(orderCost);
-        order.setDeliveryAddress(deliveryAddress);
-        order.setComments(comments);
-        order.setOrderStatus("New");
-        orderList.add(order);
-        id++;
-    }
+//    public void addNewOrder(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> Order, String orderCost, String deliveryAddress, String comments) {
+//        Order order=new Order();
+//        Customer Cust = new Customer(customerName);
+//        order.setOrderId(String.valueOf(id));
+////        order.setOrderId(String.valueOf());
+//        order.setCustomerName(customerName);
+//        order.setRestaurantName(restaurantName);
+//        order.setDeliveryMan(deliveryMan);
+//        order.setOrder(Order);
+//        order.setOrderCost(orderCost);
+//        order.setDeliveryAddress(deliveryAddress);
+//        order.setComments(comments);
+//        order.setOrderStatus("New");
+//        orderList.add(order);
+//        id++;
+//    }
     public void removeDishes(Menu Item){
         
         menuItem.remove(Item);

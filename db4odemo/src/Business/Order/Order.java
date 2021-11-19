@@ -21,6 +21,7 @@ public class Order {
     public String orderStatus;
     private String deliveryAddress;
     private String comments;
+    int id=100;
 
     public String getComments() {
         return comments;
@@ -101,5 +102,16 @@ public class Order {
         return orderId;
     }
     
-    
+    public Order(String restaurantName, String customerName, String deliveryMan, ArrayList<Menu> items, String cost, String status, String deliveryAddress, String comments) {
+       orderId = String.valueOf(id);
+        this.orderId = orderId;
+        this.restaurantName = restaurantName;
+        this.customerName = customerName;
+        this.deliveryMan = deliveryMan;
+        this.Order = items;
+        this.orderCost = cost;
+        this.orderStatus = status;
+        this.deliveryAddress = deliveryAddress;
+        this.comments = comments;
+    }
 }

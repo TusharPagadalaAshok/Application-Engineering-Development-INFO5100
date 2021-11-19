@@ -144,7 +144,7 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 204));
         submitJButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        submitJButton.setText("Submit");
+        submitJButton.setText("Add");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
