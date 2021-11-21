@@ -208,35 +208,46 @@ public class ManageMenuCard extends javax.swing.JPanel {
         String name=TxtItemName.getText();
         String desc=Txtingedients.getText();
         String amount=TxtCost.getText();
-
+        boolean res = true;
+       for (Restaurant restro:system.getRestaurantDirectory().getRestaurantList()) {
+       if (restro.getResName().equals(account.getUsername())) {
+       for(Menu menu:restro.getMenuItem()){
+//           System.out.println(menu.getName());
+       if(name.equalsIgnoreCase(menu.getName())){
+           JOptionPane.showMessageDialog(null, "Item is already on the menu");
+           res = false;
+           
+             }
+            }
+           }
+          }
+       if(res){
+        
         try {
             if(name==null || name.isEmpty()){
                 throw new NullPointerException(" Name field is Empty");
 
             }else if(name.length()<5 ){
                 throw new Exception("Please enter valid  Name");
-
             }
-        } catch(NullPointerException e){
+          } 
+        catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, " Name is Empty");
-
             return;
-
-        }catch (Exception e){
+          }
+        catch (Exception e){
             JOptionPane.showMessageDialog(null, " Name is invalid");
-
             return;
-        }
-
+          }
         try {
             if(desc==null || desc.isEmpty()){
                 throw new NullPointerException("Ingredients  field is Empty");
-
-            }else if(desc.length()<5){
+                }
+            else if(desc.length()<5){
                 throw new Exception("Please enter valid list of Ingredients ");
-
-            }
-        } catch(NullPointerException e){
+                }
+           } 
+            catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Ingredients is Empty");
 
             return;
@@ -251,32 +262,33 @@ public class ManageMenuCard extends javax.swing.JPanel {
 
             if(amount==null || amount.isEmpty()){
                 throw new NullPointerException("amount field is Empty");
-            }else if(Pattern.matches("^[0-9]{0,3}$", amount)==false){
+                }
+            else if(Pattern.matches("^[0-9]{0,3}$", amount)==false){
                 throw new Exception("Invalid amount (Enter 0-3 Digits)");
-            }
-
-        }  catch(NullPointerException e){
+                }
+            }  catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "amount is Empty");
-
             return;
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "amount is of invalid pattern");
-
-            return;
-        }
-
-        for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
-            if(restro.getResName().equals(account.getUsername())){
-                menuItem =system.getRestaurantDirectory().AddMenuItems(restro,name, desc, amount);
             }
-        }
-
-        TxtItemName.setText("");
-        Txtingedients.setText("");
-        TxtCost.setText("");
-        System.out.println("before populate table");
-        populateTable();
-
+            catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "amount is of invalid pattern");
+            return;
+            }
+       
+            for(Restaurant rest:system.getRestaurantDirectory().getRestaurantList()){
+                if(rest.getResName().equals(account.getUsername())){
+                    menuItem =system.getRestaurantDirectory().AddMenuItems(rest,name, desc, amount);
+                }
+            }
+            TxtItemName.setText("");
+            Txtingedients.setText("");
+            TxtCost.setText("");
+//            System.out.println("before populate table");
+            populateTable();
+            
+          }
+       
+      
     }//GEN-LAST:event_BtnAddDishActionPerformed
 
     private void populateTable() {
