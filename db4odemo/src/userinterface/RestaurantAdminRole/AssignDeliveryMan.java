@@ -53,6 +53,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         AssignOrderBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lblAck = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +96,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
                 AssignOrderBtnActionPerformed(evt);
             }
         });
-        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        add(AssignOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 120, 40));
 
         BackBtn.setBackground(new java.awt.Color(255, 255, 204));
         BackBtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -113,6 +114,11 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
         jLabel2.setText("Assign Delivery");
         jLabel2.setOpaque(true);
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1230, 30));
+
+        lblAck.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAck.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAck.setText("Assign the order to a Delivery Man");
+        add(lblAck, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 480, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssignOrderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignOrderBtnActionPerformed
@@ -137,7 +143,6 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
             userProcessContainer.remove(this);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.previous(userProcessContainer);
-
         }
     }//GEN-LAST:event_AssignOrderBtnActionPerformed
 
@@ -154,6 +159,7 @@ public class AssignDeliveryMan extends javax.swing.JPanel {
     private javax.swing.JTable DeliveryManJTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAck;
     // End of variables declaration//GEN-END:variables
 
     private void populateDeliveryTable() {

@@ -1,10 +1,9 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.RestaurantAdminRole;
-
 /**
  *
  * @author patus
@@ -184,19 +183,16 @@ public class ManageMenuCard extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = MenuTable.getSelectedRow();
         if(selectedRow>=0){
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?","Warning",selectionButton);
-            if(selectionResult == JOptionPane.YES_OPTION){
-
+         
                 for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
                     if(restro.getResName().equals(account.getUsername())){
                         system.getRestaurantDirectory().DeleteItems(restro, menuItem);
                     }
                 }
                 populateTable();
-            }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+            JOptionPane.showMessageDialog(null, "Please select a Row");
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
